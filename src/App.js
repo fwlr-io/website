@@ -1,23 +1,30 @@
-import styled from "styled-components"
+import { useState } from "react"
+import { ThemeProvider } from "styled-components"
 
-import { Row, Item } from "Flex.js"
+import { dark, light } from "Themes.js"
+import { Row } from "Flex.js"
+
 import LeftPanel from "LeftPanel.js"
+import Content from "Content.js"
+import ThemeToggle from "ThemeToggle.js"
 
-const Main = styled(Row)({
-  width: "100%",
-  height: "100%",
-})
-
-const Content = styled(Item)({
-  backgroundColor: "white",
-})
-
-function App() {
+const App = () => {
+  const [themeState, changeTheme] = useState(
+    localStorage.getItem("theme") || "dark"
+  )
+  const setTheme = (themeChange) => {
+    localStorage.setItem("theme", themeChange)
+    changeTheme(themeChange)
+  }
+  const theme = themeState === "dark" ? dark : light
   return (
-    <Main>
-      <LeftPanel size={1}></LeftPanel>
-      <Content size={5}></Content>
-    </Main>
+    <ThemeProvider theme={theme}>
+      <Row id="main">
+        <LeftPanel size={1}></LeftPanel>
+        <Content size={5}></Content>
+      </Row>
+      <ThemeToggle themeState={themeState} setTheme={setTheme} />
+    </ThemeProvider>
   )
 }
 

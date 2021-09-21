@@ -4,20 +4,22 @@ import { Col } from "Flex.js"
 
 import MenuItem from "MenuItem.js"
 
-const LeftPanelDiv = styled(Col)({
-  borderRight: "1px solid darkgrey",
-  backgroundColor: "white",
+const LeftPanelDiv = styled(Col)(({ theme }) => ({
+  borderRight: `1px solid ${theme.fgDark}`,
+  backgroundColor: theme.bgDark,
+  color: theme.fgDefault,
   flex: "1",
   alignItems: "stretch",
   gap: "2em",
-})
+}))
 
-const TopMenuItem = styled(MenuItem)({
-  borderBottom: "1px solid darkgrey",
+const TopMenuItem = styled(MenuItem)(({ theme }) => ({
+  borderBottom: `1px solid ${theme.fgDark}`,
+  color: theme.fgDefault,
   fontSize: "4em",
   fontWeight: "bold",
   padding: 12,
-})
+}))
 
 const LeftPanel = ({ size }) => (
   <LeftPanelDiv size={size} className="code">

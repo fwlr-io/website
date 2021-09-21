@@ -28,7 +28,7 @@
     "production": [
       ">1%",
       "not dead",
-      "not ie11",
+      "not ie 11",
       "not op_mini all"
     ],
     "development": [

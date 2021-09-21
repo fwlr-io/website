@@ -6,7 +6,7 @@ import MenuItem from "MenuItem.js"
 
 const LeftPanelDiv = styled(Col)(({ theme }) => ({
   borderRight: `1px solid ${theme.fgDark}`,
-  backgroundColor: theme.bgDark,
+  backgroundColor: theme.bgDefault,
   color: theme.fgDefault,
   flex: "1",
   alignItems: "stretch",

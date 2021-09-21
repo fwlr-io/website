@@ -1,21 +1,14 @@
-import { useState } from "react"
-import { ThemeProvider } from "styled-components"
+import { useLocalStorageState } from "hooks.js"
 
+import { ThemeProvider } from "styled-components"
 import { dark, light } from "Themes.js"
 import { Row } from "Flex.js"
-
 import LeftPanel from "LeftPanel.js"
 import Content from "Content.js"
 import ThemeToggle from "ThemeToggle.js"
 
 const App = () => {
-  const [themeState, changeTheme] = useState(
-    localStorage.getItem("theme") || "dark"
-  )
-  const setTheme = (themeChange) => {
-    localStorage.setItem("theme", themeChange)
-    changeTheme(themeChange)
-  }
+  const [themeState, setTheme] = useLocalStorageState("theme", "dark")
   const theme = themeState === "dark" ? dark : light
   return (
     <ThemeProvider theme={theme}>

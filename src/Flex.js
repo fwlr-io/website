@@ -1,17 +1,15 @@
 import styled from "styled-components"
 
-export const Row = styled.div({
-  display: "flex",
-  flexDirection: "row",
-})
+export const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+`
 
-export const Col = styled.div({
-  display: "flex",
-  flexDirection: "column",
-})
+export const Col = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 
-export const Item = styled.div(({ size }) => ({
-  flex: size,
-}))
-
-// import { Grid, Row, Col, Item } from "Flex.js"
+export const Item = styled.div`
+  flex: ${(props) => props.size};
+`

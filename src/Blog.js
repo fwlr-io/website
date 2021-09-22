@@ -1,13 +1,24 @@
-import styled from "styled-components"
+import { useContext } from "react"
+import styled, { ThemeContext } from "styled-components"
+import { animated, useSpring } from "react-spring"
+import { wobbly as config } from "springs.js"
 
-const StyledBlog = styled.div`
+const StyledBlog = styled(animated.div)`
   width: 540px;
   margin: auto;
+  text-align: justify;
+  line-height: 1.25;
 `
 
 const Blog = () => {
+  const theme = useContext(ThemeContext)
+  const spring = useSpring({
+    config,
+    color: theme.fgLight,
+  })
+
   return (
-    <StyledBlog>
+    <StyledBlog style={spring}>
       <p>
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry's standard dummy text ever

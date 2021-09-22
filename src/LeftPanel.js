@@ -1,10 +1,12 @@
-import styled from "styled-components"
+import { useContext } from "react"
+import styled, { ThemeContext } from "styled-components"
+import { animated, useSpring } from "react-spring"
+import { wobbly as config } from "springs.js"
 import { NavLink } from "react-router-dom"
-import { Col } from "Flex.js"
 
-const LeftPanelDiv = styled(Col)`
-  border-right: 1px solid ${(props) => props.theme.fgDefault};
-  background-color: ${(props) => props.theme.bgDefault};
+const LeftPanelDiv = styled(animated.div)`
+  display: flex;
+  flex-direction: column;
   flex: ${(props) => props.size};
   align-items: stretch;
   gap: 2em;
@@ -31,14 +33,22 @@ const TopMenuItem = styled(MenuItem)`
   border-bottom: 1px solid ${(props) => props.theme.fgDefault};
 `
 
-const LeftPanel = ({ size }) => (
-  <LeftPanelDiv size={size} className="code">
-    <TopMenuItem to="fwlr">fwlr</TopMenuItem>
-    <MenuItem to="info">info</MenuItem>
-    <MenuItem to="work">work</MenuItem>
-    <MenuItem to="blog">blog</MenuItem>
-    <MenuItem to="junk">junk</MenuItem>
-  </LeftPanelDiv>
-)
+const LeftPanel = ({ size }) => {
+  const theme = useContext(ThemeContext)
+  const panelSpring = useSpring({
+    config,
+    backgroundColor: theme.bgDefault,
+    borderRight: `1px solid ${theme.fgDefault}`,
+  })
 
+  return (
+    <LeftPanelDiv style={panelSpring} size={size} className="code">
+      <TopMenuItem to="fwlr">fwlr</TopMenuItem>
+      <MenuItem to="info">info</MenuItem>
+      <MenuItem to="work">work</MenuItem>
+      <MenuItem to="blog">blog</MenuItem>
+      <MenuItem to="junk">junk</MenuItem>
+    </LeftPanelDiv>
+  )
+}
 export default LeftPanel

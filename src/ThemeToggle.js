@@ -1,7 +1,6 @@
 import styled from "styled-components"
 
 const StyledThemeToggle = styled.div`
-  color: ${(props) => props.theme.bgSuperlight};
   position: absolute;
   right: 10px;
   top: 10px;
@@ -9,6 +8,7 @@ const StyledThemeToggle = styled.div`
   font-size: 2em;
   font-weight: bold;
   cursor: pointer;
+  color: ${(props) => props.theme.bgSuperlight};
   &:hover {
     color: ${(props) => props.theme.teal};
   }
@@ -25,28 +25,5 @@ const ThemeToggle = ({ themeState, setTheme }) => {
     </StyledThemeToggle>
   )
 }
-//
-// const DullThemeToggle = ({ className, themeState, setTheme }) => {
-//   const handleClick = () => {
-//     setTheme(themeState === "dark" ? "light" : "dark")
-//   }
-//   return (
-//     <div className={className + " code"} onClick={handleClick}>
-//       {themeState === "dark" ? "L" : "D"}
-//     </div>
-//   )
-// }
-//
-//
-//
-// const ThemeToggle = styled(DullThemeToggle)(({ theme }) => ({
-//   color: theme.fgDefault,
-//   position: "absolute",
-//   right: 10,
-//   top: 10,
-//   lineHeight: 1,
-//   fontSize: "2em",
-//   fontWeight: "bold",
-// }))
 
 export default ThemeToggle

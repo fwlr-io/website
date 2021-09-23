@@ -1,7 +1,6 @@
-import { useContext } from "react"
-import styled, { ThemeContext } from "styled-components"
-import { animated, useSpring } from "react-spring"
-import { wobbly as config } from "springs.js"
+import styled from "styled-components"
+import { animated } from "react-spring"
+import { useThemeSpring } from "hooks.js"
 
 const StyledBlog = styled(animated.div)`
   width: 540px;
@@ -9,14 +8,17 @@ const StyledBlog = styled(animated.div)`
   text-align: justify;
   line-height: 1.25;
 `
+const blogAnim = (theme) => ({
+  color: theme.fgLight,
+})
 
 const Blog = () => {
-  const theme = useContext(ThemeContext)
-  const spring = useSpring({
-    config,
-    color: theme.fgLight,
-  })
-
+  // const theme = useContext(ThemeContext)
+  // const spring = useSpring({
+  //   config,
+  //   color: theme.fgLight,
+  // })
+  const spring = useThemeSpring(blogAnim)
   return (
     <StyledBlog style={spring}>
       <p>

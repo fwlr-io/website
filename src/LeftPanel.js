@@ -1,7 +1,6 @@
-import { useContext } from "react"
-import styled, { ThemeContext } from "styled-components"
-import { animated, useSpring } from "react-spring"
-import { wobbly as config } from "springs.js"
+import styled from "styled-components"
+import { animated } from "react-spring"
+import { useThemeSpring } from "hooks.js"
 import { NavLink } from "react-router-dom"
 
 const LeftPanelDiv = styled(animated.div)`
@@ -12,6 +11,10 @@ const LeftPanelDiv = styled(animated.div)`
   gap: 2em;
   min-width: 180px;
 `
+const leftPanelDivAnim = (theme) => ({
+  backgroundColor: theme.bgDefault,
+  borderRight: `1px solid ${theme.fgDefault}`,
+})
 
 const MenuItem = styled(NavLink)`
   font-size: 3em;
@@ -34,15 +37,9 @@ const TopMenuItem = styled(MenuItem)`
 `
 
 const LeftPanel = ({ size }) => {
-  const theme = useContext(ThemeContext)
-  const panelSpring = useSpring({
-    config,
-    backgroundColor: theme.bgDefault,
-    borderRight: `1px solid ${theme.fgDefault}`,
-  })
-
+  const spring = useThemeSpring(leftPanelDivAnim)
   return (
-    <LeftPanelDiv style={panelSpring} size={size} className="code">
+    <LeftPanelDiv style={spring} size={size} className="code">
       <TopMenuItem to="fwlr">fwlr</TopMenuItem>
       <MenuItem to="info">info</MenuItem>
       <MenuItem to="work">work</MenuItem>

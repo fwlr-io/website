@@ -1,9 +1,9 @@
-import styled, { ThemeProvider } from "styled-components"
-import { animated, useSpring } from "react-spring"
-import { wobbly as config } from "springs.js"
+import { useMemo } from "react"
 import { useRoutes } from "react-router-dom"
 import { useLocalStorageState } from "hooks.js"
 import { dark, light } from "Themes.js"
+import styled, { ThemeProvider } from "styled-components"
+import { animated, useSpring, config } from "react-spring"
 import ThemeToggle from "ThemeToggle.js"
 import LeftPanel from "LeftPanel.js"
 import Info from "Info.js"
@@ -15,6 +15,10 @@ const Content = styled(animated.div)`
   flex: ${(props) => props.size};
   padding-top: 48px;
 `
+const contentAnim = (theme) => ({
+  backgroundColor: theme.bgDark,
+  color: theme.fgDefault,
+})
 
 const Row = styled.div`
   display: flex;
@@ -26,12 +30,14 @@ const App = () => {
   const [themeState, setTheme] = useLocalStorageState("theme", "dark")
   const theme = themeState === "dark" ? dark : light
 
-  // animate
-  const spring = useSpring({
-    config,
-    backgroundColor: theme.bgDark,
-    color: theme.fgDefault,
-  })
+  const memoConfig = useMemo(
+    () => ({
+      config,
+      ...contentAnim(theme),
+    }),
+    [theme]
+  )
+  const spring = useSpring(memoConfig)
 
   // setup routing
   const element = useRoutes([

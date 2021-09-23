@@ -15,6 +15,11 @@ export const useLocalStorageState = (key, defaultValue) => {
 
 export const config = { ...baseConfig.stiff, clamp: true }
 
+export const useTheme = () => {
+  const theme = useContext(ThemeContext)
+  return theme
+}
+
 export const useThemeSpring = (func) => {
   const theme = useContext(ThemeContext)
   const memoConfig = useMemo(
@@ -27,3 +32,13 @@ export const useThemeSpring = (func) => {
   const spring = useSpring(memoConfig)
   return spring
 }
+
+// streamline using animations
+// export const useAnimated = (funcOrObj) => {
+//   const memoConfig = useMemo(
+//     () => ({
+//       config,
+//       ...func()
+//     })
+//     )
+// }

@@ -14,6 +14,7 @@ const Main = styled.div`
 const Content = styled(animated.div)`
   flex: auto;
   min-height: 100vh;
+  padding: 1rem 1ch;
 `
 const animContent = (theme) => ({
   backgroundColor: theme.mediumBackground,

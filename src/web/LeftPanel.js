@@ -21,11 +21,12 @@ const TopMenuItem = styled(MenuItem)`
   font-size: 4rem;
   font-weight: bold;
   padding-top: 1rem;
+  width: 5ch;
 `
 
 const LeftPanelDiv = styled(animated.div)`
   flex: none;
-  width: 20ch;
+  /*width: 20ch;*/
   display: flex;
   flex-direction: column;
   align-items: stretch;

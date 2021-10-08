@@ -6,8 +6,8 @@ import ModeToggle from "./ModeToggle.js"
 import { NavLink } from "react-router-dom"
 
 const NavBarDiv = styled(animated.div)`
-  font-size: 2.5rem;
-  height: 3.5rem;
+  font-size: 2rem;
+  height: 3rem;
   flex: none;
   display: flex;
   flex-direction: row;

@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { animated } from "react-spring"
-import { useThemeSpring } from "hooks.js"
+import { useAnimated } from "hooks.js"
 
 const StyledBlog = styled(animated.div)`
   width: 540px;
@@ -8,19 +8,14 @@ const StyledBlog = styled(animated.div)`
   text-align: justify;
   line-height: 1.25;
 `
-const blogAnim = (theme) => ({
-  color: theme.fgLight,
+const animBlog = (theme) => ({
+  color: theme.lightForeground,
 })
 
 const Blog = () => {
-  // const theme = useContext(ThemeContext)
-  // const spring = useSpring({
-  //   config,
-  //   color: theme.fgLight,
-  // })
-  const spring = useThemeSpring(blogAnim)
+  const blogAnim = useAnimated(animBlog)
   return (
-    <StyledBlog style={spring}>
+    <StyledBlog style={blogAnim}>
       <p>
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry's standard dummy text ever

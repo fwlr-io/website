@@ -3,7 +3,7 @@ import styled from "styled-components"
 const StyledInfo = styled.ul`
   max-width: 700px;
   min-width: 400px;
-  font-size: 2em;
+  font-size: 2rem;
   margin: auto;
 `
 

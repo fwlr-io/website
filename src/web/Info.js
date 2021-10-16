@@ -13,7 +13,7 @@ const Info = () => {
       <li>Scott Fowler</li>
       <li>React and Javascript</li>
       <li>scott@fwlr.io</li>
-      <li>github.com/fwlr.io</li>
+      <li>github.com/fwlr-io</li>
     </StyledInfo>
   )
 }

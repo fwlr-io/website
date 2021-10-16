@@ -20,7 +20,7 @@ const animNavBarDiv = (theme) => ({
 })
 
 const NavItem = styled(NavLink)`
-  flex: none;
+  flex: 3;
   text-align: center;
   text-decoration: none;
   color: inherit;

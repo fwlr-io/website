@@ -26,7 +26,6 @@ const TopMenuItem = styled(MenuItem)`
 
 const LeftPanelDiv = styled(animated.div)`
   flex: none;
-  /*width: 20ch;*/
   display: flex;
   flex-direction: column;
   align-items: stretch;

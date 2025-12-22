@@ -14,5 +14,8 @@
     "semi": false,
     "experimentalTernaries": true,
     "arrowParens": "avoid"
+  },
+  "dependencies": {
+    "tailwindcss": "^4.1.18"
   }
 }

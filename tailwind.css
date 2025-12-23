@@ -38,10 +38,13 @@
     color: var(--color-src-blue-500);
     text-decoration-line: underline;
     text-decoration-thickness: calc(1em / 17);
-    text-underline-offset: calc(2em / 17);
   }
 
   a:hover {
     text-decoration-thickness: calc(2em / 17);
+  }
+
+  a {
+    text-underline-offset: calc(3em / 17);
   }
 }

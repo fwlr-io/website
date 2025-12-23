@@ -1,6 +1,10 @@
 @import "tailwindcss";
 
 @theme {
+  /*
+    Based on https://zed-themes.com/themes/srcery
+    Converted with https://oklch.com
+  */
   --color-src-300: oklch(0.2225 0.0041 84.59);
   --color-src-350: oklch(0.3975 0.0158 55.89);
 

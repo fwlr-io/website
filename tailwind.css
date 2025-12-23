@@ -1,6 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@0;1&family=Source+Serif+4:ital,opsz@0,10;1,10&display=swap");
+
 @import "tailwindcss";
 
 @theme {
+  --font-serif: "Source Serif 4", ui-serif, serif;
+  --font-mono: "Source Code Pro", ui-monospace, monospace;
   /*
     Based on https://zed-themes.com/themes/srcery
     Converted with https://oklch.com
@@ -34,6 +38,11 @@
 }
 
 @layer base {
+  body {
+    font-optical-sizing: none;
+    font-variation-settings: "opsz" 10;
+  }
+
   a {
     color: var(--color-src-blue-500);
     text-decoration-line: underline;
@@ -46,5 +55,10 @@
 
   a {
     text-underline-offset: calc(3em / 17);
+  }
+
+  p {
+    margin-top: 1em;
+    margin-bottom: 1em;
   }
 }

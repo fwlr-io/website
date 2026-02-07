@@ -17,8 +17,12 @@
         },
         "experimental": {
           "classRegex": [
+            // class=("foo", move || ...)
+            // class=(["foo", "bar"], move || ...)
             ["class=\\(([^)]*)", "(?:'|\"|`)([^\"'`]*)(?:'|\"|`)"],
-            ["class:([^=]*)="],
+            // class:foo=move || ...
+            // class:"foo"=move || ..
+            ["class:\"?([^=\"]*)\"?="],
           ],
         },
       },

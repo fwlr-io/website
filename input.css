@@ -17,11 +17,8 @@
 
   --color-src-800: oklch(0.811 0.0449 81.83);
 
-  /*
-  --color-src-900: oklch(0.9378 0.0529 82.88); too yellow for a background, use smaller chroma
-  --color-src-900: oklch(0.9378 0.0158 82.88); still too yellow
-  */
-  --color-src-900: oklch(0.9378 0.0041 82.88);
+  /*color-src-900: oklch(0.9378 0.0529 82.88); too yellow for a background, use smaller chroma */
+  --color-src-900: oklch(0.9378 0.0158 82.88);
 
   --color-src-blue-500: oklch(0.5613 0.1325 250.26);
   --color-src-blue-700: oklch(0.7129 0.1102 248.12);

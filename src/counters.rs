@@ -19,22 +19,51 @@ pub fn Counters() -> impl IntoView {
         info!("incremented");
         *set_count.write() += 1;
     };
+
     let double_count = move || count() * 2;
     let progress = move || count() * 3;
 
     mview! {
-        button on:click={increment} class:bg-src-red-700=[count() % 2 == 1] (
-            "Click me: " {count}
+        // a href=[| count()] ("foo")
+
+        // button on:click=[_| *set_count.write() += 1] (
+        //     "Clickest moi: " {count}
+        // )
+        button on:click={move |_| *set_count.write() += 1} (
+            "old Clickest moi: " {count}
         )
+
+
+        // button on:click={increment} class:"bg-src-red-700"=[|count() % 2 == 1] (
+        //     "Click me: " {count}
+        // )
+        button on:click={increment} class:"bg-src-red-700"=[count() % 2 == 1] (
+            "old Click me: " {count}
+        )
+
+
+        // button
+        //     on:click=[_| set_count(count() + 1)]
+        //     class:"bg-src-green-700"=[|count() % 2 == 0]
+        // (
+        //     "Or click me: " {count}
+        // )
         button
             on:click={move |_| set_count(count() + 1)}
-                class:"bg-src-green-700"=[count() % 2 == 0]
+            class:"bg-src-green-700"=[count() % 2 == 0]
         (
-            "Or click me: " {count}
+            "old Or click me: " {count}
         )
+
+
+        // button on:click={increment} class:bg-src-blue-700=[|count() % 2 == 1] (
+        //     "Or even click me: " {count}
+        // )
         button on:click={increment} class:bg-src-blue-700=[count() % 2 == 1] (
-            "Or even click me: " {count}
+            "old Or even click me: " {count}
         )
+
+
         p ("Double count:" {double_count} )
         ProgressBar progress={count};
         ProgressBar max=50 progress={double_count};

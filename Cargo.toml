@@ -12,3 +12,13 @@ tailwind_fuse = "0.3.2"
 tracing = { version = "0.1.44", features = ["log"] }
 tracing-subscriber = "0.3.22"
 tracing-subscriber-wasm = "0.1.0"
+
+# An abortive attempt at addressing this issue:
+#   `value=[count]` expands to `value={move || count}`
+#   `on:click=[set_count(1)]` does NOT expand to `on:click={move |_| set_count(1)}`
+#   it instead requires you to write out `...={move |ev| ... }` or  `...={move |_| ... }` manually
+# I briefly tried to make it expand `value=[| count]` to `value={move || count}`
+#                                           ^^^^^^^                    ^^^^^^^
+# so that you could write `on:click=[_| set_count(1)]`, but alas!
+# [patch.crates-io]
+# leptos-mview = { path = "../local-crates/leptos-mview" }

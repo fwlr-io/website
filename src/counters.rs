@@ -34,32 +34,32 @@ pub fn Counters() -> impl IntoView {
         )
 
 
-        // button on:click={increment} class:"bg-src-red-700"=[|count() % 2 == 1] (
+        // button on:click={increment} class:"bg-red-d"=[|count() % 2 == 1] (
         //     "Click me: " {count}
         // )
-        button on:click={increment} class:"bg-src-red-700"=[count() % 2 == 1] (
+        button on:click={increment} class:"bg-red-d"=[count() % 2 == 1] (
             "old Click me: " {count}
         )
 
 
         // button
         //     on:click=[_| set_count(count() + 1)]
-        //     class:"bg-src-green-700"=[|count() % 2 == 0]
+        //     class:"bg-green-d"=[|count() % 2 == 0]
         // (
         //     "Or click me: " {count}
         // )
         button
             on:click={move |_| set_count(count() + 1)}
-            class:"bg-src-green-700"=[count() % 2 == 0]
+            class:"bg-green-d"=[count() % 2 == 0]
         (
             "old Or click me: " {count}
         )
 
 
-        // button on:click={increment} class:bg-src-blue-700=[|count() % 2 == 1] (
+        // button on:click={increment} class:bg-blue-d=[|count() % 2 == 1] (
         //     "Or even click me: " {count}
         // )
-        button on:click={increment} class:bg-src-blue-700=[count() % 2 == 1] (
+        button on:click={increment} class:bg-blue-d=[count() % 2 == 1] (
             "old Or even click me: " {count}
         )
 

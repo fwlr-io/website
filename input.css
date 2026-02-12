@@ -8,9 +8,9 @@
   --font-mono: "Source Code Pro", ui-monospace, monospace;
   --default-font-family: --font-serif;
 
+  /* memorable golden ratio scaling   */
   --spacing: initial;
   --spacing-*: initial;
-  /* memorable golden ratio scaling   */
   --spacing-1: 0.618rem; /* ~= phi^-1 */
   --spacing-2: 1rem; /*      = phi^0  */
   --spacing-3: 1.618rem; /*  = phi^1  */
@@ -28,29 +28,29 @@
   Converted with https://oklch.com
   */
   --color-*: initial;
-  --color-base-a: oklch(0.9378 0.0158 82.88);
-  --color-base-b: oklch(0.811 0.0449 81.83);
-  --color-base-c: oklch(0.5908 0.031 81.37);
-  --color-base-d: oklch(0.3975 0.0158 55.89);
-  --color-base-e: oklch(0.2225 0.0041 84.59);
+  --color-white: oklch(0.9378 0.0158 82.88);
+  --color-dim-white: oklch(0.811 0.0449 81.83);
+  --color-grey: oklch(0.5908 0.031 81.37);
+  --color-dim-grey: oklch(0.3975 0.0158 55.89);
+  --color-black: oklch(0.2225 0.0041 84.59);
 
-  --color-blue-d: oklch(0.5613 0.1325 250.26);
-  --color-blue-b: oklch(0.7129 0.1102 248.12);
+  --color-dim-blue: oklch(0.5613 0.1325 250.26);
+  --color-blue: oklch(0.7129 0.1102 248.12);
 
-  --color-cyan-d: oklch(0.6822 0.1148 198.48);
-  --color-cyan-b: oklch(0.903 0.1403 183.78);
+  --color-dim-cyan: oklch(0.6822 0.1148 198.48);
+  --color-cyan: oklch(0.903 0.1403 183.78);
 
-  --color-red-d: oklch(0.617 0.2266 28.52);
-  --color-red-b: oklch(0.6646 0.2031 29.68);
+  --color-dim-red: oklch(0.617 0.2266 28.52);
+  --color-red: oklch(0.6646 0.2031 29.68);
 
-  --color-magenta-d: oklch(0.6004 0.2155 5.8);
-  --color-magenta-b: oklch(0.7021 0.201 4.66);
+  --color-dim-magenta: oklch(0.6004 0.2155 5.8);
+  --color-magenta: oklch(0.7021 0.201 4.66);
 
-  --color-green-d: oklch(0.6335 0.1375 143.5);
-  --color-green-b: oklch(0.7438 0.1612 123.58);
+  --color-dim-green: oklch(0.6335 0.1375 143.5);
+  --color-green: oklch(0.7438 0.1612 123.58);
 
-  --color-yellow-d: oklch(0.8238 0.161 80.3);
-  --color-yellow-b: oklch(0.8783 0.1273 84.48);
+  --color-dim-yellow: oklch(0.8238 0.161 80.3);
+  --color-yellow: oklch(0.8783 0.1273 84.48);
 }
 
 @layer base {
@@ -61,9 +61,9 @@
 
   a {
     cursor: pointer;
-    color: var(--color-blue-d);
+    color: var(--color-dim-blue);
     &:visited {
-      color: var(--color-magenta-d);
+      color: var(--color-dim-magenta);
     }
     text-decoration-line: underline;
     text-decoration-thickness: calc(1em / 17);

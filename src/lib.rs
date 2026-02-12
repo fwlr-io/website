@@ -1,4 +1,5 @@
 pub mod app;
+pub mod codeblock;
 pub mod ux;
 
 // #![feature(impl_trait_in_bindings)]
@@ -7,5 +8,5 @@ pub mod ux;
 // #![feature(inherent_associated_types)]
 // pub mod failed_hoc_attempt;
 
-pub mod content;
+// pub mod content;
 // pub mod counters;

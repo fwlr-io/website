@@ -9,19 +9,15 @@
   --default-font-family: --font-serif;
 
   /* memorable golden ratio scaling   */
-  --spacing: initial;
-  --spacing-*: initial;
-  --spacing-1: 0.618rem; /* ~= phi^-1 */
-  --spacing-2: 1rem; /*      = phi^0  */
-  --spacing-3: 1.618rem; /*  = phi^1  */
-  --spacing-4: 2.618rem; /* ~= phi^2  */
+  --spacing-1g: 0.618rem; /* ~= phi^-1 */
+  --spacing-2g: 1rem; /*      = phi^0  */
+  --spacing-3g: 1.618rem; /*  = phi^1  */
+  --spacing-4g: 2.618rem; /* ~= phi^2  */
 
-  --radius: initial;
-  --radius-*: initial;
-  --radius-1: 0.618rem;
-  --radius-2: 1rem;
-  --radius-3: 1.618rem;
-  --radius-4: 2.618rem;
+  --radius-1g: 0.618rem;
+  --radius-2g: 1rem;
+  --radius-3g: 1.618rem;
+  --radius-4g: 2.618rem;
 
   /*
   Based on https://zed-themes.com/themes/srcery

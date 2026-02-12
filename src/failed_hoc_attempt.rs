@@ -20,7 +20,7 @@ pub fn Section(is: &'static str, children: Children) -> impl IntoView {
 #[component]
 pub fn Aside(is: &'static str, children: Children) -> impl IntoView {
     mview! {
-        aside id={is} class="border-dim-grey target:bg-dim-white m-1 rounded-1 border p-1" (
+        aside id={is} class="border-dim-grey target:bg-dim-white m-1g rounded-1g border p-1g" (
             {children()}
         )
     }
@@ -41,7 +41,7 @@ pub fn anchor_section(text: &'static str) -> (_, _) {
     #[component]
     fn Section(children: Children) -> impl IntoView {
         mview! {
-            section id={text} class="border-dim-grey target:bg-dim-white m-1 rounded-1 border p-1" (
+            section id={text} class="border-dim-grey target:bg-dim-white m-1g rounded-1g border p-1g" (
                 {children()}
             )
         }
@@ -94,7 +94,7 @@ pub fn anchor_section_1(
     #[component]
     fn Section(children: Children) -> impl IntoView {
         mview! {
-            section id={text} class="border-dim-grey target:bg-dim-white m-1 rounded-1 border p-1" (
+            section id={text} class="border-dim-grey target:bg-dim-white m-1g rounded-1g border p-1g" (
                 {children()}
             )
         }
@@ -120,7 +120,7 @@ pub fn anchor_section_2(
     };
     let Section = move |children: Children| {
         mview! {
-            section id={text} class="border-dim-grey target:bg-dim-white m-1 rounded-1 border p-1" (
+            section id={text} class="border-dim-grey target:bg-dim-white m-1g rounded-1g border p-1g" (
                 {children()}
             )
         }
@@ -139,7 +139,7 @@ fn Anchor(text: &'static str) -> impl IntoView {
 #[component]
 fn Section(text: &'static str, children: Children) -> impl IntoView {
     mview! {
-        section id={text} class="border-dim-grey target:bg-dim-white m-1 rounded-1 border p-1" (
+        section id={text} class="border-dim-grey target:bg-dim-white m-1g rounded-1g border p-1g" (
             {children()}
         )
     }
@@ -148,7 +148,7 @@ fn Section(text: &'static str, children: Children) -> impl IntoView {
 #[component]
 fn Aside(text: &'static str, children: Children) -> impl IntoView {
     mview! {
-        aside id={text} class="border-dim-grey target:bg-dim-white m-1 rounded-1 border p-1" (
+        aside id={text} class="border-dim-grey target:bg-dim-white m-1g rounded-1g border p-1g" (
             {children()}
         )
     }
@@ -174,7 +174,7 @@ impl Anchored<C, CC> {
         #[component]
         fn Section(children: Children) -> impl IntoView {
             mview! {
-                section id={self.0} class="border-dim-grey target:bg-dim-white m-1 rounded-1 border p-1" (
+                section id={self.0} class="border-dim-grey target:bg-dim-white m-1g rounded-1g border p-1g" (
                     {children()}
                 )
             }
@@ -182,7 +182,7 @@ impl Anchored<C, CC> {
         #[component]
         fn Aside(children: Children) -> impl IntoView {
             mview! {
-                aside id={self.0} class="border-dim-grey target:bg-dim-white m-1 rounded-1 border p-1" (
+                aside id={self.0} class="border-dim-grey target:bg-dim-white m-1g rounded-1g border p-1g" (
                     {children()}
                 )
             }
@@ -203,7 +203,7 @@ impl Anchored<C, CC> {
     #[component]
     pub fn Section(&self, children: Children) -> impl IntoView {
         mview! {
-            section id={self.0} class="border-dim-grey target:bg-dim-white m-1 rounded-1 border p-1" (
+            section id={self.0} class="border-dim-grey target:bg-dim-white m-1g rounded-1g border p-1g" (
                 {children()}
             )
         }
@@ -211,7 +211,7 @@ impl Anchored<C, CC> {
     #[component]
     pub fn Aside(&self, children: Children) -> impl IntoView {
         mview! {
-            aside id={self.0} class="border-dim-grey target:bg-dim-white m-1 rounded-1 border p-1" (
+            aside id={self.0} class="border-dim-grey target:bg-dim-white m-1g rounded-1g border p-1g" (
                 {children()}
             )
         }

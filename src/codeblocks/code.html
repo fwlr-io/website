@@ -1,0 +1,11 @@
+<span class="text-dim-green">#<span class="text-dim-white">[</span>component<span class="text-dim-white">]</span></span>
+<span class="text-dim-magenta">pub</span> <span class="text-dim-magenta">fn</span> <span class="text-dim-red">Code</span><span class="text-dim-white">(</span><span class="text-blue">code</span><span class="text-grey">:</span> <span class="text-dim-white">&amp;</span><span class="text-dim-white">&#39;</span><span class="text-dim-white">static</span> <span class="text-dim-blue">str</span><span class="text-dim-white">)</span> -&gt; <span class="text-dim-magenta">impl</span> <span class="text-dim-blue">IntoView</span> <span class="text-dim-white">{</span>
+    <span class="text-dim-red">view</span><span class="text-dim-red">!</span> <span class="text-dim-white">{</span>
+        <span class="text-grey">&lt;</span><span class="text-dim-yellow">div</span> <span class="text-dim-cyan">class</span>=<span class="text-dim-green">&quot;flex justify-center bg-black border py-1g border-y-grey&quot;</span><span class="text-grey">&gt;</span>
+            <span class="text-grey">&lt;</span><span class="text-dim-yellow">div</span>
+                <span class="text-dim-cyan">class</span>=<span class="text-dim-green">&quot;font-mono whitespace-pre w-xl text-dim-white&quot;</span>
+                <span class="text-dim-cyan">inner_html</span>=code
+            <span class="text-grey">/&gt;</span>
+        <span class="text-grey">&lt;/</span><span class="text-dim-yellow">div</span><span class="text-grey">&gt;</span>
+    <span class="text-dim-white">}</span>
+<span class="text-dim-white">}</span>

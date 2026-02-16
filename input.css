@@ -2,11 +2,45 @@
 
 @import "tailwindcss";
 
-@theme inline {
+/* tailwind v4 changed how `hover:` works, now it uses:
+```
+  &:hover {
+     @media (hover: hover) {
+        ...
+      }
+  }
+```
+  Laptops with touchscreens (and Safari Tech Preview on my Macbook Pro!)
+  do not support whatever feature "media (hover: hover)" selects for.
+
+  Reset to original v3 behaviour: */
+@custom-variant hover (&:hover);
+
+@theme {
   --font-sans: initial;
   --font-serif: "Source Serif 4", ui-serif, serif;
   --font-mono: "Source Code Pro", ui-monospace, monospace;
   --default-font-family: --font-serif;
+
+  /* shift font size smaller,
+     but don't alter the value of 1rem
+  */
+
+  /* tailwind's original `text-xs`: */
+  --text-sm: 0.75rem;
+  --text-sm--line-height: calc(1 / 0.75);
+  /* tailwind's original `text-sm`: */
+  --text-base: 0.875rem;
+  --text-base--line-height: calc(1.25 / 0.875);
+  /* tailwind's original `text-base`: */
+  --text-md: 1rem;
+  --text-md--line-height: calc(1.5 / 1);
+
+  /* use hairlines where possible */
+  --default-border-width: 0.5px;
+
+  /* optical correction value (use `mt-`, `mb-`, `my-`) */
+  --spacing-rounded-correct: calc(-1 * ((1lh - 1em) / 2));
 
   /* memorable golden ratio scaling   */
   --spacing-1g: 0.618rem; /* ~= phi^-1 */
@@ -19,17 +53,11 @@
   --radius-3g: 1.618rem;
   --radius-4g: 2.618rem;
 
+  --color-*: initial;
   /*
   Based on https://zed-themes.com/themes/srcery
   Converted with https://oklch.com
   */
-  --color-*: initial;
-  --color-white: oklch(0.9378 0.0158 82.88);
-  --color-dim-white: oklch(0.811 0.0449 81.83);
-  --color-grey: oklch(0.5908 0.031 81.37);
-  --color-dim-grey: oklch(0.3975 0.0158 55.89);
-  --color-black: oklch(0.2225 0.0041 84.59);
-
   --color-dim-blue: oklch(0.5613 0.1325 250.26);
   --color-blue: oklch(0.7129 0.1102 248.12);
 
@@ -47,6 +75,21 @@
 
   --color-dim-yellow: oklch(0.8238 0.161 80.3);
   --color-yellow: oklch(0.8783 0.1273 84.48);
+
+  --color-white: oklch(0.9378 0.0158 82.88);
+  --color-dim-white: oklch(0.811 0.0449 81.83);
+  --color-grey: oklch(0.5908 0.031 81.37);
+  --color-dim-grey: oklch(0.3975 0.0158 55.89);
+  --color-black: oklch(0.2225 0.0041 84.59);
+
+  /* had to look pretty far to find words
+     for foreground and background that
+     aren't already overloaded in context
+  */
+  --color-afore: var(--color-white);
+  --color-dim-afore: var(--color-dim-white);
+  --color-dim-abaft: var(--color-dim-grey);
+  --color-abaft: var(--color-black);
 }
 
 @layer base {
@@ -58,25 +101,18 @@
   a {
     cursor: pointer;
     color: var(--color-dim-blue);
-    &:visited {
-      color: var(--color-dim-magenta);
-    }
+
     text-decoration-line: underline;
     text-decoration-thickness: calc(1em / 17);
     text-underline-offset: calc(3em / 17);
-    &:hover {
-      text-decoration-thickness: calc(2em / 17);
-      text-underline-offset: calc(2em / 17);
-    }
   }
 
-  /* optical correction (assuming line height is 1.5) */
-  [class*="rounded"] > :is(p, h1, h2, h3) {
-    &:first-child {
-      margin-top: -0.33em;
-    }
-    &:last-child {
-      margin-bottom: -0.25em;
-    }
+  a:visited {
+    color: var(--color-dim-magenta);
+  }
+
+  a:hover {
+    text-decoration-thickness: calc(2em / 17);
+    text-underline-offset: calc(2em / 17);
   }
 }

@@ -1,0 +1,5 @@
+  <span class="text-grey">.</span><span class="text-dim-white">hover\:bg-dim-grey</span> <span class="text-dim-white">{</span>
+    <span class="text-dim-yellow">&amp;</span><span class="text-grey">:</span><span class="text-dim-green">hover</span> <span class="text-dim-white">{</span>
+      <span class="text-dim-white">background-color</span><span class="text-grey">:</span> <span class="text-dim-red">var</span><span class="text-dim-white">(</span><span class="text-blue">--color-dim-grey</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    <span class="text-dim-white">}</span>
+  <span class="text-dim-white">}</span>

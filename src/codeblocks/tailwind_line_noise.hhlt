@@ -1,0 +1,35 @@
+<span class="text-dim-magenta">@layer</span> [<span class="text-dim-green">hidden</span>]<span class="text-grey">:</span><span class="text-dim-green">where</span><span class="text-dim-white">(</span><span class="text-grey">:</span><span class="text-dim-green">not</span><span class="text-dim-white">(</span>[<span class="text-dim-green">hidden</span><span class="text-dim-white">=</span><span class="text-green">&quot;until-found&quot;</span>]<span class="text-dim-white">)</span><span class="text-dim-white">)</span> <span class="text-dim-white">{</span>
+  <span class="text-grey">.</span><span class="text-dim-white">self-center</span> <span class="text-dim-white">{</span>
+    <span class="text-dim-white">align-self</span><span class="text-grey">:</span> center<span class="text-grey">;</span>
+  <span class="text-dim-white">}</span>
+<span class="text-dim-white">}</span>
+<span class="text-dim-magenta">@layer</span> [<span class="text-dim-green">hidden</span>]<span class="text-grey">:</span><span class="text-dim-green">where</span><span class="text-dim-white">(</span><span class="text-grey">:</span><span class="text-dim-green">not</span><span class="text-dim-white">(</span>[<span class="text-dim-green">hidden</span><span class="text-dim-white">=</span><span class="text-green">&quot;until-found&quot;</span>]<span class="text-dim-white">)</span><span class="text-dim-white">)</span> <span class="text-dim-white">{</span>
+  <span class="text-grey">.</span><span class="text-dim-white">justify-center</span> <span class="text-dim-white">{</span>
+    <span class="text-dim-white">justify-content</span><span class="text-grey">:</span> center<span class="text-grey">;</span>
+  <span class="text-dim-white">}</span>
+<span class="text-dim-white">}</span>
+<span class="text-dim-magenta">@layer</span> [<span class="text-dim-green">hidden</span>]<span class="text-grey">:</span><span class="text-dim-green">where</span><span class="text-dim-white">(</span><span class="text-grey">:</span><span class="text-dim-green">not</span><span class="text-dim-white">(</span>[<span class="text-dim-green">hidden</span><span class="text-dim-white">=</span><span class="text-green">&quot;until-found&quot;</span>]<span class="text-dim-white">)</span><span class="text-dim-white">)</span> <span class="text-dim-white">{</span>
+  <span class="text-grey">.</span><span class="text-dim-white">snap-center</span> <span class="text-dim-white">{</span>
+    <span class="text-dim-white">scroll-snap-align</span><span class="text-grey">:</span> center<span class="text-grey">;</span>
+  <span class="text-dim-white">}</span>
+<span class="text-dim-white">}</span>
+<span class="text-dim-magenta">@layer</span> [<span class="text-dim-green">hidden</span>]<span class="text-grey">:</span><span class="text-dim-green">where</span><span class="text-dim-white">(</span><span class="text-grey">:</span><span class="text-dim-green">not</span><span class="text-dim-white">(</span>[<span class="text-dim-green">hidden</span><span class="text-dim-white">=</span><span class="text-green">&quot;until-found&quot;</span>]<span class="text-dim-white">)</span><span class="text-dim-white">)</span> <span class="text-dim-white">{</span>
+  <span class="text-grey">.</span><span class="text-dim-white">font-serif</span> <span class="text-dim-white">{</span>
+    <span class="text-dim-white">font-family</span><span class="text-grey">:</span> <span class="text-dim-red">var</span><span class="text-dim-white">(</span><span class="text-blue">--font-serif</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+  <span class="text-dim-white">}</span>
+<span class="text-dim-white">}</span>
+<span class="text-dim-magenta">@layer</span> [<span class="text-dim-green">hidden</span>]<span class="text-grey">:</span><span class="text-dim-green">where</span><span class="text-dim-white">(</span><span class="text-grey">:</span><span class="text-dim-green">not</span><span class="text-dim-white">(</span>[<span class="text-dim-green">hidden</span><span class="text-dim-white">=</span><span class="text-green">&quot;until-found&quot;</span>]<span class="text-dim-white">)</span><span class="text-dim-white">)</span> <span class="text-dim-white">{</span>
+  <span class="text-grey">.</span><span class="text-dim-white">py-3</span> <span class="text-dim-white">{</span>
+    <span class="text-dim-white">padding-block</span><span class="text-grey">:</span> <span class="text-dim-red">var</span><span class="text-dim-white">(</span><span class="text-blue">--spacing-3</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+  <span class="text-dim-white">}</span>
+<span class="text-dim-white">}</span>
+<span class="text-dim-magenta">@layer</span> [<span class="text-dim-green">hidden</span>]<span class="text-grey">:</span><span class="text-dim-green">where</span><span class="text-dim-white">(</span><span class="text-grey">:</span><span class="text-dim-green">not</span><span class="text-dim-white">(</span>[<span class="text-dim-green">hidden</span><span class="text-dim-white">=</span><span class="text-green">&quot;until-found&quot;</span>]<span class="text-dim-white">)</span><span class="text-dim-white">)</span> <span class="text-dim-white">{</span>
+  <span class="text-grey">.</span><span class="text-dim-white">to-80\%</span> <span class="text-dim-white">{</span>
+    <span class="text-dim-white">--tw-gradient-to-position</span><span class="text-grey">:</span> <span class="text-blue">80<span class="text-dim-blue">%</span></span><span class="text-grey">;</span>
+  <span class="text-dim-white">}</span>
+<span class="text-dim-white">}</span>
+<span class="text-dim-magenta">@layer</span> [<span class="text-dim-green">hidden</span>]<span class="text-grey">:</span><span class="text-dim-green">where</span><span class="text-dim-white">(</span><span class="text-grey">:</span><span class="text-dim-green">not</span><span class="text-dim-white">(</span>[<span class="text-dim-green">hidden</span><span class="text-dim-white">=</span><span class="text-green">&quot;until-found&quot;</span>]<span class="text-dim-white">)</span><span class="text-dim-white">)</span> <span class="text-dim-white">{</span>
+  <span class="text-grey">.</span><span class="text-dim-white">bg-\[rgba\(250\,250\,250\,0\.7\)\]</span> <span class="text-dim-white">{</span>
+    <span class="text-dim-white">background-color</span><span class="text-grey">:</span> <span class="text-dim-red">rgba</span><span class="text-dim-white">(</span><span class="text-blue">250</span><span class="text-grey">,</span> <span class="text-blue">250</span><span class="text-grey">,</span> <span class="text-blue">250</span><span class="text-grey">,</span> <span class="text-blue">0.7</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+  <span class="text-dim-white">}</span>
+<span class="text-dim-white">}</span>

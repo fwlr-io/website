@@ -14,25 +14,30 @@
   do not support whatever feature "media (hover: hover)" selects for.
 
   Reset to original v3 behaviour: */
-@custom-variant hover (&:hover);
+@custom-variant hover {
+  &:hover {
+    @slot;
+  }
+}
 
 @theme {
   --font-sans: initial;
   --font-serif: "Source Serif 4", ui-serif, serif;
   --font-mono: "Source Code Pro", ui-monospace, monospace;
-  --default-font-family: --font-serif;
+  --default-font-family: var(--font-serif);
 
-  /* shift font size smaller,
-     but don't alter the value of 1rem
+  /* shift font size smaller, but don't alter the value of 1rem:
   */
 
-  /* tailwind's original `text-xs`: */
+  /* tailwind's original `text-xs` becomes `text-sm`: */
   --text-sm: 0.75rem;
   --text-sm--line-height: calc(1 / 0.75);
-  /* tailwind's original `text-sm`: */
+
+  /* tailwind's original `text-sm` becomes `text-base`: */
   --text-base: 0.875rem;
   --text-base--line-height: calc(1.25 / 0.875);
-  /* tailwind's original `text-base`: */
+
+  /* tailwind's original `text-base` becomes `text-md`: */
   --text-md: 1rem;
   --text-md--line-height: calc(1.5 / 1);
 
@@ -81,15 +86,6 @@
   --color-grey: oklch(0.5908 0.031 81.37);
   --color-dim-grey: oklch(0.3975 0.0158 55.89);
   --color-black: oklch(0.2225 0.0041 84.59);
-
-  /* had to look pretty far to find words
-     for foreground and background that
-     aren't already overloaded in context
-  */
-  --color-afore: var(--color-white);
-  --color-dim-afore: var(--color-dim-white);
-  --color-dim-abaft: var(--color-dim-grey);
-  --color-abaft: var(--color-black);
 }
 
 @layer base {
@@ -100,19 +96,18 @@
 
   a {
     cursor: pointer;
+
     color: var(--color-dim-blue);
+    &:visited {
+      color: var(--color-dim-magenta);
+    }
 
     text-decoration-line: underline;
     text-decoration-thickness: calc(1em / 17);
+    &:hover {
+      text-decoration-thickness: calc(2em / 17);
+      text-underline-offset: calc(2em / 17);
+    }
     text-underline-offset: calc(3em / 17);
-  }
-
-  a:visited {
-    color: var(--color-dim-magenta);
-  }
-
-  a:hover {
-    text-decoration-thickness: calc(2em / 17);
-    text-underline-offset: calc(2em / 17);
   }
 }

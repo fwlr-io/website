@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+  <head>
+    
+<script type="module">
+import init, * as bindings from '/fwlr-io-12e2b3a7a2d55800.js';
+const wasm = await init({ module_or_path: '/fwlr-io-12e2b3a7a2d55800_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+    <link rel="stylesheet" href="/input-f50a2628e40c359f.css" integrity="sha384-b5rPb3ZFsAfgbesXWjwgkHAFkI66kv8ZlTLuY5M4Z8rn1UNB1J8/VVmLRuiVLleZ"/>
+  <link rel="modulepreload" href="/fwlr-io-12e2b3a7a2d55800.js" crossorigin="anonymous" integrity="sha384-1YmrFdTcNj+Rkre7hTOm7LMOyOfuBu3tQmP+r8JW6Ja+0wwfAt0r1hwajV2KOMEV"><link rel="preload" href="/fwlr-io-12e2b3a7a2d55800_bg.wasm" crossorigin="anonymous" integrity="sha384-kP7SRI98VtlEgAZ46CbnIsrXHq+qEOgbl65Ox//wzypQM+H+5izMivyUt4FIVgT1" as="fetch" type="application/wasm"></head>
+</html>

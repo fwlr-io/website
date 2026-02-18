@@ -1,4 +1,4 @@
 #[component]
-pub fn Code(children: Children) -> impl IntoView {
+pub fn Test(children: Children) -> impl IntoView {
     view! { <div>"hello, world"</div> }
 }

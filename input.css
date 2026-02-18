@@ -2,6 +2,9 @@
 
 @import "tailwindcss";
 
+/* not using fancy stuff at the moment, don't bloat css */
+@source not "src/fancy*.rs";
+
 /* tailwind v4 changed how `hover:` works, now it uses:
 ```
   &:hover {

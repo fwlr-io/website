@@ -614,7 +614,6 @@ version = "0.1.0"
 dependencies = [
  "console_error_panic_hook",
  "leptos",
- "leptos-mview",
  "leptos-use",
  "tailwind_fuse",
  "tracing",
@@ -1143,38 +1142,6 @@ dependencies = [
  "wasm-bindgen-futures",
  "wasm_split_helpers",
  "web-sys",
-]
-
-[[package]]
-name = "leptos-mview"
-version = "0.4.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "485aabae525e617d943a0ace4e5994a6b20890ec7f8448f250a49b5ecabd78d0"
-dependencies = [
- "leptos-mview-macro",
-]
-
-[[package]]
-name = "leptos-mview-core"
-version = "0.4.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "96d8f2a70150ed7f8ecd1d4802435f0e709c5053bf6a4014b4683b4f8b7bde43"
-dependencies = [
- "proc-macro-error2",
- "proc-macro2",
- "quote",
- "syn",
-]
-
-[[package]]
-name = "leptos-mview-macro"
-version = "0.4.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "62aaad32651439f9f0d165056bd7fbb87a769a347a8160efa43787bb9322a764"
-dependencies = [
- "leptos-mview-core",
- "proc-macro-error2",
- "proc-macro2",
 ]
 
 [[package]]
@@ -1757,9 +1724,9 @@ checksum = "b39cdef0fa800fc44525c84ccb54a029961a8215f9619753635a9c0d2538d46d"
 
 [[package]]
 name = "ryu"
-version = "1.0.22"
+version = "1.0.23"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a50f4cf475b65d88e057964e0e9bb1f0aa9bbb2036dc65c64596b42932536984"
+checksum = "9774ba4a74de5f7b1c1451ed6cd5285a32eddb5cccb8cc655a4e50009e06477f"
 
 [[package]]
 name = "same-file"

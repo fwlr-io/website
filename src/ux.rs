@@ -1,22 +1,23 @@
 use leptos::prelude::*;
 use leptos_use::{UseClipboardOptions, UseClipboardReturn, use_clipboard_with_options};
-
-/// With credit to jarthod: https://gist.github.com/jarthod/8719db9fef8deb937f4f
-#[component]
-pub fn FancyBrowser(children: Children) -> impl IntoView {
-    view! {
-        <div class="relative self-center border shadow-md bg-[rgba(250,250,250,0.7)] min-w-xl aspect-4/3 border-t-[2em] border-black/50 rounded-1g shadow-black/50 before:absolute before:block before:-top-[1.25em] before:left-[1em] before:w-[0.5em] before:h-[0.5em] before:rounded-[50%] before:bg-red before:[box-shadow:0_0_0_2px_var(--color-red),1.5em_0_0_2px_var(--color-yellow),3em_0_0_2px_var(--color-green)]">
-            {children()}
-        </div>
-    }
-}
+use tailwind_fuse::*;
 
 #[component]
-pub fn Code(code: &'static str) -> impl IntoView {
+pub fn PlainCode(
+    raw: &'static str,
+    code: &'static str,
+    #[prop(optional)] class: &'static str,
+    #[prop(optional)] container_class: &'static str,
+) -> impl IntoView {
     view! {
-        <div class="flex justify-center bg-black border py-1g border-y-grey">
+        <div class=tw_merge!(
+            "flex justify-center bg-black border py-1g border-y-grey not-last:mb-3g", container_class
+        )>
+            <div class="sr-only">{raw}</div>
             <div
-                class="font-mono whitespace-pre w-xl text-dim-white"
+                class=tw_merge!(
+                    "font-mono whitespace-pre w-xl text-dim-white", class
+                )
                 inner_html=code
             />
         </div>
@@ -24,11 +25,20 @@ pub fn Code(code: &'static str) -> impl IntoView {
 }
 
 #[component]
-pub fn FancyCode(raw: &'static str, code: &'static str) -> impl IntoView {
+pub fn FancyCode(
+    raw: &'static str,
+    code: &'static str,
+    #[prop(optional)] class: &'static str,
+    #[prop(optional)] container_class: &'static str,
+) -> impl IntoView {
     view! {
-        <div class="relative self-center font-mono bg-black from-black to-black border shadow-lg from-20% to-80% text-shadow-sm/30 min-w-xl p-1g border-black/25 bg-linear-150 via-dim-white/8 via-50% shadow-dim-grey rounded-1g inset-shadow-sm inset-shadow-white/20">
+        <div class=tw_merge!(
+            "relative self-center font-mono bg-black from-black to-black border shadow-lg from-20% to-80% text-shadow-sm/30 min-w-xl p-1g border-black/25 bg-linear-150 via-dim-white/8 via-50% shadow-dim-grey rounded-1g inset-shadow-sm inset-shadow-white/20", container_class
+        )>
             <div
-                class="overflow-x-scroll w-full font-mono whitespace-pre text-dim-white text-shadow-sm/30 my-rounded-correct"
+                class=tw_merge!(
+                    "overflow-x-scroll w-full font-mono whitespace-pre text-dim-white text-shadow-sm/30 my-rounded-correct", class
+                )
                 inner_html=code
             />
             <Raw code=raw />

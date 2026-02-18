@@ -1,0 +1,7 @@
+  .hover\:bg-dim-grey {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-dim-grey);
+      }
+    }
+  }

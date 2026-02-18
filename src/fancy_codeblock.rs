@@ -9,7 +9,7 @@ pub fn Code(
     let raw = include_str!("codeblocks/code.rs");
     let code = include_str!("codeblocks/code.hhlt");
 
-    view! { <ux::PlainCode raw=raw code=code class=class container_class=container_class /> }
+    view! { <ux::FancyCode raw=raw code=code class=class container_class=container_class /> }
 }
 #[component]
 pub fn Test(
@@ -19,7 +19,7 @@ pub fn Test(
     let raw = include_str!("codeblocks/test.rs");
     let code = include_str!("codeblocks/test.hhlt");
 
-    view! { <ux::PlainCode raw=raw code=code class=class container_class=container_class /> }
+    view! { <ux::FancyCode raw=raw code=code class=class container_class=container_class /> }
 }
 #[component]
 pub fn TailwindLineNoise(
@@ -29,7 +29,7 @@ pub fn TailwindLineNoise(
     let raw = include_str!("codeblocks/tailwind_line_noise.css");
     let code = include_str!("codeblocks/tailwind_line_noise.hhlt");
 
-    view! { <ux::PlainCode raw=raw code=code class=class container_class=container_class /> }
+    view! { <ux::FancyCode raw=raw code=code class=class container_class=container_class /> }
 }
 #[component]
 pub fn TailwindSolution(
@@ -39,7 +39,7 @@ pub fn TailwindSolution(
     let raw = include_str!("codeblocks/tailwind_solution.css");
     let code = include_str!("codeblocks/tailwind_solution.hhlt");
 
-    view! { <ux::PlainCode raw=raw code=code class=class container_class=container_class /> }
+    view! { <ux::FancyCode raw=raw code=code class=class container_class=container_class /> }
 }
 #[component]
 pub fn TailwindProblem(
@@ -49,7 +49,7 @@ pub fn TailwindProblem(
     let raw = include_str!("codeblocks/tailwind_problem.css");
     let code = include_str!("codeblocks/tailwind_problem.hhlt");
 
-    view! { <ux::PlainCode raw=raw code=code class=class container_class=container_class /> }
+    view! { <ux::FancyCode raw=raw code=code class=class container_class=container_class /> }
 }
 #[component]
 pub fn TailwindResult(
@@ -59,5 +59,5 @@ pub fn TailwindResult(
     let raw = include_str!("codeblocks/tailwind_result.css");
     let code = include_str!("codeblocks/tailwind_result.hhlt");
 
-    view! { <ux::PlainCode raw=raw code=code class=class container_class=container_class /> }
+    view! { <ux::FancyCode raw=raw code=code class=class container_class=container_class /> }
 }

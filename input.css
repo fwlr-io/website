@@ -23,43 +23,65 @@
   }
 }
 
-@theme {
+@theme static {
   --font-sans: initial;
   --font-serif: "Source Serif 4", ui-serif, serif;
   --font-mono: "Source Code Pro", ui-monospace, monospace;
   --default-font-family: var(--font-serif);
 
-  /* shift font size smaller, but don't alter the value of 1rem:
-  */
-
-  /* tailwind's original `text-xs` becomes `text-sm`: */
-  --text-sm: 0.75rem;
-  --text-sm--line-height: calc(1 / 0.75);
-
-  /* tailwind's original `text-sm` becomes `text-base`: */
-  --text-base: 0.875rem;
-  --text-base--line-height: calc(1.25 / 0.875);
-
-  /* tailwind's original `text-base` becomes `text-md`: */
-  --text-md: 1rem;
-  --text-md--line-height: calc(1.5 / 1);
-
   /* use hairlines where possible */
   --default-border-width: 0.5px;
 
+  /*                                     fib(0) =  0.5
+  (memorable golden ratio scaling)       fib(1) =  1
+  (close powers of phi are .618)    0.5  + 1    =  1.5
+    phi^-1 = 0.618                  1    + 1.5  =  2.5
+    phi^0  = 1                      1.5  + 2.5  =  4
+    phi^1  = 1.618                  2.5  + 4    =  6.5
+    phi^2  = 2.618                  4    + 6.5  = 10.5
+  (extended golden ratio scaling)   6.5  + 10.5 = 17
+  (follows fibonacci from 0.5, 1)   10.5 + 17   = 27.5
+  */
+
+  /* pow(phi, -4) = 0.146rem =   2.335px ~~  2px = --spacing(0.5)  */
+  /* pow(phi, -3) = 0.236rem =   3.777px ~~  4px = --spacing(1)    */
+  /* pow(phi, -2) = 0.382rem =   6.111px ~~  6px = --spacing(1.5)  */
+  /* pow(phi, -1) = 0.618rem =   9.888px ~~ 10px = --spacing(2.5)  */
+  /* pow(phi,  0) = 1.000rem =  16.000px == 16px = --spacing(4)    */
+  /* pow(phi,  1) = 1.618rem =  25.888px ~~ 26px = --spacing(6.5)  */
+  /* pow(phi,  2) = 2.618rem =  41.888px ~~ 42px = --spacing(10.5) */
+  /* pow(phi,  3) = 4.236rem =  67.777px ~~ 68px = --spacing(17)   */
+  /* pow(phi,  4) = 6.854rem = 109.656px ~~ 68px = --spacing(17)   */
+
+  /* alternative "short-scales" proposals to disambiguate size and spacing
+        xvnr | "extra very near"
+   xs |  vnr | "very near"
+   sm |   nr | "near"
+   md |    r | "reasonable" / "regular"
+   lg |   fr | "far"
+   xl |  vfr | "very far"
+  2xl | xvfr | "extra very far"
+  */
+
+  --spacing-xxvnr: --spacing(0.5);
+  --spacing-xvnr: --spacing(1);
+  --spacing-vnr: --spacing(1.5);
+  --spacing-nr: --spacing(2.5);
+  --spacing-r: --spacing(4);
+  --spacing-fr: --spacing(6.5);
+  --spacing-vfr: --spacing(10.5);
+  --spacing-xvfr: --spacing(17);
+  --spacing-xxvfr: --spacing(27.5);
+
+  --radius-*: initial;
+  --radius-xs: --spacing(1.5);
+  --radius-sm: --spacing(2.5);
+  --radius-md: --spacing(4);
+  --radius-lg: --spacing(6.5);
+  --radius-xl: --spacing(10.5);
+
   /* optical correction value (use `mt-`, `mb-`, `my-`) */
   --spacing-rounded-correct: calc(-1 * ((1lh - 1em) / 2));
-
-  /* memorable golden ratio scaling   */
-  --spacing-1g: 0.618rem; /* ~= phi^-1 */
-  --spacing-2g: 1rem; /*      = phi^0  */
-  --spacing-3g: 1.618rem; /*  = phi^1  */
-  --spacing-4g: 2.618rem; /* ~= phi^2  */
-
-  --radius-1g: 0.618rem;
-  --radius-2g: 1rem;
-  --radius-3g: 1.618rem;
-  --radius-4g: 2.618rem;
 
   --color-*: initial;
   /*

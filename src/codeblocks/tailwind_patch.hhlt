@@ -1,0 +1,5 @@
+<span class="text-dim-red">bun</span> patch tailwindcss
+<span class="text-grey"># edit preflight.css in the given dir</span>
+<span class="text-grey"># (probably `node_modules/tailwindcss/preflight.css`)</span>
+<span class="text-grey"># search for `until-found` and delete that selector</span>
+<span class="text-dim-red">bun</span> patch <span class="text-cyan">--commit</span> <span class="text-green">&quot;node_modules/tailwindcss&quot;</span>

@@ -3,3 +3,5 @@
     <span class="text-dim-magenta">@slot</span><span class="text-grey">;</span>
   <span class="text-dim-white">}</span>
 <span class="text-dim-white">}</span>
+<span class="text-grey">/* or use tailwind&#39;s magical &#39;short&#39; syntax: */</span>
+<span class="text-grey">/* @custom-variant hover (&amp;:hover); */</span>

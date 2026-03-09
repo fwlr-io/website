@@ -1,0 +1,10 @@
+<div style="font-family: monospace; white-space: pre;background-color: #1c1b19;color: #fce8c3;"><div style="display: inline;color: rgb(44, 120, 191);">~/dev/website</div> <div style="display: inline;color: rgb(81, 159, 80);">(</div><div style="display: inline;color: rgb(239, 47, 39);">main</div><div style="display: inline;color: rgb(81, 159, 80);">)</div> <div style="display: inline;color: rgb(81, 159, 80);">\cat</div> <div style="display: inline;text-decoration-line: underline;text-decoration-style: solid;">index.html</div> 
+&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;link data-trunk rel=&quot;rust&quot; /&gt;
+    &lt;link data-trunk rel=&quot;tailwind-css&quot; href=&quot;input.css&quot; /&gt;
+  &lt;/head&gt;
+  &lt;body class=&quot;flex flex-col gap-r text-black bg-white pt-fr&quot;&gt;&lt;/body&gt;
+&lt;/html&gt;</div>

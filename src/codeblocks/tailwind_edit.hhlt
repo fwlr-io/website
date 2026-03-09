@@ -1,0 +1,13 @@
+<span class="text-grey"># find your binary</span>
+<span class="text-dim-red">which</span> tailwindcss
+<span class="text-grey"># if it&#39;s a shim, extract the paths</span>
+<span class="text-grey"># (regex matches `tailwindcss/` prefixed by any number of `directory/`s)</span>
+<span class="text-dim-red">grep</span> <span class="text-cyan">-Eo</span> <span class="text-green">&quot;(\w*/)+tailwindcss/&quot;</span> <span class="text-dim-cyan">$(<span class="text-dim-red">which</span> tailwindcss)</span>
+<span class="text-grey"># search for the template</span>
+<span class="text-dim-red">find</span> <span class="text-dim-white">&lt;</span>paths<span class="text-dim-white">&gt;</span> -name preflight.css -exec <span class="text-dim-white">&lt;</span>editor<span class="text-dim-white">&gt;</span> {} +
+
+<span class="text-dim-red">find</span> \
+  <span class="text-cyan">-f</span> <span class="text-dim-cyan">$(<span class="text-dim-red">which</span> tailwindcss)</span> \
+  <span class="text-cyan">-f</span> <span class="text-dim-cyan">$(<span class="text-dim-red">grep</span> <span class="text-cyan">-Eo</span> <span class="text-green">&quot;(\w*/)+tailwindcss/&quot;</span> <span class="text-dim-cyan">$(<span class="text-dim-red">which</span> tailwindcss)</span>)</span> \
+  <span class="text-cyan">-name</span> preflight.css \
+  <span class="text-cyan">-exec</span> <span class="text-dim-cyan">${<span class="text-dim-white">EDITOR</span>:-open}</span> {} +

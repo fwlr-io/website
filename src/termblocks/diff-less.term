@@ -1,0 +1,25 @@
+<div style="font-family: monospace; white-space: pre;background-color: #1c1b19;color: #fce8c3;"><div style="display: inline;color: rgb(44, 120, 191);">~/dev/website</div> <div style="display: inline;color: rgb(81, 159, 80);">(</div><div style="display: inline;color: rgb(239, 47, 39);">main</div><div style="display: inline;color: rgb(81, 159, 80);">)</div> <div style="display: inline;color: rgb(81, 159, 80);">git</div> -c core.pager=<div style="display: inline;color: rgb(251, 184, 41);">&#39;less&#39;</div> diff <div style="display: inline;text-decoration-line: underline;text-decoration-style: solid;">src/fancy_codeblock.rs</div>                                                                                      
+<div style="display: inline;font-weight: bold;">diff --git a/src/fancy_codeblock.rs b/src/fancy_codeblock.rs</div>
+<div style="display: inline;font-weight: bold;">index 5bff970..1ade274 100644</div>
+<div style="display: inline;font-weight: bold;">--- a/src/fancy_codeblock.rs</div>
+<div style="display: inline;font-weight: bold;">+++ b/src/fancy_codeblock.rs</div>
+<div style="display: inline;color: rgb(10, 174, 179);">@@ -4,40 +4,102 @@</div> use leptos::prelude::*;
+ #[component]
+ pub fn TailwindLineNoise(
+     #[prop(optional)] class: &amp;&#39;static str,
+<div style="display: inline;color: rgb(239, 47, 39);">-    #[prop(optional)] container_class: &amp;&#39;static str</div>
+<div style="display: inline;color: rgb(81, 159, 80);">+    #[prop(optional)] container_class: &amp;&#39;static str,</div>
+ ) -&gt; impl IntoView {
+     let raw = include_str!(&quot;codeblocks/tailwind_line_noise.css&quot;);
+     let code = include_str!(&quot;codeblocks/tailwind_line_noise.hhlt&quot;);
+ 
+<div style="display: inline;color: rgb(239, 47, 39);">-    view! { &lt;ux::FancyCode raw=raw code=code class=class container_class=container_class /&gt; }</div>
+<div style="display: inline;color: rgb(81, 159, 80);">+    view! {</div>
+<div style="display: inline;color: rgb(81, 159, 80);">+        &lt;ux::FancyCode</div><div style="display: inline;background-color: rgb(239, 47, 39);"> </div>
+<div style="display: inline;color: rgb(81, 159, 80);">+            raw=raw</div>
+<div style="display: inline;color: rgb(81, 159, 80);">+            code=code</div>
+<div style="display: inline;color: rgb(81, 159, 80);">+            class=class</div>
+<div style="display: inline;color: rgb(81, 159, 80);">+            container_class=container_class</div>
+<div style="display: inline;color: rgb(81, 159, 80);">+        /&gt;</div>
+<div style="display: inline;color: rgb(81, 159, 80);">+    }</div>
+ }</div>

@@ -3,3 +3,5 @@
     @slot;
   }
 }
+/* or use tailwind's magical 'short' syntax: */
+/* @custom-variant hover (&:hover); */

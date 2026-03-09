@@ -1,5 +1,5 @@
-  .hover\:bg-dim-grey {
-    &:hover {
-      background-color: var(--color-dim-grey);
-    }
+.hover\:bg-dim-grey {
+  &:hover {
+    background-color: var(--color-dim-grey);
   }
+}

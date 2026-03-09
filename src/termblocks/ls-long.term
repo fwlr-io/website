@@ -1,0 +1,14 @@
+<div style="font-family: monospace; white-space: pre;background-color: #1c1b19;color: #fce8c3;"><div style="display: inline;color: rgb(44, 120, 191);">~/dev/website</div> <div style="display: inline;color: rgb(81, 159, 80);">(</div><div style="display: inline;color: rgb(239, 47, 39);">main</div><div style="display: inline;color: rgb(81, 159, 80);">)</div> <div style="display: inline;color: rgb(81, 159, 80);">\ls</div> -lh <div style="display: inline;color: rgb(28, 27, 25);font-weight: bold;"># often aliased to ll</div> 
+total 216
+-rw-r--r--@  1 scottfowler  staff    69K 23 Feb 16:42 Cargo.lock
+-rw-r--r--   1 scottfowler  staff   1.2K 24 Feb 20:02 Cargo.toml
+drwxr-xr-x@  6 scottfowler  staff   192B  9 Mar 04:00 dist
+-rw-r--r--@  1 scottfowler  staff   292B 23 Feb 15:41 index.html
+-rw-r--r--@  1 scottfowler  staff   4.2K  9 Mar 13:26 input.css
+-rw-r--r--@  1 scottfowler  staff   360B 19 Feb 04:53 leptosfmt.toml
+-rw-r--r--@  1 scottfowler  staff   1.0K 19 Feb 04:53 README.md
+-rw-r--r--@  1 scottfowler  staff    66B 19 Feb 04:53 rust-analyzer.toml
+-rw-r--r--@  1 scottfowler  staff    17B 19 Feb 04:53 rustfmt.toml
+drwxr-xr-x@ 14 scottfowler  staff   448B  9 Mar 12:51 src
+drwxr-xr-x@ 10 scottfowler  staff   320B 23 Feb 16:45 target
+-rw-r--r--   1 scottfowler  staff    30B 24 Feb 20:02 trunk.toml</div>

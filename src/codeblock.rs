@@ -10,7 +10,7 @@ pub fn TailwindLineNoise(
     let code = include_str!("codeblocks/tailwind_line_noise.hhlt");
 
     view! {
-        <ux::PlainCode
+        <ux::PlainCode   
             raw=raw
             code=code
             class=class
@@ -27,7 +27,7 @@ pub fn TailwindSolution(
     let code = include_str!("codeblocks/tailwind_solution.hhlt");
 
     view! {
-        <ux::PlainCode
+        <ux::PlainCode   
             raw=raw
             code=code
             class=class
@@ -35,6 +35,7 @@ pub fn TailwindSolution(
         />
     }
 }
+
 #[component]
 pub fn TailwindProblem(
     #[prop(optional)] class: &'static str,
@@ -52,6 +53,25 @@ pub fn TailwindProblem(
         />
     }
 }
+
+#[component]
+pub fn TailwindEdit(
+    #[prop(optional)] class: &'static str,
+    #[prop(optional)] container_class: &'static str,
+) -> impl IntoView {
+    let raw = include_str!("codeblocks/tailwind_edit.sh");
+    let code = include_str!("codeblocks/tailwind_edit.hhlt");
+
+    view! {
+        <ux::PlainCode
+            raw=raw
+            code=code
+            class=class
+            container_class=container_class
+        />
+    }
+}
+
 #[component]
 pub fn TailwindResult(
     #[prop(optional)] class: &'static str,
@@ -59,6 +79,24 @@ pub fn TailwindResult(
 ) -> impl IntoView {
     let raw = include_str!("codeblocks/tailwind_result.css");
     let code = include_str!("codeblocks/tailwind_result.hhlt");
+
+    view! {
+        <ux::PlainCode
+            raw=raw
+            code=code
+            class=class
+            container_class=container_class
+        />
+    }
+}
+
+#[component]
+pub fn TailwindPatch(
+    #[prop(optional)] class: &'static str,
+    #[prop(optional)] container_class: &'static str,
+) -> impl IntoView {
+    let raw = include_str!("codeblocks/tailwind_patch.sh");
+    let code = include_str!("codeblocks/tailwind_patch.hhlt");
 
     view! {
         <ux::PlainCode

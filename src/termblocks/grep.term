@@ -1,0 +1,12 @@
+<div style="font-family: monospace; white-space: pre;background-color: #1c1b19;color: #fce8c3;"><div style="display: inline;color: rgb(44, 120, 191);">~/dev/website</div> <div style="display: inline;color: rgb(81, 159, 80);">(</div><div style="display: inline;color: rgb(239, 47, 39);">main</div><div style="display: inline;color: rgb(81, 159, 80);">)</div> <div style="display: inline;color: rgb(81, 159, 80);">\grep</div> <div style="display: inline;color: rgb(251, 184, 41);">&#39;TailwindHover&#39;</div>             
+^C
+<div style="display: inline;color: rgb(44, 120, 191);">~/dev/website</div> <div style="display: inline;color: rgb(81, 159, 80);">(</div><div style="display: inline;color: rgb(239, 47, 39);">main</div><div style="display: inline;color: rgb(81, 159, 80);">)</div> <div style="display: inline;color: rgb(81, 159, 80);">\grep</div> <div style="display: inline;color: rgb(251, 184, 41);">&#39;TailwindHover&#39;</div> <div style="display: inline;text-decoration-line: underline;text-decoration-style: solid;">.</div>   
+grep: .: Is a directory
+<div style="display: inline;color: rgb(44, 120, 191);">~/dev/website</div> <div style="display: inline;color: rgb(81, 159, 80);">(</div><div style="display: inline;color: rgb(239, 47, 39);">main</div><div style="display: inline;color: rgb(81, 159, 80);">)</div> <div style="display: inline;color: rgb(81, 159, 80);">\grep</div> -r <div style="display: inline;color: rgb(251, 184, 41);">&#39;TailwindHover&#39;</div> <div style="display: inline;text-decoration-line: underline;text-decoration-style: solid;">.</div>
+Binary file ./dist/fwlr-io-e1743e373d7e92be_bg.wasm matches
+^C
+<div style="display: inline;color: rgb(44, 120, 191);">~/dev/website</div> <div style="display: inline;color: rgb(81, 159, 80);">(</div><div style="display: inline;color: rgb(239, 47, 39);">main</div><div style="display: inline;color: rgb(81, 159, 80);">)</div> <div style="display: inline;color: rgb(251, 184, 41);">time</div> <div style="display: inline;color: rgb(81, 159, 80);">\grep</div> -rI <div style="display: inline;color: rgb(251, 184, 41);">&#39;TailwindHover&#39;</div> <div style="display: inline;text-decoration-line: underline;text-decoration-style: solid;">.</div> 
+./src/posts/mod.rs:pub use tailwind_hover::TailwindHover;
+./src/posts/tailwind_hover.rs:pub fn TailwindHover() -&gt; impl IntoView {
+./src/app.rs:                        view=posts::TailwindHover
+\grep -rI &#39;TailwindHover&#39; .  0.05s user 0.74s system 30% cpu 2.618 total</div>

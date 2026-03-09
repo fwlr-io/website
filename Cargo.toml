@@ -19,6 +19,10 @@ opt-level = 'z'
 lto = true
 codegen-units = 1
 
+# [trunk]
+# build = { minify = "on_release" }
+
+
 
 # [patch.crates-io]
 # leptos-mview = { path = "../local-crates/leptos-mview" }

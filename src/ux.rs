@@ -36,7 +36,7 @@ pub fn P(#[prop(optional)] class: &'static str, children: Children) -> impl Into
 pub fn C(#[prop(optional)] class: &'static str, children: Children) -> impl IntoView {
     view! {
         <span class=tw_merge!(
-            "font-mono text-base rounded-sm py-vnr px-nr bg-dim-grey text-yellow", class
+            "font-mono text-base align-baseline rounded-xs py-xxvnr px-vnr bg-dim-grey text-yellow", class
         )>{children()}</span>
     }
 }

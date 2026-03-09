@@ -108,6 +108,7 @@
 
   --color-white: oklch(0.9378 0.0158 82.88);
   --color-dim-white: oklch(0.811 0.0449 81.83);
+  --color-mid-grey: oklch(0.6143 0.0264 59.13);
   --color-grey: oklch(0.5908 0.031 81.37);
   --color-dim-grey: oklch(0.3975 0.0158 55.89);
   --color-black: oklch(0.2225 0.0041 84.59);

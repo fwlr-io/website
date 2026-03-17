@@ -1,5 +1,11 @@
 mod home;
 pub use home::Home;
 
-mod posts;
-pub use posts::Posts;
+mod post;
+pub use post::Post;
+
+mod tool;
+pub use tool::Tool;
+
+mod hire;
+pub use hire::HireMe;

@@ -1,0 +1,10 @@
+<span class="text-dim-magenta">export</span> <span class="text-dim-white">EZA_COLORS</span>=<span class="text-green">&quot;gm=1;31&quot;</span> <span class="text-grey"># &#39;git modified&#39; color = bold;red</span>
+<span class="text-dim-red">alias</span> ls=<span class="text-green">&quot;eza&quot;</span>
+<span class="text-dim-red">alias</span> ll=<span class="text-green">&quot;eza --long --all \</span>
+<span class="text-green">  --header --git --no-user \</span>
+<span class="text-green">  --git-ignore -I .git \</span>
+<span class="text-green">  --tree --level 2&quot;</span>
+<span class="text-dim-red">alias</span> lll=<span class="text-green">&quot;eza --long --all \</span>
+<span class="text-green">  --header --git --hyperlink --icons \</span>
+<span class="text-green">  --git -I .git \</span>
+<span class="text-green">  --tree --level 4&quot;</span>

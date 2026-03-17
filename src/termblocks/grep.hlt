@@ -1,0 +1,15 @@
+<div class="whitespace-pre"><span class="text-[rgb(44,120,191)]">~/dev/website/src</span> <span class="text-[rgb(10,174,179)]">(</span><span class="text-[rgb(224,44,109)]">main</span><span class="text-[rgb(10,174,179)]">)</span> <span class="text-[rgb(81,159,80)]">$</span> <span class="text-[rgb(81,159,80)]">\grep</span> <span class="text-[rgb(251,184,41)]">&#39;TailwindHover&#39;</span>
+   <span class="text-[rgb(88,87,85)]">... oops, it's waiting on stdin ...</span>
+^C
+<span class="text-[rgb(44,120,191)]">~/dev/website/src</span> <span class="text-[rgb(10,174,179)]">(</span><span class="text-[rgb(224,44,109)]">main</span><span class="text-[rgb(10,174,179)]">)</span> <span class="text-[rgb(239,47,39)] font-bold">$</span> <span class="text-[rgb(81,159,80)]">\grep</span> <span class="text-[rgb(251,184,41)]">&#39;TailwindHover&#39;</span> <span class="">.</span>
+grep: .: Is a directory
+<span class="text-[rgb(44,120,191)]">~/dev/website/src</span> <span class="text-[rgb(10,174,179)]">(</span><span class="text-[rgb(224,44,109)]">main</span><span class="text-[rgb(10,174,179)]">)</span> <span class="text-[rgb(239,47,39)] font-bold">$</span> <span class="text-[rgb(81,159,80)]">\grep</span> -r <span class="text-[rgb(251,184,41)]">&#39;TailwindHover&#39;</span> <span class="">.</span>
+Binary file ./dist/fwlr-io-f0bcbcc4131debb8_bg.wasm matches
+   <span class="text-[rgb(88,87,85)]">... oops, it's searching binary files ...</span>
+^C
+<span class="text-[rgb(44,120,191)]">~/dev/website/src</span> <span class="text-[rgb(10,174,179)]">(</span><span class="text-[rgb(224,44,109)]">main</span><span class="text-[rgb(10,174,179)]">)</span> <span class="text-[rgb(239,47,39)] font-bold">$</span> <span class="text-[rgb(251,184,41)]">time</span> <span class="text-[rgb(81,159,80)]">\grep</span> -rI <span class="text-[rgb(251,184,41)]">&#39;TailwindHover&#39;</span> <span class="">.</span> 
+./posts/mod.rs:pub use tailwind_hover::TailwindHover;
+./posts/tailwind_hover.rs:pub fn TailwindHover() -&gt; impl IntoView {
+./app.rs:                        view=posts::TailwindHover
+
+0.04s user   0.61s system   99% cpu   0.652 total</div>

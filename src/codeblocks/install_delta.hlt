@@ -1,0 +1,2 @@
+<span class="text-dim-red">brew</span> install delta
+<span class="text-dim-red">open</span> ~/.gitconfig <span class="text-grey"># delta is configured in your global gitconfig</span>

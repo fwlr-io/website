@@ -1,7 +1,7 @@
-use crate::posts;
+// use crate::posts;
 use leptos::prelude::*;
 
 #[component]
-pub fn Posts() -> impl IntoView {
+pub fn Post() -> impl IntoView {
     view! { <h1>"Posts"</h1> }
 }

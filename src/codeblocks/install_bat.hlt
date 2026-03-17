@@ -1,0 +1,3 @@
+<span class="text-dim-red">brew</span> install bat
+<span class="text-dim-red">open</span> ~/.config/bat
+<span class="text-dim-red">alias</span> cat=<span class="text-green">&#39;bat&#39;</span>

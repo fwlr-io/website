@@ -1,0 +1,8 @@
+<div class="whitespace-pre"><span class="text-[rgb(44,120,191)]">~/dev/website</span> <span class="text-[rgb(10,174,179)]">(</span><span class="text-[rgb(224,44,109)]">main</span><span class="text-[rgb(10,174,179)]">)</span> <span class="text-[rgb(81,159,80)]">$</span> <span class="text-[rgb(81,159,80)]">\ls</span>
+Cargo.lock              rust-analyzer.toml
+Cargo.toml              rustfmt.toml
+dist                    src
+index.html              target
+input.css               termblock.rs
+leptosfmt.toml          trunk.toml
+README.md</div>

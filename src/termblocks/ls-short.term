@@ -1,4 +1,8 @@
-<div style="font-family: monospace; white-space: pre;background-color: #1c1b19;color: #fce8c3;"><div style="display: inline;color: rgb(44, 120, 191);">~/dev/website</div> <div style="display: inline;color: rgb(81, 159, 80);">(</div><div style="display: inline;color: rgb(239, 47, 39);">main</div><div style="display: inline;color: rgb(81, 159, 80);">)</div> <div style="display: inline;color: rgb(81, 159, 80);">\ls</div>
-Cargo.lock              index.html              README.md               src
-Cargo.toml              input.css               rust-analyzer.toml      target
-dist                    leptosfmt.toml          rustfmt.toml            trunk.toml</div>
+<div style="font-family: monospace; white-space: pre;background-color: #1c1b19;color: #fce8c3;"><div style="display: inline;color: rgb(44, 120, 191);">~/dev/website</div> <div style="display: inline;color: rgb(10, 174, 179);">(</div><div style="display: inline;color: rgb(224, 44, 109);">main</div><div style="display: inline;color: rgb(10, 174, 179);">)</div> <div style="display: inline;color: rgb(81, 159, 80);">$</div> <div style="display: inline;color: rgb(81, 159, 80);">\ls</div>
+Cargo.lock              rust-analyzer.toml
+Cargo.toml              rustfmt.toml
+dist                    src
+index.html              target
+input.css               termblock.rs
+leptosfmt.toml          trunk.toml
+README.md</div>

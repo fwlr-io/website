@@ -1,0 +1,44 @@
+<span class="text-dim-magenta">export</span> <span class="text-dim-white">FZF_CTRL_R_COMMAND</span>=<span class="text-green">&#39;&#39;</span>
+
+<span class="text-dim-magenta">export</span> <span class="text-dim-white">FZF_DEFAULT_COMMAND</span>=<span class="text-green">&#39;fd</span>
+<span class="text-green">  --type f --follow --hidden</span>
+<span class="text-green">  --strip-cwd-prefix --exclude .git</span>
+<span class="text-green">&#39;</span>
+<span class="text-dim-magenta">export</span> <span class="text-dim-white">FZF_ALT_C_OPTS</span>=<span class="text-green">&quot;</span>
+<span class="text-green">  --walker-skip .git,node_modules,target,dist</span>
+<span class="text-green">  --preview &#39;eza -TL 2 {} --color=always&#39;</span>
+<span class="text-green">&quot;</span>
+<span class="text-dim-magenta">export</span> <span class="text-dim-white">FZF_CTRL_T_OPTS</span>=<span class="text-green">&quot;</span>
+<span class="text-green">  --walker-skip .git,node_modules,target,dist</span>
+<span class="text-green">  --preview &#39;[ -d {} ] &amp;&amp;</span>
+<span class="text-green">    eza -TL 2 {} --color=always ||</span>
+<span class="text-green">    bat {} --color=always&#39;</span>
+<span class="text-green">&quot;</span>
+<span class="text-dim-magenta">export</span> <span class="text-dim-white">FZF_DEFAULT_OPTS</span>=<span class="text-green">&quot;</span>
+<span class="text-green">  --no-info</span>
+<span class="text-green">  --list-border rounded</span>
+<span class="text-green">  --scrollbar=&#39;▐&#39;</span>
+<span class="text-green">  --prompt=&#39;\$ &#39;</span>
+<span class="text-green">  --preview-window &#39;noinfo&#39;</span>
+<span class="text-green">&quot;</span>
+<span class="text-dim-red">source</span> <span class="text-dim-cyan">&lt;(<span class="text-dim-red">fzf</span> <span class="text-cyan">--zsh</span>)</span>
+
+<span class="text-dim-red">_fzf_git_add</span>() {
+  <span class="text-dim-red">git</span> status <span class="text-cyan">-su</span> <span class="text-dim-white">|</span>
+    <span class="text-dim-red">fzf</span> <span class="text-cyan">--ansi</span> <span class="text-cyan">--no-input</span> \
+      <span class="text-cyan">--bind</span> <span class="text-green">&quot;start:unbind(tab)+unbind(shift-tab)&quot;</span> \
+      <span class="text-cyan">--bind</span> <span class="text-green">&#39;a:execute-silent[</span>
+<span class="text-green">          git add $(echo {} | cut -c4- | cut -wf3)</span>
+<span class="text-green">        ]+reload[git status -su]&#39;</span> \
+      <span class="text-cyan">--bind</span> <span class="text-green">&#39;d:execute-silent[</span>
+<span class="text-green">          git restore -S $(echo {} | cut -c4- | cut -wf3)</span>
+<span class="text-green">        ]+reload[git status -su]&#39;</span> \
+      <span class="text-cyan">--list-border</span> <span class="text-green">&#39;none&#39;</span> \
+      <span class="text-cyan">--preview-window</span> <span class="text-green">&#39;right,75%,border-line&#39;</span> \
+      <span class="text-cyan">--preview</span> <span class="text-green">&#39;[[ $(echo {} | cut -wf1) =~ &quot;\?\?&quot; ]] &amp;&amp;</span>
+<span class="text-green">        bat -f $(echo {} | cut -wf2) \</span>
+<span class="text-green">          --terminal-width $FZF_PREVIEW_COLUMNS ||</span>
+<span class="text-green">        git diff -- $(echo {} | cut -wf3) |</span>
+<span class="text-green">        delta -w $FZF_PREVIEW_COLUMNS&#39;</span>
+  <span class="text-dim-red">git</span> status
+}

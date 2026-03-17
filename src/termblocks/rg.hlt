@@ -1,0 +1,11 @@
+<div class="whitespace-pre"><span class="text-[rgb(44,120,191)]">~/dev/website</span> <span class="text-[rgb(10,174,179)]">(</span><span class="text-[rgb(224,44,109)]">main</span><span class="text-[rgb(10,174,179)]">)</span> <span class="text-[rgb(81,159,80)]">$</span> <span class="text-[rgb(251,184,41)]">time</span> <span class="text-[rgb(81,159,80)]">grep</span> TailwindHover 
+<span class="text-[rgb(224,44,109)]"><a onclick='alert("opens `~/dev/website/src/app.rs:1:1` in your editor");'>src/app.rs</span>
+<span class="text-[rgb(81,159,80)]"></a><a onclick='alert("opens `~/dev/website/src/app.rs:16:37` in your editor");'>16</span></a>&#720;                        view=posts::<span class="text-[rgb(43,228,208)] bg-[rgb(51,49,42)] font-bold">TailwindHover</span>
+
+<span class="text-[rgb(224,44,109)]"><a onclick='alert("opens `~/dev/website/src/posts/tailwind_hover.rs:1:1` in your editor");'>src/posts/tailwind_hover.rs</span>
+<span class="text-[rgb(81,159,80)]"></a><a onclick='alert("opens `~/dev/website/src/posts/tailwind_hover.rs:6:8` in your editor");'>6</span></a>&#720;pub fn <span class="text-[rgb(43,228,208)] bg-[rgb(51,49,42)] font-bold">TailwindHover</span>() -&gt; impl IntoView {
+
+<span class="text-[rgb(224,44,109)]"><a onclick='alert("opens `~/dev/website/src/posts/mod.rs:1:1` in your editor");'>src/posts/mod.rs</span>
+<span class="text-[rgb(81,159,80)]"></a><a onclick='alert("opens `~/dev/website/src/posts/mod.rs:2:25` in your editor");'>2</span></a>&#720;pub use tailwind_hover::<span class="text-[rgb(43,228,208)] bg-[rgb(51,49,42)] font-bold">TailwindHover</span>;
+
+0.01s user   0.01s system   78% cpu   0.026 total</div>

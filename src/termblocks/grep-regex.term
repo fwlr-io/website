@@ -1,22 +1,6 @@
-<div style="font-family: monospace; white-space: pre;background-color: #1c1b19;color: #fce8c3;"><div style="display: inline;color: rgb(44, 120, 191);">~/dev/website</div> <div style="display: inline;color: rgb(81, 159, 80);">(</div><div style="display: inline;color: rgb(239, 47, 39);">main</div><div style="display: inline;color: rgb(81, 159, 80);">)</div> <div style="display: inline;color: rgb(81, 159, 80);">\grep</div> -rI -Eo <div style="display: inline;color: rgb(251, 184, 41);">&#39;(ux|posts|pages)::\w+&#39;</div> <div style="display: inline;text-decoration-line: underline;text-decoration-style: solid;">.</div> -n --color
-./src/termblocks/grep.term:11:<div style="display: inline;color: rgb(186, 166, 127);background-color: rgb(224, 44, 109);">posts::TailwindHover</div>
-./src/termblocks/diff-less.term:16:<div style="display: inline;color: rgb(186, 166, 127);background-color: rgb(224, 44, 109);">ux::FancyCode</div>
-./src/termblocks/diff-less.term:18:<div style="display: inline;color: rgb(186, 166, 127);background-color: rgb(224, 44, 109);">ux::FancyCode</div>
-./src/termblocks/diff-delta.term:18:<div style="display: inline;color: rgb(186, 166, 127);background-color: rgb(224, 44, 109);">ux::FancyCode</div>
-./src/termblocks/diff-delta.term:22:<div style="display: inline;color: rgb(186, 166, 127);background-color: rgb(224, 44, 109);">ux::FancyCode</div>
-./src/codeblock.rs:13:<div style="display: inline;color: rgb(186, 166, 127);background-color: rgb(224, 44, 109);">ux::PlainCode</div>
-./src/codeblock.rs:30:<div style="display: inline;color: rgb(186, 166, 127);background-color: rgb(224, 44, 109);">ux::PlainCode</div>
-./src/codeblock.rs:47:<div style="display: inline;color: rgb(186, 166, 127);background-color: rgb(224, 44, 109);">ux::PlainCode</div>
-./src/codeblock.rs:64:<div style="display: inline;color: rgb(186, 166, 127);background-color: rgb(224, 44, 109);">ux::PlainCode</div>
-./src/codeblock.rs:81:<div style="display: inline;color: rgb(186, 166, 127);background-color: rgb(224, 44, 109);">ux::PlainCode</div>
-./src/codeblock.rs:98:<div style="display: inline;color: rgb(186, 166, 127);background-color: rgb(224, 44, 109);">ux::PlainCode</div>
+<div style="font-family: monospace; white-space: pre;background-color: #1c1b19;color: #fce8c3;"><div style="display: inline;color: rgb(44, 120, 191);">~/dev/website</div> <div style="display: inline;color: rgb(10, 174, 179);">(</div><div style="display: inline;color: rgb(224, 44, 109);">main</div><div style="display: inline;color: rgb(10, 174, 179);">)</div> <div style="display: inline;color: rgb(81, 159, 80);">$</div> <div style="display: inline;color: rgb(81, 159, 80);">\grep</div> -rIn -Eo <div style="display: inline;color: rgb(251, 184, 41);">&#39;(posts|pages)::\w+&#39;</div> <div style="display: inline;text-decoration-line: underline;text-decoration-style: solid;">.</div>
 ./src/app.rs:11:<div style="display: inline;color: rgb(186, 166, 127);background-color: rgb(224, 44, 109);">pages::Home</div>
-./src/app.rs:12:<div style="display: inline;color: rgb(186, 166, 127);background-color: rgb(224, 44, 109);">pages::Posts</div>
-./src/app.rs:15:<div style="display: inline;color: rgb(186, 166, 127);background-color: rgb(224, 44, 109);">posts::TailwindHover</div>
-./src/pages/mod.rs:5:<div style="display: inline;color: rgb(186, 166, 127);background-color: rgb(224, 44, 109);">posts::Posts</div>
-./src/fancy_codeblock.rs:13:<div style="display: inline;color: rgb(186, 166, 127);background-color: rgb(224, 44, 109);">ux::FancyCode</div>
-./src/fancy_codeblock.rs:30:<div style="display: inline;color: rgb(186, 166, 127);background-color: rgb(224, 44, 109);">ux::FancyCode</div>
-./src/fancy_codeblock.rs:47:<div style="display: inline;color: rgb(186, 166, 127);background-color: rgb(224, 44, 109);">ux::FancyCode</div>
-./src/fancy_codeblock.rs:64:<div style="display: inline;color: rgb(186, 166, 127);background-color: rgb(224, 44, 109);">ux::FancyCode</div>
-./src/fancy_codeblock.rs:81:<div style="display: inline;color: rgb(186, 166, 127);background-color: rgb(224, 44, 109);">ux::FancyCode</div>
-./src/fancy_codeblock.rs:98:<div style="display: inline;color: rgb(186, 166, 127);background-color: rgb(224, 44, 109);">ux::FancyCode</div></div>
+./src/app.rs:13:<div style="display: inline;color: rgb(186, 166, 127);background-color: rgb(224, 44, 109);">pages::Post</div>
+./src/app.rs:16:<div style="display: inline;color: rgb(186, 166, 127);background-color: rgb(224, 44, 109);">posts::TailwindHover</div>
+./src/app.rs:20:<div style="display: inline;color: rgb(186, 166, 127);background-color: rgb(224, 44, 109);">posts::ModernTerminal</div>
+./src/pages/home.rs:6:<div style="display: inline;color: rgb(186, 166, 127);background-color: rgb(224, 44, 109);">posts::ModernTerminal</div></div>

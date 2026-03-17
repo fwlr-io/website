@@ -1,0 +1,14 @@
+[core]
+	pager = delta
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	side-by-side = true
+	relative-paths = true
+
+	hyperlinks = true
+	hyperlinks-file-link-format = "zed://file/{path}:{line}"
+
+	syntax-theme = srcery # delta uses bat's themes

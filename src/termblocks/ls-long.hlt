@@ -1,0 +1,15 @@
+<div class="whitespace-pre"><span class="text-[rgb(44,120,191)]">~/dev/website</span> <span class="text-[rgb(10,174,179)]">(</span><span class="text-[rgb(224,44,109)]">main</span><span class="text-[rgb(10,174,179)]">)</span> <span class="text-[rgb(81,159,80)]">$</span> <span class="text-[rgb(81,159,80)]">\ls</span> -lh  <span class="text-[rgb(88,87,85)] font-bold"># often aliased as `ll` </span>
+total 224
+-rw-r--r--@  1 scottfowler  staff    68K 16 Mar 22:05 Cargo.lock
+-rw-r--r--   1 scottfowler  staff   506B 16 Mar 22:05 Cargo.toml
+drwxr-xr-x@  3 scottfowler  staff    96B 16 Mar 23:11 dist
+-rw-r--r--@  1 scottfowler  staff   470B 14 Mar 14:27 index.html
+-rw-r--r--@  1 scottfowler  staff   4.7K 14 Mar 14:24 input.css
+-rw-r--r--@  1 scottfowler  staff   360B 19 Feb 04:53 leptosfmt.toml
+-rw-r--r--@  1 scottfowler  staff   1.0K 19 Feb 04:53 README.md
+-rw-r--r--@  1 scottfowler  staff    66B 19 Feb 04:53 rust-analyzer.toml
+-rw-r--r--@  1 scottfowler  staff    17B 19 Feb 04:53 rustfmt.toml
+drwxr-xr-x@ 15 scottfowler  staff   480B 16 Mar 22:47 src
+drwxr-xr-x@ 10 scottfowler  staff   320B 23 Feb 16:45 target
+-rw-r--r--   1 scottfowler  staff   3.4K 13 Mar 18:30 termblock.rs
+-rw-r--r--   1 scottfowler  staff    30B 24 Feb 20:02 trunk.toml</div>

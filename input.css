@@ -1,10 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@0;1&family=Source+Serif+4:ital,opsz@0,10;1,10&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz@0,9;1,9&display=swap");
+
+@font-face {
+  font-family: "Source Code Pro";
+  src: url("/SourceCodePro[wght].ttf") format("truetype");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Source Code Pro";
+  src: url("/SourceCodePro-Italic[wght].ttf") format("truetype");
+  font-weight: 400 700;
+  font-style: italic;
+  font-display: swap;
+}
 
 @import "tailwindcss";
-
-/* not using fancy stuff at the moment, don't bloat css */
-@source not "src/fancy*.rs";
-
 /* tailwind v4 changed how `hover:` works, now it uses:
 ```
   &:hover {
@@ -83,6 +95,9 @@
   /* optical correction value (use `mt-`, `mb-`, `my-`) */
   --spacing-rounded-correct: calc(-1 * ((1lh - 1em) / 2));
 
+  /* better typography spacing */
+  --spacing-lh: 1lh;
+
   --color-*: initial;
   /*
   Based on https://zed-themes.com/themes/srcery
@@ -94,12 +109,14 @@
   --color-dim-cyan: oklch(0.6822 0.1148 198.48);
   --color-cyan: oklch(0.903 0.1403 183.78);
 
+  --color-deep-red: oklch(0.2311 0.0945 28.13);
   --color-dim-red: oklch(0.617 0.2266 28.52);
   --color-red: oklch(0.6646 0.2031 29.68);
 
   --color-dim-magenta: oklch(0.6004 0.2155 5.8);
   --color-magenta: oklch(0.7021 0.201 4.66);
 
+  --color-deep-green: oklch(0.2399 0.0816 142.5);
   --color-dim-green: oklch(0.6335 0.1375 143.5);
   --color-green: oklch(0.7438 0.1612 123.58);
 
@@ -111,13 +128,16 @@
   --color-mid-grey: oklch(0.6143 0.0264 59.13);
   --color-grey: oklch(0.5908 0.031 81.37);
   --color-dim-grey: oklch(0.3975 0.0158 55.89);
+  --color-mid-black: oklch(0.3128 0.0124 93.83);
   --color-black: oklch(0.2225 0.0041 84.59);
 }
 
 @layer base {
   body {
+    font-synthesis: none;
     font-optical-sizing: none;
-    font-variation-settings: "opsz" 10;
+    font-variation-settings: "opsz" 9;
+    font-variant-ligatures: no-common-ligatures;
   }
 
   a {
@@ -135,5 +155,10 @@
       text-underline-offset: calc(2em / 17);
     }
     text-underline-offset: calc(3em / 17);
+  }
+
+  p {
+    text-wrap: pretty;
+    width: var(--container-xl);
   }
 }

@@ -1,6 +1,7 @@
+use crate::posts;
 use leptos::prelude::*;
 
 #[component]
 pub fn Home() -> impl IntoView {
-    view! { <h1>"Scott Fowler"</h1> }
+    view! { <posts::ModernTerminal /> }
 }

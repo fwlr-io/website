@@ -1,0 +1,5 @@
+<div class="whitespace-pre"><span class="text-[rgb(44,120,191)]">~/dev/website</span> <span class="text-[rgb(10,174,179)]">(</span><span class="text-[rgb(224,44,109)]">main</span><span class="text-[rgb(10,174,179)]">)</span> <span class="text-[rgb(81,159,80)]">$</span> <span class="text-[rgb(81,159,80)]">ls</span>
+Cargo.lock  <span class="text-[rgb(251,184,41)] font-bold">input.css</span>           rustfmt.toml  trunk.toml
+<span class="text-[rgb(251,184,41)] font-bold">Cargo.toml</span>  leptosfmt.toml      <span class="text-[rgb(44,120,191)] font-bold">src</span>
+<span class="text-[rgb(44,120,191)] font-bold">dist</span>        <span class="text-[rgb(251,184,41)] font-bold">README.md</span>           <span class="text-[rgb(44,120,191)] font-bold">target</span>
+index.html  rust-analyzer.toml  <span class="text-[rgb(251,184,41)] font-bold">termblock.rs</span></div>

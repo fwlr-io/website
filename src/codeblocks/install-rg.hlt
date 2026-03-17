@@ -1,0 +1,10 @@
+<span class="text-dim-red">brew</span> install rg
+<span class="text-dim-red">alias</span> grep=<span class="text-green">&quot;rg&quot;</span>
+
+<span class="text-dim-magenta">export</span> <span class="text-dim-white">RIPGREP_CONFIG_PATH</span>=<span class="text-green">&quot;<span class="text-dim-white">$</span><span class="text-dim-white">HOME</span>/.ripgreprc&quot;</span>
+<span class="text-dim-red">echo</span> <span class="text-green">&quot;</span>
+<span class="text-green">--engine</span>
+<span class="text-green">auto</span>
+<span class="text-green">--hyperlink-format</span>
+<span class="text-green">zed://file/{path}:{line}:{column}</span>
+<span class="text-green">&quot;</span> <span class="text-dim-white">&gt;</span> <span class="text-dim-white">$</span><span class="text-dim-white">RIPGREP_CONFIG_PATH</span>

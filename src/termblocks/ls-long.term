@@ -1,14 +1,15 @@
-<div style="font-family: monospace; white-space: pre;background-color: #1c1b19;color: #fce8c3;"><div style="display: inline;color: rgb(44, 120, 191);">~/dev/website</div> <div style="display: inline;color: rgb(81, 159, 80);">(</div><div style="display: inline;color: rgb(239, 47, 39);">main</div><div style="display: inline;color: rgb(81, 159, 80);">)</div> <div style="display: inline;color: rgb(81, 159, 80);">\ls</div> -lh <div style="display: inline;color: rgb(28, 27, 25);font-weight: bold;"># often aliased to ll</div> 
-total 216
--rw-r--r--@  1 scottfowler  staff    69K 23 Feb 16:42 Cargo.lock
--rw-r--r--   1 scottfowler  staff   1.2K 24 Feb 20:02 Cargo.toml
-drwxr-xr-x@  6 scottfowler  staff   192B  9 Mar 04:00 dist
--rw-r--r--@  1 scottfowler  staff   292B 23 Feb 15:41 index.html
--rw-r--r--@  1 scottfowler  staff   4.2K  9 Mar 13:26 input.css
+<div style="font-family: monospace; white-space: pre;background-color: #1c1b19;color: #fce8c3;"><div style="display: inline;color: rgb(44, 120, 191);">~/dev/website</div> <div style="display: inline;color: rgb(10, 174, 179);">(</div><div style="display: inline;color: rgb(224, 44, 109);">main</div><div style="display: inline;color: rgb(10, 174, 179);">)</div> <div style="display: inline;color: rgb(81, 159, 80);">$</div> <div style="display: inline;color: rgb(81, 159, 80);">\ls</div> -lh  <div style="display: inline;color: rgb(88, 87, 85);font-weight: bold;"># often aliased as `ll` </div>
+total 224
+-rw-r--r--@  1 scottfowler  staff    68K 16 Mar 22:05 Cargo.lock
+-rw-r--r--   1 scottfowler  staff   506B 16 Mar 22:05 Cargo.toml
+drwxr-xr-x@  3 scottfowler  staff    96B 16 Mar 23:11 dist
+-rw-r--r--@  1 scottfowler  staff   470B 14 Mar 14:27 index.html
+-rw-r--r--@  1 scottfowler  staff   4.7K 14 Mar 14:24 input.css
 -rw-r--r--@  1 scottfowler  staff   360B 19 Feb 04:53 leptosfmt.toml
 -rw-r--r--@  1 scottfowler  staff   1.0K 19 Feb 04:53 README.md
 -rw-r--r--@  1 scottfowler  staff    66B 19 Feb 04:53 rust-analyzer.toml
 -rw-r--r--@  1 scottfowler  staff    17B 19 Feb 04:53 rustfmt.toml
-drwxr-xr-x@ 14 scottfowler  staff   448B  9 Mar 12:51 src
+drwxr-xr-x@ 15 scottfowler  staff   480B 16 Mar 22:47 src
 drwxr-xr-x@ 10 scottfowler  staff   320B 23 Feb 16:45 target
+-rw-r--r--   1 scottfowler  staff   3.4K 13 Mar 18:30 termblock.rs
 -rw-r--r--   1 scottfowler  staff    30B 24 Feb 20:02 trunk.toml</div>

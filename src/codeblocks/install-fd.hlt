@@ -1,0 +1,2 @@
+<span class="text-dim-red">brew</span> install fd
+<span class="text-dim-red">alias</span> find=<span class="text-green">&quot;fd&quot;</span>

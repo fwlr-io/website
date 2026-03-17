@@ -1,0 +1,14 @@
+<span class="text-dim-white">[</span><span class="text-dim-white">core</span><span class="text-dim-white">]</span>
+	<span class="text-dim-white">pager</span> <span class="text-dim-white">=</span> <span class="text-dim-white">delta</span>
+
+<span class="text-dim-white">[</span><span class="text-dim-white">interactive</span><span class="text-dim-white">]</span>
+	<span class="text-dim-white">diffFilter</span> <span class="text-dim-white">=</span> <span class="text-dim-white">delta</span> <span class="text-dim-white">--color-only</span>
+
+<span class="text-dim-white">[</span><span class="text-dim-white">delta</span><span class="text-dim-white">]</span>
+	<span class="text-dim-white">side-by-side</span> <span class="text-dim-white">=</span> <span class="text-cyan">true</span>
+	<span class="text-dim-white">relative-paths</span> <span class="text-dim-white">=</span> <span class="text-cyan">true</span>
+
+	<span class="text-dim-white">hyperlinks</span> <span class="text-dim-white">=</span> <span class="text-cyan">true</span>
+	<span class="text-dim-white">hyperlinks-file-link-format</span> <span class="text-dim-white">=</span> <span class="text-green">&quot;zed://file/{path}:{line}&quot;</span>
+
+	<span class="text-dim-white">syntax-theme</span> <span class="text-dim-white">=</span> <span class="text-dim-white">srcery</span> <span class="text-grey"># delta uses bat&#39;s themes</span>

@@ -9,7 +9,6 @@ console_error_panic_hook = "0.1.7"
 leptos = { version = "0.8.15", features = ["nightly", "csr"] }
 leptos-use = "0.18.0"
 leptos_router = { version = "0.8.12", features = ["nightly"] }
-tailwind_fuse = "0.3.2"
 tracing = { version = "0.1.44", features = ["log"] }
 tracing-subscriber = "0.3.22"
 tracing-subscriber-wasm = "0.1.0"
@@ -19,19 +18,5 @@ opt-level = 'z'
 lto = true
 codegen-units = 1
 
-# [trunk]
-# build = { minify = "on_release" }
-
-
-
-# [patch.crates-io]
-# leptos-mview = { path = "../local-crates/leptos-mview" }
-
-# An abortive attempt at addressing this issue:
-#   `value=[count]` expands to `value={move || count}`
-#   `on:click=[set_count(1)]` does NOT expand to `on:click={move |_| set_count(1)}`
-#   it instead requires you to write out `...={move |ev| ... }` or  `...={move |_| ... }` manually
-# I briefly tried to make it expand `value=[| count]` to `value={move || count}`
-#                                         ^-^                  ^+++++++^
-# so that `on:click=[_| set_count(1)]` would give `on:click=move |_| set_count(1)`, but alas!
-#                 ^^-^^                                   ^^++++++^^
+[package.metadata.leptos]
+assets-dir = "public"

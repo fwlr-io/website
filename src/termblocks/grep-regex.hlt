@@ -1,0 +1,6 @@
+<div class="whitespace-pre"><span class="text-[rgb(44,120,191)]">~/dev/website</span> <span class="text-[rgb(10,174,179)]">(</span><span class="text-[rgb(224,44,109)]">main</span><span class="text-[rgb(10,174,179)]">)</span> <span class="text-[rgb(81,159,80)]">$</span> <span class="text-[rgb(81,159,80)]">\grep</span> -rIn -Eo <span class="text-[rgb(251,184,41)]">&#39;(posts|pages)::\w+&#39;</span> <span class="">.</span>
+./src/app.rs:11:<span class="text-[rgb(186,166,127)] bg-[rgb(224,44,109)]">pages::Home</span>
+./src/app.rs:13:<span class="text-[rgb(186,166,127)] bg-[rgb(224,44,109)]">pages::Post</span>
+./src/app.rs:16:<span class="text-[rgb(186,166,127)] bg-[rgb(224,44,109)]">posts::TailwindHover</span>
+./src/app.rs:20:<span class="text-[rgb(186,166,127)] bg-[rgb(224,44,109)]">posts::ModernTerminal</span>
+./src/pages/home.rs:6:<span class="text-[rgb(186,166,127)] bg-[rgb(224,44,109)]">posts::ModernTerminal</span></span>

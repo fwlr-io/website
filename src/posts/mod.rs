@@ -1,3 +1,6 @@
+mod all;
+pub use all::All;
+
 mod tailwind_hover;
 pub use tailwind_hover::TailwindHover;
 

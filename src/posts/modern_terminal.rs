@@ -153,8 +153,7 @@ pub fn ModernTerminal() -> impl IntoView {
             "##
             <a href="https://blog.codinghorror.com/content/images/2019/02/there-is-no-cloud.png">
                 "someone else's computer"
-            </a>r##"
-            ). You can use
+            </a>r##"). You can use
             "##<a href="https://dandavison.github.io/delta/">"delta"</a>r##"
             instead!
             "##
@@ -219,7 +218,7 @@ pub fn ModernTerminal() -> impl IntoView {
             "##
             <a href="https://github.com/reegnz/jq-zsh-plugin">
                 "interactive live repl"
-            </a>"for "{code("jq")}"?"
+            </a>" for "{code("jq")}"?"
         </p>
         <termblock::FzfJq tiny=true />
 

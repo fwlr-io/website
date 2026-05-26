@@ -18,7 +18,6 @@ pub fn CodeBox(raw: &'static str, code: &'static str) -> impl IntoView {
     view! {
         <div class="bg-black rounded-md border shadow-md border-black/25 p-r min-w-xl shadow-grey inset-shadow-sm inset-shadow-white/20">
             <div class="sr-only">{raw}</div>
-            <div class="w-full h-fr bg-dim-white/50" />
             <div
                 class="overflow-x-scroll w-full font-mono text-sm whitespace-pre text-dim-white my-rounded-correct"
                 inner_html=code

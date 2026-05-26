@@ -18,14 +18,14 @@ pub fn ModernTerminal() -> impl IntoView {
         <p>
             r##"
                 Consider
-            "##<C c="cat" />":"
+            "##{code("cat")}":"
         </p>
         <termblock::Cat />
         <p>
             r##"
                 Upgrade to
             "##<a href="https://github.com/sharkdp/bat">"bat"</a>r##"
-                for git awareness and syntax highlighting:
+            for git awareness and syntax highlighting:
             "##
         </p>
         <codeblock::InstallBat />
@@ -36,7 +36,7 @@ pub fn ModernTerminal() -> impl IntoView {
         <p>
             r##"
                 Or take
-            "##<C c="ls" />":"
+            "##{code("ls")}":"
         </p>
         <termblock::LsShort />
         <termblock::LsLong />
@@ -44,9 +44,9 @@ pub fn ModernTerminal() -> impl IntoView {
             r##"
                 Upgrade to
             "##<a href="https://eza.rocks">"eza"</a>r##"
-                for tree display, respecting local git ignores,
-                filenames hyperlinked to open in editor on click,
-                even icons if you desire it.
+            for tree display, respecting local git ignores,
+            filenames hyperlinked to open in editor on click,
+            even icons if you desire it.
             "##
         </p>
         <codeblock::EzaConfig />
@@ -76,8 +76,8 @@ pub fn ModernTerminal() -> impl IntoView {
         <p>
             r##"
                 Most of my attempts to use
-            "##<C c="find" />r##"
-                look something like this:
+            "##{code("find")}r##"
+            look something like this:
             "##
         </p>
         <termblock::Find />
@@ -85,7 +85,7 @@ pub fn ModernTerminal() -> impl IntoView {
             r##"
                 Upgrade to
             "##<a href="https://github.com/sharkdp/fd">fd</a>r##"
-                for faster searches with the syntax you'd expect.
+            for faster searches with the syntax you'd expect.
             "##
         </p>
         <codeblock::InstallFd />
@@ -96,7 +96,7 @@ pub fn ModernTerminal() -> impl IntoView {
         <p>
             r##"
                 A similarly finicky utility is
-            "##<C c="grep" />":"
+            "##{code("grep")}":"
         </p>
         <termblock::Grep />
 
@@ -104,7 +104,7 @@ pub fn ModernTerminal() -> impl IntoView {
             r##"
                 Upgrade to
             "##<a href="https://github.com/BurntSushi/ripgrep">rg</a>r##"
-                for greatly improved performance, better defaults, and saner syntax.
+            for greatly improved performance, better defaults, and saner syntax.
             "##
         </p>
         <codeblock::InstallRg />
@@ -139,8 +139,8 @@ pub fn ModernTerminal() -> impl IntoView {
         <p>
             r##"
                 The standard
-            "##<C c="git diff" />r##"
-                pager is serviceable, but it's not exactly comfortable:
+            "##{code("git diff")}r##"
+            pager is serviceable, but it's not exactly comfortable:
             "##
         </p>
         <termblock::DiffLess />
@@ -149,13 +149,14 @@ pub fn ModernTerminal() -> impl IntoView {
                 It's the current year - you can be comfortable without being reduced
                 to poking at Git through an IDE (or, heaven forfend, a
             "##<a href="https://github.com">"React app"</a>r##"
-                on
-            "##<a href="https://blog.codinghorror.com/content/images/2019/02/there-is-no-cloud.png">r##"
-                someone else's computer
-            "##</a>r##"
-                ). You can use
+            on
+            "##
+            <a href="https://blog.codinghorror.com/content/images/2019/02/there-is-no-cloud.png">
+                "someone else's computer"
+            </a>r##"
+            ). You can use
             "##<a href="https://dandavison.github.io/delta/">"delta"</a>r##"
-                instead!
+            instead!
             "##
         </p>
         <codeblock::InstallDelta />
@@ -167,16 +168,15 @@ pub fn ModernTerminal() -> impl IntoView {
         <p>
             r##"
                 Going beyond "drop-in" replacements,
-            "##<a href="https://github.com/junegunn/fzf">fzf</a>r##"
-                can transform turn a command line into your own personal TUI.
+            "##<a href="https://github.com/junegunn/fzf">"fzf"</a>r##"
+            can transform turn a command line into your own personal TUI.
             "##
         </p>
         <codeblock::InstallFzf />
 
         <p>
             r##"
-                Option+C to fuzzy-search a directory to "##<C c="cd" />r##" into:
-            "##
+                Option+C to fuzzy-search a directory to "##{code("cd")}" into:"
         </p>
         <termblock::FzfCd />
 
@@ -187,6 +187,13 @@ pub fn ModernTerminal() -> impl IntoView {
             "##
         </p>
         <termblock::FzfFs />
+
+        <p>
+            r##"
+                Control+R to fuzzy-search your command history.
+            "##
+        </p>
+        <termblock::FzfHist />
 
         <p>
             r##"
@@ -209,9 +216,10 @@ pub fn ModernTerminal() -> impl IntoView {
         <p>
             r##"
                 How about an
-            "##<a href="https://github.com/reegnz/jq-zsh-plugin">"interactive live repl"</a>r##"
-                for "##<C c="jq" />r##"?
             "##
+            <a href="https://github.com/reegnz/jq-zsh-plugin">
+                "interactive live repl"
+            </a>"for "{code("jq")}"?"
         </p>
         <termblock::FzfJq tiny=true />
 

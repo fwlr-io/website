@@ -3,9 +3,9 @@ use leptos::prelude::*;
 #[component]
 pub fn TermBox(hlt: &'static str, #[prop(optional)] tiny: bool) -> impl IntoView {
     view! {
-        <div class="bg-black rounded-sm border shadow-sm border-black/25 p-nr pt-vnr min-w-xl shadow-grey inset-shadow-sm inset-shadow-white/20">
+        <div class="bg-black rounded-sm border shadow-md border-black/25 px-nr py-vnr min-w-xl shadow-grey inset-shadow-sm inset-shadow-white/20">
             <div
-                class="font-mono text-sm/4.5 text-dim-white w-full overflow-x-scroll"
+                class="overflow-x-scroll w-full font-mono text-sm/4.5 text-dim-white"
                 class=("text-xs/3.75", tiny)
                 inner_html=hlt
             />
@@ -18,6 +18,7 @@ pub fn CodeBox(raw: &'static str, code: &'static str) -> impl IntoView {
     view! {
         <div class="bg-black rounded-md border shadow-md border-black/25 p-r min-w-xl shadow-grey inset-shadow-sm inset-shadow-white/20">
             <div class="sr-only">{raw}</div>
+            <div class="w-full h-fr bg-dim-white/50" />
             <div
                 class="overflow-x-scroll w-full font-mono text-sm whitespace-pre text-dim-white my-rounded-correct"
                 inner_html=code
@@ -62,30 +63,22 @@ pub fn Browser(children: Children) -> impl IntoView {
     }
 }
 
-#[component]
-pub fn C(c: &'static str) -> impl IntoView {
-    let no_ascenders = move || {
-        for ch in "bdfhkl".chars() {
-            if c.contains(ch) {
-                return false;
-            }
-        }
-        return true;
-    };
-    let no_descenders = move || {
-        for ch in "gpqyj".chars() {
-            if c.contains(ch) {
-                return false;
-            }
-        }
-        return true;
-    };
+pub fn code(c: &'static str) -> impl IntoView {
+    let big_ascenders = "bdfhkl".chars().any(|s| c.contains(s));
+    let small_ascenders = !big_ascenders && "tij".chars().any(|s| c.contains(s));
+
+    let big_descenders = "gyj".chars().any(|s| c.contains(s));
+    let small_descenders = !big_descenders && "pq".chars().any(|s| c.contains(s));
+    let no_descenders = !big_descenders && !small_descenders;
 
     view! {
         <span
-            class="font-mono rounded-xs p-xvnr pt-xxvnr mr-px bg-dim-grey text-yellow"
-            class=("pt-px!", no_ascenders)
-            class=("pb-xxvnr!", no_descenders)
+            class="mr-px font-mono px-xvnr rounded-xs bg-dim-grey text-yellow"
+            class:pt-px=small_ascenders
+            class:pt-xxvnr=big_ascenders
+            class:pb-px=no_descenders
+            class:pb-xvnr=big_descenders
+            class:pb-xxvnr=small_descenders
         >
             {c}
         </span>
@@ -95,9 +88,12 @@ pub fn C(c: &'static str) -> impl IntoView {
 #[component]
 pub fn Break() -> impl IntoView {
     view! {
-        <div class="flex flex-row justify-center align-middle my-lh">
-            <span class="text-3xl text-mid-black">"❒"</span>
+        <div class="flex flex-row justify-center items-center w-xl px-lh gap-lh mx-lh">
+            <span class="w-full h-[0.5px] bg-mid-black shrink" />
+            <span class="font-mono text-4xl font-bold text-mid-black">
+                "❒"
+            </span>
+            <span class="w-full h-[0.5px] bg-mid-black shrink" />
         </div>
-
     }
 }

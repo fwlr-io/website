@@ -102,6 +102,16 @@ pub fn InstallBat() -> impl IntoView {
 }
 
 #[component]
+pub fn Highlight() -> impl IntoView {
+    view! {
+        <CodeBox
+            raw=include_str!("codeblocks/highlight.rs")
+            code=include_str!("codeblocks/highlight.hlt")
+        />
+    }
+}
+
+#[component]
 pub fn DeltaConfig() -> impl IntoView {
     view! {
         <CodeBox

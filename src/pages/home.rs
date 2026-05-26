@@ -1,4 +1,3 @@
-use crate::posts;
 use leptos::prelude::*;
 use leptos_router::components::A;
 

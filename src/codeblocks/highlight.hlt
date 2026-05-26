@@ -1,0 +1,360 @@
+<span class="text-dim-magenta">use</span> constcat<span class="text-grey">::</span>concat<span class="text-grey">;</span>
+<span class="text-dim-magenta">use</span> std<span class="text-grey">::</span><span class="text-dim-white">{</span>collections<span class="text-grey">::</span><span class="text-dim-magenta">HashMap</span><span class="text-grey">,</span> sync<span class="text-grey">::</span><span class="text-dim-magenta">LazyLock</span><span class="text-dim-white">}</span><span class="text-grey">;</span>
+<span class="text-dim-magenta">use</span> tree_sitter_highlight<span class="text-grey">::</span><span class="text-dim-white">{</span><span class="text-dim-magenta">Highlight</span><span class="text-grey">,</span> <span class="text-dim-magenta">HighlightConfiguration</span><span class="text-dim-white">}</span><span class="text-grey">;</span>
+
+<span class="text-dim-magenta">pub</span> <span class="text-dim-magenta">fn</span> <span class="text-dim-red">apply_highlight</span><span class="text-dim-white">(</span><span class="text-blue">hl</span><span class="text-grey">:</span> <span class="text-dim-blue">Highlight</span><span class="text-grey">,</span> <span class="text-blue">acc</span><span class="text-grey">:</span> <span class="text-dim-white">&amp;</span><span class="text-dim-magenta">mut</span> <span class="text-dim-blue">Vec</span><span class="text-dim-white">&lt;</span><span class="text-dim-blue">u8</span><span class="text-dim-white">&gt;</span><span class="text-dim-white">)</span> <span class="text-dim-white">{</span>
+    <span class="text-dim-magenta">let</span> tag = <span class="text-dim-white">*</span><span class="text-dim-magenta">NAMES</span><span class="text-grey">.</span><span class="text-dim-red">get</span><span class="text-dim-white">(</span>hl<span class="text-grey">.</span><span class="text-cyan">0</span><span class="text-dim-white">)</span><span class="text-grey">.</span><span class="text-dim-red">unwrap</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    <span class="text-dim-magenta">let</span> color = <span class="text-dim-white">*</span><span class="text-dim-magenta">COLORS</span><span class="text-grey">.</span><span class="text-dim-red">get</span><span class="text-dim-white">(</span>tag<span class="text-dim-white">)</span><span class="text-grey">.</span><span class="text-dim-red">unwrap_or_else</span><span class="text-dim-white">(</span>|| <span class="text-dim-white">{</span>
+        <span class="text-dim-green">eprintln</span><span class="text-dim-green">!</span><span class="text-dim-white">(</span><span class="text-green">&quot;unrecognised: {tag}&quot;</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+        <span class="text-dim-white">&amp;</span><span class="text-green">&quot;yellow&quot;</span>
+    <span class="text-dim-white">}</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+
+    acc<span class="text-grey">.</span><span class="text-dim-red">extend</span><span class="text-dim-white">(</span><span class="text-dim-green">format</span><span class="text-dim-green">!</span><span class="text-dim-white">(</span><span class="text-green">&quot;class=<span class="text-cyan">\&quot;</span>text-{color}<span class="text-cyan">\&quot;</span>&quot;</span><span class="text-dim-white">)</span><span class="text-grey">.</span><span class="text-dim-red">into_bytes</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+<span class="text-dim-white">}</span>
+
+<span class="text-dim-magenta">pub</span> <span class="text-dim-magenta">fn</span> <span class="text-dim-red">config_for</span><span class="text-dim-white">(</span><span class="text-blue">name</span><span class="text-grey">:</span> <span class="text-dim-white">&amp;</span><span class="text-dim-blue">str</span><span class="text-dim-white">)</span> -&gt; <span class="text-dim-blue">Option</span><span class="text-dim-white">&lt;</span><span class="text-dim-white">&amp;</span><span class="text-dim-white">&#39;</span><span class="text-dim-white">static</span> <span class="text-dim-blue">HighlightConfiguration</span><span class="text-dim-white">&gt;</span> <span class="text-dim-white">{</span>
+    <span class="text-dim-red">Some</span><span class="text-dim-white">(</span><span class="text-dim-magenta">match</span> name <span class="text-dim-white">{</span>
+        <span class="text-green">&quot;css&quot;</span> =&gt; <span class="text-dim-white">&amp;</span><span class="text-dim-magenta">CSS</span><span class="text-grey">,</span>
+        <span class="text-green">&quot;csv&quot;</span> =&gt; <span class="text-dim-white">&amp;</span><span class="text-dim-magenta">CSV</span><span class="text-grey">,</span>
+        <span class="text-green">&quot;dot&quot;</span> | <span class="text-green">&quot;gv&quot;</span> =&gt; <span class="text-dim-white">&amp;</span><span class="text-dim-magenta">DOT</span><span class="text-grey">,</span>
+        <span class="text-green">&quot;html&quot;</span> =&gt; <span class="text-dim-white">&amp;</span><span class="text-dim-magenta">HTML</span><span class="text-grey">,</span>
+        <span class="text-green">&quot;json&quot;</span> =&gt; <span class="text-dim-white">&amp;</span><span class="text-dim-magenta">JSON</span><span class="text-grey">,</span>
+        <span class="text-green">&quot;js&quot;</span> | <span class="text-green">&quot;javascript&quot;</span> =&gt; <span class="text-dim-white">&amp;</span><span class="text-dim-magenta">JAVASCRIPT</span><span class="text-grey">,</span>
+        <span class="text-green">&quot;jsx&quot;</span> =&gt; <span class="text-dim-white">&amp;</span><span class="text-dim-magenta">JSX</span><span class="text-grey">,</span>
+        <span class="text-green">&quot;md&quot;</span> =&gt; <span class="text-dim-white">&amp;</span><span class="text-dim-magenta">MARKDOWN_BLOCK</span><span class="text-grey">,</span>
+        <span class="text-green">&quot;toml&quot;</span> =&gt; <span class="text-dim-white">&amp;</span><span class="text-dim-magenta">TOML</span><span class="text-grey">,</span>
+        <span class="text-green">&quot;ts&quot;</span> | <span class="text-green">&quot;typescript&quot;</span> =&gt; <span class="text-dim-white">&amp;</span><span class="text-dim-magenta">TYPESCRIPT</span><span class="text-grey">,</span>
+        <span class="text-green">&quot;tsx&quot;</span> =&gt; <span class="text-dim-white">&amp;</span><span class="text-dim-magenta">TSX</span><span class="text-grey">,</span>
+        <span class="text-green">&quot;yml&quot;</span> | <span class="text-green">&quot;yaml&quot;</span> =&gt; <span class="text-dim-white">&amp;</span><span class="text-dim-magenta">YAML</span><span class="text-grey">,</span>
+        <span class="text-green">&quot;rs&quot;</span> | <span class="text-green">&quot;rust&quot;</span> =&gt; <span class="text-dim-white">&amp;</span><span class="text-dim-magenta">RUST_WITH_RSTML</span><span class="text-grey">,</span> <span class="text-grey">// todo: if contains `view!` macro; else just `rust`</span>
+        <span class="text-green">&quot;sh&quot;</span> | <span class="text-green">&quot;shell&quot;</span> =&gt; <span class="text-dim-white">&amp;</span><span class="text-dim-magenta">SHELL</span><span class="text-grey">,</span>
+        x =&gt; <span class="text-dim-white">{</span>
+            <span class="text-dim-green">eprintln</span><span class="text-dim-green">!</span><span class="text-dim-white">(</span><span class="text-green">&quot;not a recognised extension: {x}&quot;</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+            <span class="text-dim-magenta">return</span> <span class="text-dim-magenta">None</span><span class="text-grey">;</span>
+        <span class="text-dim-white">}</span>
+    <span class="text-dim-white">}</span><span class="text-dim-white">)</span>
+<span class="text-dim-white">}</span>
+
+<span class="text-dim-magenta">const</span> <span class="text-dim-magenta">NAMES</span><span class="text-grey">:</span> <span class="text-dim-white">&amp;</span><span class="text-dim-white">[</span><span class="text-dim-white">&amp;</span><span class="text-dim-blue">str</span><span class="text-dim-white">]</span> = <span class="text-dim-white">&amp;</span><span class="text-dim-white">[</span>
+    <span class="text-green">&quot;attribute&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;boolean&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;comment&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;comment.documentation&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;constant&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;constant.builtin&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;constructor&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;definition.class&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;definition.constant&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;definition.function&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;definition.interface&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;definition.macro&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;definition.method&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;definition.module&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;doc&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;embedded&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;error&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;escape&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;function&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;function.builtin&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;function.macro&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;function.method&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;keyword&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;label&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;local.definition&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;local.reference&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;local.scope&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;module&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;name&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;namespace&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;none&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;number&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;operator&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;property&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;punctuation&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;punctuation.bracket&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;punctuation.delimiter&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;punctuation.special&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;reference.call&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;reference.class&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;reference.implementation&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;reference.type&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;string&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;string.escape&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;string.special&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;string.special.key&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;tag&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;tag.attribute&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;tag.delimiter&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;tag.error&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;text.literal&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;text.reference&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;text.title&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;text.uri&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;type&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;type.builtin&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;variable&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;variable.builtin&quot;</span><span class="text-grey">,</span>
+    <span class="text-green">&quot;variable.parameter&quot;</span><span class="text-grey">,</span>
+<span class="text-dim-white">]</span><span class="text-grey">;</span>
+
+<span class="text-dim-magenta">const</span> <span class="text-dim-magenta">COLORS</span><span class="text-grey">:</span> <span class="text-dim-blue">LazyLock</span><span class="text-dim-white">&lt;</span><span class="text-dim-blue">HashMap</span><span class="text-dim-white">&lt;</span><span class="text-dim-white">&amp;</span><span class="text-dim-blue">str</span><span class="text-grey">,</span> <span class="text-dim-white">&amp;</span><span class="text-dim-blue">str</span><span class="text-dim-white">&gt;</span><span class="text-dim-white">&gt;</span> = <span class="text-dim-blue">LazyLock</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>|| <span class="text-dim-white">{</span>
+    <span class="text-dim-blue">HashMap</span><span class="text-grey">::</span><span class="text-dim-red">from</span><span class="text-dim-white">(</span><span class="text-dim-white">[</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;module&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;dim-magenta&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;keyword&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;dim-magenta&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;constructor&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;dim-magenta&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;error&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;red&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;tag.error&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;red&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;function&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;dim-red&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;function.method&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;dim-red&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;function.builtin&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;dim-red&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;tag&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;dim-yellow&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;string&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;green&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;string.special&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;green&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;attribute&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;dim-green&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;function.macro&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;dim-green&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;escape&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;cyan&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;string.escape&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;cyan&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;constant&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;cyan&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;constant.builtin&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;cyan&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;embedded&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;dim-cyan&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;namespace&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;dim-cyan&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;tag.attribute&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;dim-cyan&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;number&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;blue&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;boolean&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;blue&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;variable&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;blue&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;variable.parameter&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;blue&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;type&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;dim-blue&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;type.builtin&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;dim-blue&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;comment&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;grey&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;comment.documentation&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;grey&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;tag.delimiter&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;grey&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;punctuation.delimiter&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;grey&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;label&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;dim-white&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;operator&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;dim-white&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;property&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;dim-white&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;punctuation&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;dim-white&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-white">(</span><span class="text-green">&quot;punctuation.bracket&quot;</span><span class="text-grey">,</span> <span class="text-green">&quot;dim-white&quot;</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+    <span class="text-dim-white">]</span><span class="text-dim-white">)</span>
+<span class="text-dim-white">}</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+
+<span class="text-dim-magenta">static</span> <span class="text-dim-magenta">CSS</span><span class="text-grey">:</span> <span class="text-dim-blue">LazyLock</span><span class="text-dim-white">&lt;</span><span class="text-dim-blue">HighlightConfiguration</span><span class="text-dim-white">&gt;</span> = <span class="text-dim-blue">LazyLock</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>|| <span class="text-dim-white">{</span>
+    <span class="text-dim-magenta">use</span> tree_sitter_css<span class="text-grey">::</span><span class="text-dim-white">*</span><span class="text-grey">;</span>
+    <span class="text-dim-magenta">let</span> <span class="text-dim-magenta">mut</span> config = <span class="text-dim-blue">HighlightConfiguration</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>
+        <span class="text-dim-magenta">LANGUAGE</span><span class="text-grey">.</span><span class="text-dim-red">into</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-green">&quot;css&quot;</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">HIGHLIGHTS_QUERY</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">NO_INJECTIONS_QUERY</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">NO_LOCALS_QUERY</span><span class="text-grey">,</span>
+    <span class="text-dim-white">)</span>
+    <span class="text-grey">.</span><span class="text-dim-red">unwrap</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config<span class="text-grey">.</span><span class="text-dim-red">configure</span><span class="text-dim-white">(</span><span class="text-dim-magenta">NAMES</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config
+<span class="text-dim-white">}</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+
+<span class="text-dim-magenta">static</span> <span class="text-dim-magenta">CSV</span><span class="text-grey">:</span> <span class="text-dim-blue">LazyLock</span><span class="text-dim-white">&lt;</span><span class="text-dim-blue">HighlightConfiguration</span><span class="text-dim-white">&gt;</span> = <span class="text-dim-blue">LazyLock</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>|| <span class="text-dim-white">{</span>
+    <span class="text-dim-magenta">use</span> tree_sitter_csv<span class="text-grey">::</span><span class="text-dim-white">*</span><span class="text-grey">;</span>
+    <span class="text-dim-magenta">let</span> <span class="text-dim-magenta">mut</span> config = <span class="text-dim-blue">HighlightConfiguration</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>
+        <span class="text-dim-red">language</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">.</span><span class="text-dim-red">into</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-green">&quot;csv&quot;</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">NO_HIGHLIGHTS_QUERY</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">NO_INJECTIONS_QUERY</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">NO_LOCALS_QUERY</span><span class="text-grey">,</span>
+    <span class="text-dim-white">)</span>
+    <span class="text-grey">.</span><span class="text-dim-red">unwrap</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config<span class="text-grey">.</span><span class="text-dim-red">configure</span><span class="text-dim-white">(</span><span class="text-dim-magenta">NAMES</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config
+<span class="text-dim-white">}</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+
+<span class="text-dim-magenta">static</span> <span class="text-dim-magenta">DOT</span><span class="text-grey">:</span> <span class="text-dim-blue">LazyLock</span><span class="text-dim-white">&lt;</span><span class="text-dim-blue">HighlightConfiguration</span><span class="text-dim-white">&gt;</span> = <span class="text-dim-blue">LazyLock</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>|| <span class="text-dim-white">{</span>
+    <span class="text-dim-magenta">use</span> tree_sitter_dot<span class="text-grey">::</span><span class="text-dim-white">*</span><span class="text-grey">;</span>
+    <span class="text-dim-magenta">let</span> <span class="text-dim-magenta">mut</span> config = <span class="text-dim-blue">HighlightConfiguration</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>
+        <span class="text-dim-magenta">LANGUAGE</span><span class="text-grey">.</span><span class="text-dim-red">into</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-green">&quot;dot&quot;</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">HIGHLIGHTS_QUERY</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">INJECTIONS_QUERY</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">NO_LOCALS_QUERY</span><span class="text-grey">,</span>
+    <span class="text-dim-white">)</span>
+    <span class="text-grey">.</span><span class="text-dim-red">unwrap</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config<span class="text-grey">.</span><span class="text-dim-red">configure</span><span class="text-dim-white">(</span><span class="text-dim-magenta">NAMES</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config
+<span class="text-dim-white">}</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+
+<span class="text-dim-magenta">static</span> <span class="text-dim-magenta">HTML</span><span class="text-grey">:</span> <span class="text-dim-blue">LazyLock</span><span class="text-dim-white">&lt;</span><span class="text-dim-blue">HighlightConfiguration</span><span class="text-dim-white">&gt;</span> = <span class="text-dim-blue">LazyLock</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>|| <span class="text-dim-white">{</span>
+    <span class="text-dim-magenta">use</span> tree_sitter_html<span class="text-grey">::</span><span class="text-dim-white">*</span><span class="text-grey">;</span>
+    <span class="text-dim-magenta">let</span> <span class="text-dim-magenta">mut</span> config = <span class="text-dim-blue">HighlightConfiguration</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>
+        <span class="text-dim-magenta">LANGUAGE</span><span class="text-grey">.</span><span class="text-dim-red">into</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-green">&quot;html&quot;</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">HIGHLIGHTS_QUERY</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">INJECTIONS_QUERY</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">NO_LOCALS_QUERY</span><span class="text-grey">,</span>
+    <span class="text-dim-white">)</span>
+    <span class="text-grey">.</span><span class="text-dim-red">unwrap</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config<span class="text-grey">.</span><span class="text-dim-red">configure</span><span class="text-dim-white">(</span><span class="text-dim-magenta">NAMES</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config
+<span class="text-dim-white">}</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+<span class="text-dim-magenta">static</span> <span class="text-dim-magenta">JSON</span><span class="text-grey">:</span> <span class="text-dim-blue">LazyLock</span><span class="text-dim-white">&lt;</span><span class="text-dim-blue">HighlightConfiguration</span><span class="text-dim-white">&gt;</span> = <span class="text-dim-blue">LazyLock</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>|| <span class="text-dim-white">{</span>
+    <span class="text-dim-magenta">use</span> tree_sitter_json<span class="text-grey">::</span><span class="text-dim-white">*</span><span class="text-grey">;</span>
+    <span class="text-dim-magenta">let</span> <span class="text-dim-magenta">mut</span> config = <span class="text-dim-blue">HighlightConfiguration</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>
+        <span class="text-dim-magenta">LANGUAGE</span><span class="text-grey">.</span><span class="text-dim-red">into</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-green">&quot;json&quot;</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">HIGHLIGHTS_QUERY</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">NO_INJECTIONS_QUERY</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">NO_LOCALS_QUERY</span><span class="text-grey">,</span>
+    <span class="text-dim-white">)</span>
+    <span class="text-grey">.</span><span class="text-dim-red">unwrap</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config<span class="text-grey">.</span><span class="text-dim-red">configure</span><span class="text-dim-white">(</span><span class="text-dim-magenta">NAMES</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config
+<span class="text-dim-white">}</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+<span class="text-dim-magenta">static</span> <span class="text-dim-magenta">JAVASCRIPT</span><span class="text-grey">:</span> <span class="text-dim-blue">LazyLock</span><span class="text-dim-white">&lt;</span><span class="text-dim-blue">HighlightConfiguration</span><span class="text-dim-white">&gt;</span> = <span class="text-dim-blue">LazyLock</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>|| <span class="text-dim-white">{</span>
+    <span class="text-dim-magenta">use</span> tree_sitter_javascript<span class="text-grey">::</span><span class="text-dim-white">*</span><span class="text-grey">;</span>
+    <span class="text-dim-magenta">let</span> <span class="text-dim-magenta">mut</span> config = <span class="text-dim-blue">HighlightConfiguration</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>
+        <span class="text-dim-magenta">LANGUAGE</span><span class="text-grey">.</span><span class="text-dim-red">into</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-green">&quot;js&quot;</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">HIGHLIGHT_QUERY</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">INJECTIONS_QUERY</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">LOCALS_QUERY</span><span class="text-grey">,</span>
+    <span class="text-dim-white">)</span>
+    <span class="text-grey">.</span><span class="text-dim-red">unwrap</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config<span class="text-grey">.</span><span class="text-dim-red">configure</span><span class="text-dim-white">(</span><span class="text-dim-magenta">NAMES</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config
+<span class="text-dim-white">}</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+<span class="text-dim-magenta">static</span> <span class="text-dim-magenta">JSX</span><span class="text-grey">:</span> <span class="text-dim-blue">LazyLock</span><span class="text-dim-white">&lt;</span><span class="text-dim-blue">HighlightConfiguration</span><span class="text-dim-white">&gt;</span> = <span class="text-dim-blue">LazyLock</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>|| <span class="text-dim-white">{</span>
+    <span class="text-dim-magenta">use</span> tree_sitter_javascript<span class="text-grey">::</span><span class="text-dim-white">*</span><span class="text-grey">;</span>
+    <span class="text-dim-magenta">let</span> <span class="text-dim-magenta">mut</span> config = <span class="text-dim-blue">HighlightConfiguration</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>
+        <span class="text-dim-magenta">LANGUAGE</span><span class="text-grey">.</span><span class="text-dim-red">into</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-green">&quot;jsx&quot;</span><span class="text-grey">,</span>
+        <span class="text-dim-green">concat</span><span class="text-dim-green">!</span><span class="text-dim-white">(</span><span class="text-dim-magenta">JSX_HIGHLIGHT_QUERY</span><span class="text-grey">,</span> <span class="text-dim-magenta">HIGHLIGHT_QUERY</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">INJECTIONS_QUERY</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">LOCALS_QUERY</span><span class="text-grey">,</span>
+    <span class="text-dim-white">)</span>
+    <span class="text-grey">.</span><span class="text-dim-red">unwrap</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config<span class="text-grey">.</span><span class="text-dim-red">configure</span><span class="text-dim-white">(</span><span class="text-dim-magenta">NAMES</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config
+<span class="text-dim-white">}</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+<span class="text-dim-magenta">static</span> <span class="text-dim-magenta">MARKDOWN_BLOCK</span><span class="text-grey">:</span> <span class="text-dim-blue">LazyLock</span><span class="text-dim-white">&lt;</span><span class="text-dim-blue">HighlightConfiguration</span><span class="text-dim-white">&gt;</span> = <span class="text-dim-blue">LazyLock</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>|| <span class="text-dim-white">{</span>
+    <span class="text-dim-magenta">use</span> tree_sitter_md<span class="text-grey">::</span><span class="text-dim-white">*</span><span class="text-grey">;</span>
+    <span class="text-dim-magenta">let</span> <span class="text-dim-magenta">mut</span> config = <span class="text-dim-blue">HighlightConfiguration</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>
+        <span class="text-dim-magenta">LANGUAGE</span><span class="text-grey">.</span><span class="text-dim-red">into</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-green">&quot;md&quot;</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">HIGHLIGHT_QUERY_BLOCK</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">INJECTION_QUERY_BLOCK</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">NO_LOCALS_QUERY</span><span class="text-grey">,</span>
+    <span class="text-dim-white">)</span>
+    <span class="text-grey">.</span><span class="text-dim-red">unwrap</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config<span class="text-grey">.</span><span class="text-dim-red">configure</span><span class="text-dim-white">(</span><span class="text-dim-magenta">NAMES</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config
+<span class="text-dim-white">}</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+<span class="text-dim-magenta">static</span> <span class="text-dim-magenta">RUST_WITH_RSTML</span><span class="text-grey">:</span> <span class="text-dim-blue">LazyLock</span><span class="text-dim-white">&lt;</span><span class="text-dim-blue">HighlightConfiguration</span><span class="text-dim-white">&gt;</span> = <span class="text-dim-blue">LazyLock</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>|| <span class="text-dim-white">{</span>
+    <span class="text-dim-magenta">use</span> tree_sitter_rstml<span class="text-grey">::</span><span class="text-dim-white">*</span><span class="text-grey">;</span>
+    <span class="text-dim-magenta">let</span> <span class="text-dim-magenta">mut</span> config = <span class="text-dim-blue">HighlightConfiguration</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>
+        <span class="text-dim-red">language_rust_with_rstml</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-green">&quot;rust&quot;</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">HIGHLIGHTS_QUERY</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">NO_INJECTIONS_QUERY</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">NO_LOCALS_QUERY</span><span class="text-grey">,</span>
+    <span class="text-dim-white">)</span>
+    <span class="text-grey">.</span><span class="text-dim-red">unwrap</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config<span class="text-grey">.</span><span class="text-dim-red">configure</span><span class="text-dim-white">(</span><span class="text-dim-magenta">NAMES</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config
+<span class="text-dim-white">}</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+<span class="text-dim-magenta">static</span> _RSTML<span class="text-grey">:</span> <span class="text-dim-blue">LazyLock</span><span class="text-dim-white">&lt;</span><span class="text-dim-blue">HighlightConfiguration</span><span class="text-dim-white">&gt;</span> = <span class="text-dim-blue">LazyLock</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>|| <span class="text-dim-white">{</span>
+    <span class="text-dim-magenta">use</span> tree_sitter_rstml<span class="text-grey">::</span><span class="text-dim-white">*</span><span class="text-grey">;</span>
+    <span class="text-dim-magenta">let</span> <span class="text-dim-magenta">mut</span> config = <span class="text-dim-blue">HighlightConfiguration</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>
+        <span class="text-dim-red">language_rstml</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-green">&quot;rstml&quot;</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">HIGHLIGHTS_QUERY</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">NO_INJECTIONS_QUERY</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">NO_LOCALS_QUERY</span><span class="text-grey">,</span>
+    <span class="text-dim-white">)</span>
+    <span class="text-grey">.</span><span class="text-dim-red">unwrap</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config<span class="text-grey">.</span><span class="text-dim-red">configure</span><span class="text-dim-white">(</span><span class="text-dim-magenta">NAMES</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config
+<span class="text-dim-white">}</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+<span class="text-dim-magenta">static</span> _RUST<span class="text-grey">:</span> <span class="text-dim-blue">LazyLock</span><span class="text-dim-white">&lt;</span><span class="text-dim-blue">HighlightConfiguration</span><span class="text-dim-white">&gt;</span> = <span class="text-dim-blue">LazyLock</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>|| <span class="text-dim-white">{</span>
+    <span class="text-dim-magenta">use</span> tree_sitter_rust<span class="text-grey">::</span><span class="text-dim-white">*</span><span class="text-grey">;</span>
+    <span class="text-dim-magenta">let</span> <span class="text-dim-magenta">mut</span> config = <span class="text-dim-blue">HighlightConfiguration</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>
+        <span class="text-dim-magenta">LANGUAGE</span><span class="text-grey">.</span><span class="text-dim-red">into</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-green">&quot;rust&quot;</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">HIGHLIGHTS_QUERY</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">INJECTIONS_QUERY</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">NO_LOCALS_QUERY</span><span class="text-grey">,</span>
+    <span class="text-dim-white">)</span>
+    <span class="text-grey">.</span><span class="text-dim-red">unwrap</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config<span class="text-grey">.</span><span class="text-dim-red">configure</span><span class="text-dim-white">(</span><span class="text-dim-magenta">NAMES</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config
+<span class="text-dim-white">}</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+<span class="text-dim-magenta">static</span> <span class="text-dim-magenta">SHELL</span><span class="text-grey">:</span> <span class="text-dim-blue">LazyLock</span><span class="text-dim-white">&lt;</span><span class="text-dim-blue">HighlightConfiguration</span><span class="text-dim-white">&gt;</span> = <span class="text-dim-blue">LazyLock</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>|| <span class="text-dim-white">{</span>
+    <span class="text-dim-magenta">use</span> tree_sitter_bash<span class="text-grey">::</span><span class="text-dim-white">*</span><span class="text-grey">;</span>
+    <span class="text-dim-magenta">let</span> <span class="text-dim-magenta">mut</span> config = <span class="text-dim-blue">HighlightConfiguration</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>
+        <span class="text-dim-magenta">LANGUAGE</span><span class="text-grey">.</span><span class="text-dim-red">into</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-green">&quot;shell&quot;</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">HIGHLIGHT_QUERY</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">NO_INJECTIONS_QUERY</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">NO_LOCALS_QUERY</span><span class="text-grey">,</span>
+    <span class="text-dim-white">)</span>
+    <span class="text-grey">.</span><span class="text-dim-red">unwrap</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config<span class="text-grey">.</span><span class="text-dim-red">configure</span><span class="text-dim-white">(</span><span class="text-dim-magenta">NAMES</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config
+<span class="text-dim-white">}</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+<span class="text-dim-magenta">static</span> <span class="text-dim-magenta">TOML</span><span class="text-grey">:</span> <span class="text-dim-blue">LazyLock</span><span class="text-dim-white">&lt;</span><span class="text-dim-blue">HighlightConfiguration</span><span class="text-dim-white">&gt;</span> = <span class="text-dim-blue">LazyLock</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>|| <span class="text-dim-white">{</span>
+    <span class="text-dim-magenta">use</span> tree_sitter_toml<span class="text-grey">::</span><span class="text-dim-white">*</span><span class="text-grey">;</span>
+    <span class="text-dim-magenta">let</span> <span class="text-dim-magenta">mut</span> config = <span class="text-dim-blue">HighlightConfiguration</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>
+        <span class="text-dim-red">language</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-green">&quot;toml&quot;</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">HIGHLIGHT_QUERY</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">NO_INJECTIONS_QUERY</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">NO_LOCALS_QUERY</span><span class="text-grey">,</span>
+    <span class="text-dim-white">)</span>
+    <span class="text-grey">.</span><span class="text-dim-red">unwrap</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config<span class="text-grey">.</span><span class="text-dim-red">configure</span><span class="text-dim-white">(</span><span class="text-dim-magenta">NAMES</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config
+<span class="text-dim-white">}</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+<span class="text-dim-magenta">static</span> <span class="text-dim-magenta">TYPESCRIPT</span><span class="text-grey">:</span> <span class="text-dim-blue">LazyLock</span><span class="text-dim-white">&lt;</span><span class="text-dim-blue">HighlightConfiguration</span><span class="text-dim-white">&gt;</span> = <span class="text-dim-blue">LazyLock</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>|| <span class="text-dim-white">{</span>
+    <span class="text-dim-magenta">use</span> tree_sitter_javascript <span class="text-dim-magenta">as</span> js<span class="text-grey">;</span>
+    <span class="text-dim-magenta">use</span> tree_sitter_typescript<span class="text-grey">::</span><span class="text-dim-white">*</span><span class="text-grey">;</span>
+    <span class="text-dim-magenta">let</span> <span class="text-dim-magenta">mut</span> config = <span class="text-dim-blue">HighlightConfiguration</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>
+        <span class="text-dim-magenta">LANGUAGE_TYPESCRIPT</span><span class="text-grey">.</span><span class="text-dim-red">into</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-green">&quot;ts&quot;</span><span class="text-grey">,</span>
+        <span class="text-dim-green">concat</span><span class="text-dim-green">!</span><span class="text-dim-white">(</span><span class="text-dim-magenta">HIGHLIGHTS_QUERY</span><span class="text-grey">,</span> js<span class="text-grey">::</span><span class="text-dim-magenta">HIGHLIGHT_QUERY</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        js<span class="text-grey">::</span><span class="text-dim-magenta">INJECTIONS_QUERY</span><span class="text-grey">,</span>
+        <span class="text-dim-green">concat</span><span class="text-dim-green">!</span><span class="text-dim-white">(</span><span class="text-dim-magenta">LOCALS_QUERY</span><span class="text-grey">,</span> js<span class="text-grey">::</span><span class="text-dim-magenta">LOCALS_QUERY</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+    <span class="text-dim-white">)</span>
+    <span class="text-grey">.</span><span class="text-dim-red">unwrap</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config<span class="text-grey">.</span><span class="text-dim-red">configure</span><span class="text-dim-white">(</span><span class="text-dim-magenta">NAMES</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config
+<span class="text-dim-white">}</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+<span class="text-dim-magenta">static</span> <span class="text-dim-magenta">TSX</span><span class="text-grey">:</span> <span class="text-dim-blue">LazyLock</span><span class="text-dim-white">&lt;</span><span class="text-dim-blue">HighlightConfiguration</span><span class="text-dim-white">&gt;</span> = <span class="text-dim-blue">LazyLock</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>|| <span class="text-dim-white">{</span>
+    <span class="text-dim-magenta">use</span> tree_sitter_javascript <span class="text-dim-magenta">as</span> js<span class="text-grey">;</span>
+    <span class="text-dim-magenta">use</span> tree_sitter_typescript<span class="text-grey">::</span><span class="text-dim-white">*</span><span class="text-grey">;</span>
+    <span class="text-dim-magenta">let</span> <span class="text-dim-magenta">mut</span> config = <span class="text-dim-blue">HighlightConfiguration</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>
+        <span class="text-dim-magenta">LANGUAGE_TSX</span><span class="text-grey">.</span><span class="text-dim-red">into</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-green">&quot;tsx&quot;</span><span class="text-grey">,</span>
+        <span class="text-dim-green">concat</span><span class="text-dim-green">!</span><span class="text-dim-white">(</span>
+            js<span class="text-grey">::</span><span class="text-dim-magenta">JSX_HIGHLIGHT_QUERY</span><span class="text-grey">,</span>
+            <span class="text-dim-magenta">HIGHLIGHTS_QUERY</span><span class="text-grey">,</span>
+            js<span class="text-grey">::</span><span class="text-dim-magenta">HIGHLIGHT_QUERY</span>
+        <span class="text-dim-white">)</span><span class="text-grey">,</span>
+        js<span class="text-grey">::</span><span class="text-dim-magenta">INJECTIONS_QUERY</span><span class="text-grey">,</span>
+        <span class="text-dim-green">concat</span><span class="text-dim-green">!</span><span class="text-dim-white">(</span><span class="text-dim-magenta">LOCALS_QUERY</span><span class="text-grey">,</span> js<span class="text-grey">::</span><span class="text-dim-magenta">LOCALS_QUERY</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+    <span class="text-dim-white">)</span>
+    <span class="text-grey">.</span><span class="text-dim-red">unwrap</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config<span class="text-grey">.</span><span class="text-dim-red">configure</span><span class="text-dim-white">(</span><span class="text-dim-magenta">NAMES</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config
+<span class="text-dim-white">}</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+<span class="text-dim-magenta">static</span> <span class="text-dim-magenta">YAML</span><span class="text-grey">:</span> <span class="text-dim-blue">LazyLock</span><span class="text-dim-white">&lt;</span><span class="text-dim-blue">HighlightConfiguration</span><span class="text-dim-white">&gt;</span> = <span class="text-dim-blue">LazyLock</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>|| <span class="text-dim-white">{</span>
+    <span class="text-dim-magenta">use</span> tree_sitter_yaml<span class="text-grey">::</span><span class="text-dim-white">*</span><span class="text-grey">;</span>
+    <span class="text-dim-magenta">let</span> <span class="text-dim-magenta">mut</span> config = <span class="text-dim-blue">HighlightConfiguration</span><span class="text-grey">::</span><span class="text-dim-red">new</span><span class="text-dim-white">(</span>
+        <span class="text-dim-magenta">LANGUAGE</span><span class="text-grey">.</span><span class="text-dim-red">into</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">,</span>
+        <span class="text-green">&quot;yaml&quot;</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">HIGHLIGHTS_QUERY</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">NO_INJECTIONS_QUERY</span><span class="text-grey">,</span>
+        <span class="text-dim-magenta">NO_LOCALS_QUERY</span><span class="text-grey">,</span>
+    <span class="text-dim-white">)</span>
+    <span class="text-grey">.</span><span class="text-dim-red">unwrap</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config<span class="text-grey">.</span><span class="text-dim-red">configure</span><span class="text-dim-white">(</span><span class="text-dim-magenta">NAMES</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+    config
+<span class="text-dim-white">}</span><span class="text-dim-white">)</span><span class="text-grey">;</span>
+
+<span class="text-dim-magenta">const</span> <span class="text-dim-magenta">NO_HIGHLIGHTS_QUERY</span><span class="text-grey">:</span> <span class="text-dim-white">&amp;</span><span class="text-dim-blue">str</span> = <span class="text-green">&quot;&quot;</span><span class="text-grey">;</span>
+<span class="text-dim-magenta">const</span> <span class="text-dim-magenta">NO_INJECTIONS_QUERY</span><span class="text-grey">:</span> <span class="text-dim-white">&amp;</span><span class="text-dim-blue">str</span> = <span class="text-green">&quot;&quot;</span><span class="text-grey">;</span>
+<span class="text-dim-magenta">const</span> <span class="text-dim-magenta">NO_LOCALS_QUERY</span><span class="text-grey">:</span> <span class="text-dim-white">&amp;</span><span class="text-dim-blue">str</span> = <span class="text-green">&quot;&quot;</span><span class="text-grey">;</span>

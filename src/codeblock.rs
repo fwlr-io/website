@@ -2,51 +2,11 @@ use crate::ux::CodeBox;
 use leptos::prelude::*;
 
 #[component]
-pub fn InstallFzf() -> impl IntoView {
+pub fn ModernTerminalDeltaConfig() -> impl IntoView {
     view! {
         <CodeBox
-            raw=include_str!("codeblocks/install-fzf.sh")
-            code=include_str!("codeblocks/install-fzf.hlt")
-        />
-    }
-}
-
-#[component]
-pub fn InstallDelta() -> impl IntoView {
-    view! {
-        <CodeBox
-            raw=include_str!("codeblocks/install_delta.sh")
-            code=include_str!("codeblocks/install_delta.hlt")
-        />
-    }
-}
-
-#[component]
-pub fn FzfConfig() -> impl IntoView {
-    view! {
-        <CodeBox
-            raw=include_str!("codeblocks/fzf-config.sh")
-            code=include_str!("codeblocks/fzf-config.hlt")
-        />
-    }
-}
-
-#[component]
-pub fn EzaConfig() -> impl IntoView {
-    view! {
-        <CodeBox
-            raw=include_str!("codeblocks/eza_config.sh")
-            code=include_str!("codeblocks/eza_config.hlt")
-        />
-    }
-}
-
-#[component]
-pub fn InstallFd() -> impl IntoView {
-    view! {
-        <CodeBox
-            raw=include_str!("codeblocks/install-fd.sh")
-            code=include_str!("codeblocks/install-fd.hlt")
+            raw=include_str!("codeblocks/modern_terminal_delta-config.toml")
+            code=include_str!("codeblocks/modern_terminal_delta-config.hlt")
         />
     }
 }
@@ -62,11 +22,31 @@ pub fn TailwindSolution() -> impl IntoView {
 }
 
 #[component]
+pub fn SnawlyMain() -> impl IntoView {
+    view! {
+        <CodeBox
+            raw=include_str!("codeblocks/snawly_main.rs")
+            code=include_str!("codeblocks/snawly_main.hlt")
+        />
+    }
+}
+
+#[component]
 pub fn TailwindProblem() -> impl IntoView {
     view! {
         <CodeBox
             raw=include_str!("codeblocks/tailwind_problem.css")
             code=include_str!("codeblocks/tailwind_problem.hlt")
+        />
+    }
+}
+
+#[component]
+pub fn ModernTerminalInstallRg() -> impl IntoView {
+    view! {
+        <CodeBox
+            raw=include_str!("codeblocks/modern_terminal_install-rg.sh")
+            code=include_str!("codeblocks/modern_terminal_install-rg.hlt")
         />
     }
 }
@@ -92,41 +72,61 @@ pub fn TailwindResult() -> impl IntoView {
 }
 
 #[component]
-pub fn InstallBat() -> impl IntoView {
+pub fn ModernTerminalInstallFzf() -> impl IntoView {
     view! {
         <CodeBox
-            raw=include_str!("codeblocks/install_bat.sh")
-            code=include_str!("codeblocks/install_bat.hlt")
+            raw=include_str!("codeblocks/modern_terminal_install-fzf.sh")
+            code=include_str!("codeblocks/modern_terminal_install-fzf.hlt")
         />
     }
 }
 
 #[component]
-pub fn Highlight() -> impl IntoView {
+pub fn ModernTerminalInstallFd() -> impl IntoView {
     view! {
         <CodeBox
-            raw=include_str!("codeblocks/highlight.rs")
-            code=include_str!("codeblocks/highlight.hlt")
+            raw=include_str!("codeblocks/modern_terminal_install-fd.sh")
+            code=include_str!("codeblocks/modern_terminal_install-fd.hlt")
         />
     }
 }
 
 #[component]
-pub fn DeltaConfig() -> impl IntoView {
+pub fn ModernTerminalInstallDelta() -> impl IntoView {
     view! {
         <CodeBox
-            raw=include_str!("codeblocks/delta_config.toml")
-            code=include_str!("codeblocks/delta_config.hlt")
+            raw=include_str!("codeblocks/modern_terminal_install-delta.sh")
+            code=include_str!("codeblocks/modern_terminal_install-delta.hlt")
         />
     }
 }
 
 #[component]
-pub fn InstallRg() -> impl IntoView {
+pub fn ModernTerminalFzfConfig() -> impl IntoView {
     view! {
         <CodeBox
-            raw=include_str!("codeblocks/install-rg.sh")
-            code=include_str!("codeblocks/install-rg.hlt")
+            raw=include_str!("codeblocks/modern_terminal_fzf-config.sh")
+            code=include_str!("codeblocks/modern_terminal_fzf-config.hlt")
+        />
+    }
+}
+
+#[component]
+pub fn ModernTerminalInstallBat() -> impl IntoView {
+    view! {
+        <CodeBox
+            raw=include_str!("codeblocks/modern_terminal_install-bat.sh")
+            code=include_str!("codeblocks/modern_terminal_install-bat.hlt")
+        />
+    }
+}
+
+#[component]
+pub fn ModernTerminalEzaConfig() -> impl IntoView {
+    view! {
+        <CodeBox
+            raw=include_str!("codeblocks/modern_terminal_eza-config.sh")
+            code=include_str!("codeblocks/modern_terminal_eza-config.hlt")
         />
     }
 }

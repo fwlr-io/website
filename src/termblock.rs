@@ -2,241 +2,231 @@ use crate::ux::TermBox;
 use leptos::prelude::*;
 
 #[component]
-pub fn FzfHist(#[prop(optional)] tiny: bool) -> impl IntoView {
+pub fn ModernTerminalRg(#[prop(optional)] tiny: bool) -> impl IntoView {
     view! {
         <TermBox
             tiny=tiny
-            hlt=include_str!("termblocks/fzf-hist.hlt")
+            hlt=include_str!("termblocks/modern_terminal_rg.hlt")
         />
     }
 }
 
 #[component]
-pub fn Z(#[prop(optional)] tiny: bool) -> impl IntoView {
+pub fn ModernTerminalRgReplace(#[prop(optional)] tiny: bool) -> impl IntoView {
     view! {
         <TermBox
             tiny=tiny
-            hlt=include_str!("termblocks/z.hlt")
+            hlt=include_str!("termblocks/modern_terminal_rg-replace.hlt")
         />
     }
 }
 
 #[component]
-pub fn Bat(#[prop(optional)] tiny: bool) -> impl IntoView {
+pub fn ModernTerminalDiffLess(#[prop(optional)] tiny: bool) -> impl IntoView {
     view! {
         <TermBox
             tiny=tiny
-            hlt=include_str!("termblocks/bat.hlt")
+            hlt=include_str!("termblocks/modern_terminal_diff-less.hlt")
         />
     }
 }
 
 #[component]
-pub fn FzfJq(#[prop(optional)] tiny: bool) -> impl IntoView {
+pub fn ModernTerminalGrep(#[prop(optional)] tiny: bool) -> impl IntoView {
     view! {
         <TermBox
             tiny=tiny
-            hlt=include_str!("termblocks/fzf-jq.hlt")
+            hlt=include_str!("termblocks/modern_terminal_grep.hlt")
         />
     }
 }
 
 #[component]
-pub fn LsShort(#[prop(optional)] tiny: bool) -> impl IntoView {
+pub fn ModernTerminalRgPcre(#[prop(optional)] tiny: bool) -> impl IntoView {
     view! {
         <TermBox
             tiny=tiny
-            hlt=include_str!("termblocks/ls-short.hlt")
+            hlt=include_str!("termblocks/modern_terminal_rg-pcre.hlt")
         />
     }
 }
 
 #[component]
-pub fn FzfFs(#[prop(optional)] tiny: bool) -> impl IntoView {
+pub fn ModernTerminalFzfFs(#[prop(optional)] tiny: bool) -> impl IntoView {
     view! {
         <TermBox
             tiny=tiny
-            hlt=include_str!("termblocks/fzf-fs.hlt")
+            hlt=include_str!("termblocks/modern_terminal_fzf-fs.hlt")
         />
     }
 }
 
 #[component]
-pub fn LsLong(#[prop(optional)] tiny: bool) -> impl IntoView {
+pub fn ModernTerminalFd(#[prop(optional)] tiny: bool) -> impl IntoView {
     view! {
         <TermBox
             tiny=tiny
-            hlt=include_str!("termblocks/ls-long.hlt")
+            hlt=include_str!("termblocks/modern_terminal_fd.hlt")
         />
     }
 }
 
 #[component]
-pub fn Cat(#[prop(optional)] tiny: bool) -> impl IntoView {
+pub fn ModernTerminalEzaLong(#[prop(optional)] tiny: bool) -> impl IntoView {
     view! {
         <TermBox
             tiny=tiny
-            hlt=include_str!("termblocks/cat.hlt")
+            hlt=include_str!("termblocks/modern_terminal_eza-long.hlt")
         />
     }
 }
 
 #[component]
-pub fn RgPcre(#[prop(optional)] tiny: bool) -> impl IntoView {
+pub fn ModernTerminalRgRegex(#[prop(optional)] tiny: bool) -> impl IntoView {
     view! {
         <TermBox
             tiny=tiny
-            hlt=include_str!("termblocks/rg-pcre.hlt")
+            hlt=include_str!("termblocks/modern_terminal_rg-regex.hlt")
         />
     }
 }
 
 #[component]
-pub fn Grep(#[prop(optional)] tiny: bool) -> impl IntoView {
+pub fn ModernTerminalCat(#[prop(optional)] tiny: bool) -> impl IntoView {
     view! {
         <TermBox
             tiny=tiny
-            hlt=include_str!("termblocks/grep.hlt")
+            hlt=include_str!("termblocks/modern_terminal_cat.hlt")
         />
     }
 }
 
 #[component]
-pub fn Fd(#[prop(optional)] tiny: bool) -> impl IntoView {
+pub fn ModernTerminalDiffDelta(#[prop(optional)] tiny: bool) -> impl IntoView {
     view! {
         <TermBox
             tiny=tiny
-            hlt=include_str!("termblocks/fd.hlt")
+            hlt=include_str!("termblocks/modern_terminal_diff-delta.hlt")
         />
     }
 }
 
 #[component]
-pub fn Test(#[prop(optional)] tiny: bool) -> impl IntoView {
+pub fn ModernTerminalFind(#[prop(optional)] tiny: bool) -> impl IntoView {
     view! {
         <TermBox
             tiny=tiny
-            hlt=include_str!("termblocks/test.hlt")
+            hlt=include_str!("termblocks/modern_terminal_find.hlt")
         />
     }
 }
 
 #[component]
-pub fn DiffLess(#[prop(optional)] tiny: bool) -> impl IntoView {
+pub fn ModernTerminalFzfJq(#[prop(optional)] tiny: bool) -> impl IntoView {
     view! {
         <TermBox
             tiny=tiny
-            hlt=include_str!("termblocks/diff-less.hlt")
+            hlt=include_str!("termblocks/modern_terminal_fzf-jq.hlt")
         />
     }
 }
 
 #[component]
-pub fn RgReplace(#[prop(optional)] tiny: bool) -> impl IntoView {
+pub fn ModernTerminalEzaShort(#[prop(optional)] tiny: bool) -> impl IntoView {
     view! {
         <TermBox
             tiny=tiny
-            hlt=include_str!("termblocks/rg-replace.hlt")
+            hlt=include_str!("termblocks/modern_terminal_eza-short.hlt")
         />
     }
 }
 
 #[component]
-pub fn Find(#[prop(optional)] tiny: bool) -> impl IntoView {
+pub fn ModernTerminalGrepRegex(#[prop(optional)] tiny: bool) -> impl IntoView {
     view! {
         <TermBox
             tiny=tiny
-            hlt=include_str!("termblocks/find.hlt")
+            hlt=include_str!("termblocks/modern_terminal_grep-regex.hlt")
         />
     }
 }
 
 #[component]
-pub fn FzfCd(#[prop(optional)] tiny: bool) -> impl IntoView {
+pub fn ModernTerminalZ(#[prop(optional)] tiny: bool) -> impl IntoView {
     view! {
         <TermBox
             tiny=tiny
-            hlt=include_str!("termblocks/fzf-cd.hlt")
+            hlt=include_str!("termblocks/modern_terminal_z.hlt")
         />
     }
 }
 
 #[component]
-pub fn GrepRegex(#[prop(optional)] tiny: bool) -> impl IntoView {
+pub fn ModernTerminalLsLong(#[prop(optional)] tiny: bool) -> impl IntoView {
     view! {
         <TermBox
             tiny=tiny
-            hlt=include_str!("termblocks/grep-regex.hlt")
+            hlt=include_str!("termblocks/modern_terminal_ls-long.hlt")
         />
     }
 }
 
 #[component]
-pub fn Rg(#[prop(optional)] tiny: bool) -> impl IntoView {
+pub fn ModernTerminalFzfHist(#[prop(optional)] tiny: bool) -> impl IntoView {
     view! {
         <TermBox
             tiny=tiny
-            hlt=include_str!("termblocks/rg.hlt")
+            hlt=include_str!("termblocks/modern_terminal_fzf-hist.hlt")
         />
     }
 }
 
 #[component]
-pub fn EzaLong(#[prop(optional)] tiny: bool) -> impl IntoView {
+pub fn ModernTerminalFzfGitBat(#[prop(optional)] tiny: bool) -> impl IntoView {
     view! {
         <TermBox
             tiny=tiny
-            hlt=include_str!("termblocks/eza-long.hlt")
+            hlt=include_str!("termblocks/modern_terminal_fzf-git-bat.hlt")
         />
     }
 }
 
 #[component]
-pub fn RgRegex(#[prop(optional)] tiny: bool) -> impl IntoView {
+pub fn ModernTerminalBat(#[prop(optional)] tiny: bool) -> impl IntoView {
     view! {
         <TermBox
             tiny=tiny
-            hlt=include_str!("termblocks/rg-regex.hlt")
+            hlt=include_str!("termblocks/modern_terminal_bat.hlt")
         />
     }
 }
 
 #[component]
-pub fn DiffDelta(#[prop(optional)] tiny: bool) -> impl IntoView {
+pub fn ModernTerminalLsShort(#[prop(optional)] tiny: bool) -> impl IntoView {
     view! {
         <TermBox
             tiny=tiny
-            hlt=include_str!("termblocks/diff-delta.hlt")
+            hlt=include_str!("termblocks/modern_terminal_ls-short.hlt")
         />
     }
 }
 
 #[component]
-pub fn FzfGitBat(#[prop(optional)] tiny: bool) -> impl IntoView {
+pub fn ModernTerminalFzfCd(#[prop(optional)] tiny: bool) -> impl IntoView {
     view! {
         <TermBox
             tiny=tiny
-            hlt=include_str!("termblocks/fzf-git-bat.hlt")
+            hlt=include_str!("termblocks/modern_terminal_fzf-cd.hlt")
         />
     }
 }
 
 #[component]
-pub fn EzaShort(#[prop(optional)] tiny: bool) -> impl IntoView {
+pub fn ModernTerminalFzfGitDelta(#[prop(optional)] tiny: bool) -> impl IntoView {
     view! {
         <TermBox
             tiny=tiny
-            hlt=include_str!("termblocks/eza-short.hlt")
-        />
-    }
-}
-
-#[component]
-pub fn FzfGitDelta(#[prop(optional)] tiny: bool) -> impl IntoView {
-    view! {
-        <TermBox
-            tiny=tiny
-            hlt=include_str!("termblocks/fzf-git-delta.hlt")
+            hlt=include_str!("termblocks/modern_terminal_fzf-git-delta.hlt")
         />
     }
 }

@@ -20,7 +20,7 @@ pub fn ModernTerminal() -> impl IntoView {
                 Consider
             "##{code("cat")}":"
         </p>
-        <termblock::Cat />
+        <termblock::ModernTerminalCat />
         <p>
             r##"
                 Upgrade to
@@ -28,8 +28,8 @@ pub fn ModernTerminal() -> impl IntoView {
             for git awareness and syntax highlighting:
             "##
         </p>
-        <codeblock::InstallBat />
-        <termblock::Bat />
+        <codeblock::ModernTerminalInstallBat />
+        <termblock::ModernTerminalBat />
 
         <Break />
 
@@ -38,8 +38,8 @@ pub fn ModernTerminal() -> impl IntoView {
                 Or take
             "##{code("ls")}":"
         </p>
-        <termblock::LsShort />
-        <termblock::LsLong />
+        <termblock::ModernTerminalLsShort />
+        <termblock::ModernTerminalLsLong />
         <p>
             r##"
                 Upgrade to
@@ -49,9 +49,9 @@ pub fn ModernTerminal() -> impl IntoView {
             even icons if you desire it.
             "##
         </p>
-        <codeblock::EzaConfig />
-        <termblock::EzaShort />
-        <termblock::EzaLong />
+        <codeblock::ModernTerminalEzaConfig />
+        <termblock::ModernTerminalEzaShort />
+        <termblock::ModernTerminalEzaLong />
 
         <Break />
 
@@ -60,7 +60,7 @@ pub fn ModernTerminal() -> impl IntoView {
                 Jump to regularly-used directories with
             "## <a href="https://github.com/agkozak/zsh-z">"zsh-z"</a>":"
         </p>
-        <termblock::Z />
+        <termblock::ModernTerminalZ />
         <p>
             r##"
                 This is a common idea; there are alternatives like
@@ -80,7 +80,7 @@ pub fn ModernTerminal() -> impl IntoView {
             look something like this:
             "##
         </p>
-        <termblock::Find />
+        <termblock::ModernTerminalFind />
         <p>
             r##"
                 Upgrade to
@@ -88,8 +88,8 @@ pub fn ModernTerminal() -> impl IntoView {
             for faster searches with the syntax you'd expect.
             "##
         </p>
-        <codeblock::InstallFd />
-        <termblock::Fd />
+        <codeblock::ModernTerminalInstallFd />
+        <termblock::ModernTerminalFd />
 
         <Break />
 
@@ -98,7 +98,7 @@ pub fn ModernTerminal() -> impl IntoView {
                 A similarly finicky utility is
             "##{code("grep")}":"
         </p>
-        <termblock::Grep />
+        <termblock::ModernTerminalGrep />
 
         <p>
             r##"
@@ -107,32 +107,32 @@ pub fn ModernTerminal() -> impl IntoView {
             for greatly improved performance, better defaults, and saner syntax.
             "##
         </p>
-        <codeblock::InstallRg />
-        <termblock::Rg />
+        <codeblock::ModernTerminalInstallRg />
+        <termblock::ModernTerminalRg />
         <p>
             r##"
                 It's particularly advantageous for regex users. Compare the original...
             "##
         </p>
-        <termblock::GrepRegex />
+        <termblock::ModernTerminalGrepRegex />
         <p>
             r##"
                 ...to the upgrade:
             "##
         </p>
-        <termblock::RgRegex />
+        <termblock::ModernTerminalRgRegex />
         <p>
             r##"
                 Convenient in-line replace:
             "##
         </p>
-        <termblock::RgReplace />
+        <termblock::ModernTerminalRgReplace />
         <p>
             r##"
                 It automatically detects PCRE regexes, and only engages the slower PCRE-supporting engine when needed:
             "##
         </p>
-        <termblock::RgPcre />
+        <termblock::ModernTerminalRgPcre />
 
         <Break />
 
@@ -143,7 +143,7 @@ pub fn ModernTerminal() -> impl IntoView {
             pager is serviceable, but it's not exactly comfortable:
             "##
         </p>
-        <termblock::DiffLess />
+        <termblock::ModernTerminalDiffLess />
         <p>
             r##"
                 It's the current year - you can be comfortable without being reduced
@@ -158,9 +158,9 @@ pub fn ModernTerminal() -> impl IntoView {
             instead!
             "##
         </p>
-        <codeblock::InstallDelta />
-        <codeblock::DeltaConfig />
-        <termblock::DiffDelta />
+        <codeblock::ModernTerminalInstallDelta />
+        <codeblock::ModernTerminalDeltaConfig />
+        <termblock::ModernTerminalDiffDelta />
 
         <Break />
 
@@ -171,13 +171,13 @@ pub fn ModernTerminal() -> impl IntoView {
             can transform turn a command line into your own personal TUI.
             "##
         </p>
-        <codeblock::InstallFzf />
+        <codeblock::ModernTerminalInstallFzf />
 
         <p>
             r##"
                 Option+C to fuzzy-search a directory to "##{code("cd")}" into:"
         </p>
-        <termblock::FzfCd />
+        <termblock::ModernTerminalFzfCd />
 
         <p>
             r##"
@@ -185,22 +185,22 @@ pub fn ModernTerminal() -> impl IntoView {
                Enter to append them to your current terminal line.
             "##
         </p>
-        <termblock::FzfFs />
+        <termblock::ModernTerminalFzfFs />
 
         <p>
             r##"
                 Control+R to fuzzy-search your command history.
             "##
         </p>
-        <termblock::FzfHist />
+        <termblock::ModernTerminalFzfHist />
 
         <p>
             r##"
                 It supports many of the previous tools...
             "##
         </p>
-        <termblock::FzfGitDelta tiny=true />
-        <termblock::FzfGitBat tiny=true />
+        <termblock::ModernTerminalFzfGitDelta tiny=true />
+        <termblock::ModernTerminalFzfGitBat tiny=true />
         <p>
             r##"
                 ...although the configuration involved is extensive.
@@ -208,7 +208,7 @@ pub fn ModernTerminal() -> impl IntoView {
                 to pay off in time saved.
             "##
         </p>
-        <codeblock::FzfConfig />
+        <codeblock::ModernTerminalFzfConfig />
 
         <Break />
 
@@ -220,7 +220,7 @@ pub fn ModernTerminal() -> impl IntoView {
                 "interactive live repl"
             </a>" for "{code("jq")}"?"
         </p>
-        <termblock::FzfJq tiny=true />
+        <termblock::ModernTerminalFzfJq tiny=true />
 
         <br />
     }

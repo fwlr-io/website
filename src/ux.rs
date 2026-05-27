@@ -87,12 +87,13 @@ pub fn code(c: &'static str) -> impl IntoView {
 #[component]
 pub fn Break() -> impl IntoView {
     view! {
-        <div class="flex flex-row justify-center items-center w-xl px-lh gap-lh mx-lh">
-            <span class="w-full h-[0.5px] bg-mid-black shrink" />
-            <span class="font-mono text-4xl font-bold text-mid-black">
-                "❒"
-            </span>
+        <div class="flex flex-row justify-center items-center w-lg p-lh gap-lh mx-lh">
             <span class="w-full h-[0.5px] bg-mid-black shrink" />
         </div>
     }
+}
+
+#[component]
+pub fn BlackBox() -> impl IntoView {
+    view! { <span class="font-mono text-4xl font-bold text-mid-black">"❒"</span> }
 }

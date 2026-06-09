@@ -1,5 +1,5 @@
-use crate::ux::TermBox;
 use leptos::prelude::*;
+use crate::ux::TermBox;
 
 #[component]
 pub fn ModernTerminalRg(#[prop(optional)] tiny: bool) -> impl IntoView {

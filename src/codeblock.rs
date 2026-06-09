@@ -1,5 +1,5 @@
-use crate::ux::CodeBox;
 use leptos::prelude::*;
+use crate::ux::CodeBox;
 
 #[component]
 pub fn ModernTerminalDeltaConfig() -> impl IntoView {
@@ -17,16 +17,6 @@ pub fn TailwindSolution() -> impl IntoView {
         <CodeBox
             raw=include_str!("codeblocks/tailwind_solution.css")
             code=include_str!("codeblocks/tailwind_solution.hlt")
-        />
-    }
-}
-
-#[component]
-pub fn SnawlyMain() -> impl IntoView {
-    view! {
-        <CodeBox
-            raw=include_str!("codeblocks/snawly_main.rs")
-            code=include_str!("codeblocks/snawly_main.hlt")
         />
     }
 }

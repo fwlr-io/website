@@ -3,9 +3,9 @@ use leptos::prelude::*;
 #[component]
 pub fn TermBox(hlt: &'static str, #[prop(optional)] tiny: bool) -> impl IntoView {
     view! {
-        <div class="bg-black rounded-sm border shadow-md border-black/25 px-nr py-vnr min-w-xl shadow-grey inset-shadow-sm inset-shadow-white/20">
+        <div class="bg-black rounded-sm border shadow-md border-black/25 p-nr min-w-xl shadow-grey inset-shadow-sm inset-shadow-white/20">
             <div
-                class="overflow-x-scroll w-full font-mono text-sm/4.5 text-dim-white"
+                class="overflow-x-scroll w-full font-mono text-sm/4.5 text-dim-white my-rounded-correct"
                 class=("text-xs/3.75", tiny)
                 inner_html=hlt
             />
@@ -16,7 +16,7 @@ pub fn TermBox(hlt: &'static str, #[prop(optional)] tiny: bool) -> impl IntoView
 #[component]
 pub fn CodeBox(raw: &'static str, code: &'static str) -> impl IntoView {
     view! {
-        <div class="bg-black rounded-md border shadow-md border-black/25 p-r min-w-xl shadow-grey inset-shadow-sm inset-shadow-white/20">
+        <div class="bg-black rounded-sm border shadow-md border-black/25 p-nr min-w-xl shadow-grey inset-shadow-sm inset-shadow-white/20">
             <div class="sr-only">{raw}</div>
             <div
                 class="overflow-x-scroll w-full font-mono text-sm whitespace-pre text-dim-white my-rounded-correct"

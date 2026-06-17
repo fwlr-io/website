@@ -41,8 +41,6 @@
   --font-mono: "Source Code Pro", ui-monospace, monospace;
   --default-font-family: var(--font-serif);
 
-  --p6m: bg-[url("/p6m.svg")];
-
   /* use hairlines where possible */
   --default-border-width: 0.5px;
 
@@ -99,6 +97,7 @@
 
   /* better typography spacing */
   --spacing-lh: 1lh;
+  --spacing-sh: calc(1lh / 2);
 
   --color-*: initial;
   /*
@@ -151,16 +150,22 @@
     }
 
     text-decoration-line: underline;
-    text-decoration-thickness: calc(1em / 17);
+    text-decoration-thickness: calc(1em / 13);
     &:hover {
-      text-decoration-thickness: calc(2em / 17);
-      text-underline-offset: calc(2em / 17);
+      text-decoration-thickness: calc(2em / 13);
+      /*text-underline-offset: calc(2em / 13);*/
     }
-    text-underline-offset: calc(3em / 17);
+    text-underline-offset: calc(2em / 13);
   }
 
   p {
     text-wrap: pretty;
     width: var(--container-xl);
+    backdrop-filter: blur(2px) blur(4px) blur(6px);
+  }
+
+  .hdiv {
+    backdrop-filter: blur(2px) blur(4px) blur(6px);
+    background-clip: content-box;
   }
 }

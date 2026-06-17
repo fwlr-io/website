@@ -87,7 +87,7 @@ pub fn code(c: &'static str) -> impl IntoView {
 #[component]
 pub fn Break() -> impl IntoView {
     view! {
-        <div class="flex flex-row justify-center items-center w-lg p-lh gap-lh mx-lh">
+        <div class="flex flex-row justify-center items-center w-lg px-lh py-sh gap-lh mx-lh my-sh hdiv">
             <span class="w-full h-[0.5px] bg-mid-black shrink" />
         </div>
     }

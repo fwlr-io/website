@@ -41,6 +41,8 @@
   --font-mono: "Source Code Pro", ui-monospace, monospace;
   --default-font-family: var(--font-serif);
 
+  --p6m: bg-[url("/p6m.svg")];
+
   /* use hairlines where possible */
   --default-border-width: 0.5px;
 

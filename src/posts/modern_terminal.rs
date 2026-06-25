@@ -1,5 +1,4 @@
-use crate::codeblock;
-use crate::termblock;
+use crate::block::modern;
 use crate::ux::*;
 use leptos::prelude::*;
 

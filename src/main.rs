@@ -1,4 +1,3 @@
-use fwlr_io::app::App;
 use leptos::mount::mount_to_body;
 
 fn main() {
@@ -23,5 +22,5 @@ fn main() {
         tracing::info!("mounting");
     };
 
-    mount_to_body(App)
+    mount_to_body(fwlr_io::app::App)
 }

@@ -44,15 +44,15 @@
   /* use hairlines where possible */
   --default-border-width: 0.5px;
 
-  /*                                     fib(0) =  0.5
-  (memorable golden ratio scaling)       fib(1) =  1
-  (close powers of phi are .618)    0.5  + 1    =  1.5
+  /* (memorable golden ratio scale:      fib(0) =  0.5
+      close powers of phi are x.618)     fib(1) =  1
+                                    0.5  + 1    =  1.5
     phi^-1 = 0.618                  1    + 1.5  =  2.5
     phi^0  = 1                      1.5  + 2.5  =  4
     phi^1  = 1.618                  2.5  + 4    =  6.5
     phi^2  = 2.618                  4    + 6.5  = 10.5
-  (extended golden ratio scaling)   6.5  + 10.5 = 17
-  (follows fibonacci from 0.5, 1)   10.5 + 17   = 27.5
+  (extended golden ratio scaling    6.5  + 10.5 = 17
+   follows fibonacci from 0.5, 1)   10.5 + 17   = 27.5
   */
 
   /* pow(phi, -4) = 0.146rem =   2.335px ~~  2px = --spacing(0.5)  */
@@ -63,41 +63,61 @@
   /* pow(phi,  1) = 1.618rem =  25.888px ~~ 26px = --spacing(6.5)  */
   /* pow(phi,  2) = 2.618rem =  41.888px ~~ 42px = --spacing(10.5) */
   /* pow(phi,  3) = 4.236rem =  67.777px ~~ 68px = --spacing(17)   */
-  /* pow(phi,  4) = 6.854rem = 109.656px ~~ 68px = --spacing(17)   */
+  /* pow(phi,  4) = 6.854rem = 109.656px ~~ 68px = --spacing(27.5) */
 
-  /* alternative "short-scales" proposals to disambiguate size and spacing
-        xvnr | "extra very near"
-   xs |  vnr | "very near"
-   sm |   nr | "near"
-   md |    r | "reasonable" / "regular"
-   lg |   fr | "far"
-   xl |  vfr | "very far"
-  2xl | xvfr | "extra very far"
+  /* "short-scales" proposals to disambiguate size and spacing
+      | vvvvnr | "very very very very near"
+      |  vvvnr | "very very very near"
+      |   vvnr | "very very near"
+   xs |    vnr | "very near"
+   sm |     nr | "near"
+   md |      r | "regular" / "reasonable"
+   lg |     fr | "far"
+   xl |    vfr | "very far"
+      |   vvfr | "very very far"
+      |  vvvfr | "very very very far"
+      | vvvvfr | "very very very very far"
   */
 
-  --spacing-xxvnr: --spacing(0.5);
-  --spacing-xvnr: --spacing(1);
+  /* alternative "short-scales" proposal
+      | Znr | "ZUUPER near"
+      | znr | "zuper near"
+      | xnr | "extra near"
+   xs | vnr | "very near"
+   sm |  nr | "near"
+   md |   r | "regular" / "reasonable"
+   lg |  fr | "far"
+   xl | vfr | "very far"
+      | xfr | "extra far"
+      | zfr | "zuper far"
+      | Zfr | "ZUUPER far"
+  */
+
+  --spacing-none: --spacing(0);
+  --spacing-Znr: --spacing(0) + 1px;
+  --spacing-znr: --spacing(0.5);
+  --spacing-xnr: --spacing(1);
   --spacing-vnr: --spacing(1.5);
   --spacing-nr: --spacing(2.5);
   --spacing-r: --spacing(4);
   --spacing-fr: --spacing(6.5);
   --spacing-vfr: --spacing(10.5);
-  --spacing-xvfr: --spacing(17);
-  --spacing-xxvfr: --spacing(27.5);
+  --spacing-xfr: --spacing(17);
+  --spacing-zfr: --spacing(27.5);
+  --spacing-Zfr: --spacing(44.5);
 
   --radius-*: initial;
-  --radius-xs: --spacing(1.5);
-  --radius-sm: --spacing(2.5);
-  --radius-md: --spacing(4);
-  --radius-lg: --spacing(6.5);
-  --radius-xl: --spacing(10.5);
+  --radius-xs: var(--spacing-vnr);
+  --radius-sm: var(--spacing-nr);
+  --radius-md: var(--spacing-r);
+  --radius-lg: var(--spacing-fr);
+  --radius-xl: var(--spacing-vfr);
 
   /* optical correction value (use `mt-`, `mb-`, `my-`) */
   --spacing-rounded-correct: calc(-1 * ((1lh - 1em) / 2));
 
   /* better typography spacing */
   --spacing-lh: 1lh;
-  --spacing-sh: calc(1lh / 2);
 
   --color-*: initial;
   /*
@@ -150,22 +170,14 @@
     }
 
     text-decoration-line: underline;
+    text-underline-offset: calc(2em / 13);
     text-decoration-thickness: calc(1em / 13);
     &:hover {
       text-decoration-thickness: calc(2em / 13);
-      /*text-underline-offset: calc(2em / 13);*/
     }
-    text-underline-offset: calc(2em / 13);
   }
 
   p {
     text-wrap: pretty;
-    width: var(--container-xl);
-    backdrop-filter: blur(2px) blur(4px) blur(6px);
-  }
-
-  .hdiv {
-    backdrop-filter: blur(2px) blur(4px) blur(6px);
-    background-clip: content-box;
   }
 }

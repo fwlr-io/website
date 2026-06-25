@@ -1,4 +1,4 @@
-use crate::block::modern;
+use crate::block::modern_terminal::*;
 use crate::ux::*;
 use leptos::prelude::*;
 
@@ -19,7 +19,7 @@ pub fn ModernTerminal() -> impl IntoView {
                 Consider
             "##{code("cat")}":"
         </p>
-        <termblock::ModernTerminalCat />
+        <Cat />
         <p>
             r##"
                 Upgrade to
@@ -27,8 +27,8 @@ pub fn ModernTerminal() -> impl IntoView {
             for git awareness and syntax highlighting:
             "##
         </p>
-        <codeblock::ModernTerminalInstallBat />
-        <termblock::ModernTerminalBat />
+        <InstallBat />
+        <Bat />
 
         <Break />
 
@@ -37,8 +37,8 @@ pub fn ModernTerminal() -> impl IntoView {
                 Or take
             "##{code("ls")}":"
         </p>
-        <termblock::ModernTerminalLsShort />
-        <termblock::ModernTerminalLsLong />
+        <LsShort />
+        <LsLong />
         <p>
             r##"
                 Upgrade to
@@ -48,9 +48,9 @@ pub fn ModernTerminal() -> impl IntoView {
             even icons if you desire it.
             "##
         </p>
-        <codeblock::ModernTerminalEzaConfig />
-        <termblock::ModernTerminalEzaShort />
-        <termblock::ModernTerminalEzaLong />
+        <EzaConfig />
+        <EzaShort />
+        <EzaLong />
 
         <Break />
 
@@ -59,7 +59,7 @@ pub fn ModernTerminal() -> impl IntoView {
                 Jump to regularly-used directories with
             "## <a href="https://github.com/agkozak/zsh-z">"zsh-z"</a>":"
         </p>
-        <termblock::ModernTerminalZ />
+        <Z />
         <p>
             r##"
                 This is a common idea; there are alternatives like
@@ -79,7 +79,7 @@ pub fn ModernTerminal() -> impl IntoView {
             look something like this:
             "##
         </p>
-        <termblock::ModernTerminalFind />
+        <Find />
         <p>
             r##"
                 Upgrade to
@@ -87,8 +87,8 @@ pub fn ModernTerminal() -> impl IntoView {
             for faster searches with the syntax you'd expect.
             "##
         </p>
-        <codeblock::ModernTerminalInstallFd />
-        <termblock::ModernTerminalFd />
+        <InstallFd />
+        <Fd />
 
         <Break />
 
@@ -97,7 +97,7 @@ pub fn ModernTerminal() -> impl IntoView {
                 A similarly finicky utility is
             "##{code("grep")}":"
         </p>
-        <termblock::ModernTerminalGrep />
+        <Grep />
 
         <p>
             r##"
@@ -106,32 +106,32 @@ pub fn ModernTerminal() -> impl IntoView {
             for greatly improved performance, better defaults, and saner syntax.
             "##
         </p>
-        <codeblock::ModernTerminalInstallRg />
-        <termblock::ModernTerminalRg />
+        <InstallRg />
+        <Rg />
         <p>
             r##"
                 It's particularly advantageous for regex users. Compare the original...
             "##
         </p>
-        <termblock::ModernTerminalGrepRegex />
+        <GrepRegex />
         <p>
             r##"
                 ...to the upgrade:
             "##
         </p>
-        <termblock::ModernTerminalRgRegex />
+        <RgRegex />
         <p>
             r##"
                 Convenient in-line replace:
             "##
         </p>
-        <termblock::ModernTerminalRgReplace />
+        <RgReplace />
         <p>
             r##"
                 It automatically detects PCRE regexes, and only engages the slower PCRE-supporting engine when needed:
             "##
         </p>
-        <termblock::ModernTerminalRgPcre />
+        <RgPcre />
 
         <Break />
 
@@ -142,7 +142,7 @@ pub fn ModernTerminal() -> impl IntoView {
             pager is serviceable, but it's not exactly comfortable:
             "##
         </p>
-        <termblock::ModernTerminalDiffLess />
+        <DiffLess />
         <p>
             r##"
                 It's the current year - you can be comfortable without being reduced
@@ -157,9 +157,9 @@ pub fn ModernTerminal() -> impl IntoView {
             instead!
             "##
         </p>
-        <codeblock::ModernTerminalInstallDelta />
-        <codeblock::ModernTerminalDeltaConfig />
-        <termblock::ModernTerminalDiffDelta />
+        <InstallDelta />
+        <DeltaConfig />
+        <DiffDelta />
 
         <Break />
 
@@ -170,13 +170,13 @@ pub fn ModernTerminal() -> impl IntoView {
             can transform turn a command line into your own personal TUI.
             "##
         </p>
-        <codeblock::ModernTerminalInstallFzf />
+        <InstallFzf />
 
         <p>
             r##"
                 Option+C to fuzzy-search a directory to "##{code("cd")}" into:"
         </p>
-        <termblock::ModernTerminalFzfCd />
+        <FzfCd />
 
         <p>
             r##"
@@ -184,22 +184,22 @@ pub fn ModernTerminal() -> impl IntoView {
                Enter to append them to your current terminal line.
             "##
         </p>
-        <termblock::ModernTerminalFzfFs />
+        <FzfFs />
 
         <p>
             r##"
                 Control+R to fuzzy-search your command history.
             "##
         </p>
-        <termblock::ModernTerminalFzfHist />
+        <FzfHist />
 
         <p>
             r##"
                 It supports many of the previous tools...
             "##
         </p>
-        <termblock::ModernTerminalFzfGitDelta tiny=true />
-        <termblock::ModernTerminalFzfGitBat tiny=true />
+        <FzfGitDelta />
+        <FzfGitBat />
         <p>
             r##"
                 ...although the configuration involved is extensive.
@@ -207,7 +207,7 @@ pub fn ModernTerminal() -> impl IntoView {
                 to pay off in time saved.
             "##
         </p>
-        <codeblock::ModernTerminalFzfConfig />
+        <FzfConfig />
 
         <Break />
 
@@ -219,7 +219,7 @@ pub fn ModernTerminal() -> impl IntoView {
                 "interactive live repl"
             </a>" for "{code("jq")}"?"
         </p>
-        <termblock::ModernTerminalFzfJq tiny=true />
+        <FzfJq />
 
         <br />
     }

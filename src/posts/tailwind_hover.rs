@@ -1,4 +1,4 @@
-use crate::codeblock;
+use crate::block::tailwind::*;
 use crate::ux::*;
 use leptos::prelude::*;
 
@@ -8,8 +8,8 @@ pub fn TailwindHover() -> impl IntoView {
         <p>
             r##"
                 In Tailwind v4, "##{code("hover")} r##"
-                wasn't behaving as I expected.
-                After some digging, I found the solution.
+            wasn't behaving as I expected.
+            After some digging, I found the solution.
             "##
         </p>
         <p>
@@ -18,7 +18,7 @@ pub fn TailwindHover() -> impl IntoView {
                 Tailwind will compile/generate this:
             "##
         </p>
-        <codeblock::TailwindProblem />
+        <Problem />
         <p>
             r##"
                 I gather the intent is to exempt mobile devices,
@@ -38,13 +38,13 @@ pub fn TailwindHover() -> impl IntoView {
                 The solution is to override the default variant with your own:
             "##
         </p>
-        <codeblock::TailwindSolution />
+        <Solution />
         <p>
             r##"
                 Put that in your Tailwind config (after importing Tailwind, before other configuration).
                 Tailwind will then give you a less surprising output:
             "##
         </p>
-        <codeblock::TailwindResult />
+        <Result />
     }
 }

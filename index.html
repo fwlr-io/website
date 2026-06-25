@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <link data-trunk rel="rust" />
     <link data-trunk rel="tailwind-css" href="src/input.css" />
     <link data-trunk rel="copy-file" href="assets/p6m.svg" />
@@ -13,8 +13,9 @@
     />
   </head>
   <body
-    class="relative grid grid-cols-[--container-xl] justify-center justify-items-start gap-y-lh text-black bg-white pt-vfr bg-[url(/p6m.svg)] bg-fixed bg-blend-color-burn"
+    class="grid grid-cols-[minmax(0,var(--container-xl))] justify-center justify-items-start gap-y-lh text-black bg-white bg-[url(/p6m.svg)] bg-fixed bg-blend-color-burn"
   >
-    <div class="absolute col-2 backdrop-blur-sm"></div>
-  </body>
+    <div id="backpane"
+      class="w-xl-and-2fr backdrop-blur-sm"
+    ></div>
 </html>

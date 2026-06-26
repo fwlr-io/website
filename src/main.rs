@@ -18,8 +18,6 @@ fn main() {
             .init();
 
         console_error_panic_hook::set_once();
-
-        tracing::info!("mounting");
     };
 
     mount_to_body(fwlr_io::app::App)

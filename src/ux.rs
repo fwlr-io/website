@@ -1,3 +1,4 @@
+use convert_case::{Case, Casing};
 use leptos::prelude::*;
 
 #[component]
@@ -88,6 +89,45 @@ pub fn code(s: &'static str) -> impl IntoView {
             {s}
         </span>
     }
+}
+
+#[component]
+pub fn Heading(s: &'static str, title: bool) -> impl IntoView {
+    view! {
+        <div class="flex flex-row justify-self-stretch items-center gap-nr">
+            <span
+                class="border-t border-mid-black mt-nr w-[7ch]"
+                class:flex-1=title
+                class:pb-vnr=title
+                class:pb-xnr=!title
+                class:flex-none=!title
+            />
+            <Show when=move || title>
+                <h1 class="flex-none text-3xl [font-variant:small-caps]">
+                    {s}
+                </h1>
+            </Show>
+            <Show when=move || !title>
+                <h2 class="flex-none text-2xl [font-variant:small-caps]">
+                    {s}
+                </h2>
+            </Show>
+            <span
+                class="flex-1 border-t border-mid-black pb-vnr mt-nr"
+                class:flex-3=!title
+                class:pb-xnr=!title
+            />
+
+        </div>
+    }
+}
+
+pub fn title(s: &'static str) -> impl IntoView {
+    view! { <Heading s=s title=true /> }
+}
+
+pub fn heading(s: &'static str) -> impl IntoView {
+    view! { <Heading s=s title=false /> }
 }
 
 #[component]

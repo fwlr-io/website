@@ -167,6 +167,7 @@
 @layer base {
   body {
     font-synthesis: none;
+    font-synthesis-small-caps: auto;
     font-optical-sizing: none;
     font-variation-settings: "opsz" 9;
     font-variant-ligatures: no-common-ligatures;

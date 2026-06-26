@@ -5,8 +5,7 @@ use leptos::prelude::*;
 #[component]
 pub fn ModernTerminal() -> impl IntoView {
     view! {
-        <br />
-
+        {title("Modern Terminal")}
         <p>
             r##"
                 Many basic shell commands have superior counterparts.
@@ -161,7 +160,7 @@ pub fn ModernTerminal() -> impl IntoView {
         <DeltaConfig />
         <DiffDelta />
 
-        <Break />
+        {heading("Fzf")}
 
         <p>
             r##"

@@ -220,34 +220,34 @@ pub mod modern_terminal {
     }
 }
 
-pub mod tailwind {
+pub mod tailwind_hover {
     use leptos::prelude::*;
 
     #[component]
     pub fn Solution() -> impl IntoView {
         view! {
-            <crate::ux::SourceBox hlt=include_str!("blocks/tailwind_solution.hlhtml") />
+            <crate::ux::SourceBox hlt=include_str!("blocks/tailwind_hover_solution.hlhtml") />
         }
     }
 
     #[component]
     pub fn Problem() -> impl IntoView {
         view! {
-            <crate::ux::SourceBox hlt=include_str!("blocks/tailwind_problem.hlhtml") />
+            <crate::ux::SourceBox hlt=include_str!("blocks/tailwind_hover_problem.hlhtml") />
         }
     }
 
     #[component]
     pub fn Edit() -> impl IntoView {
         view! {
-            <crate::ux::SourceBox hlt=include_str!("blocks/tailwind_edit.hlhtml") />
+            <crate::ux::SourceBox hlt=include_str!("blocks/tailwind_hover_edit.hlhtml") />
         }
     }
 
     #[component]
     pub fn Result() -> impl IntoView {
         view! {
-            <crate::ux::SourceBox hlt=include_str!("blocks/tailwind_result.hlhtml") />
+            <crate::ux::SourceBox hlt=include_str!("blocks/tailwind_hover_result.hlhtml") />
         }
     }
 }

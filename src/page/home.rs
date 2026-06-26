@@ -5,6 +5,6 @@ use leptos_router::components::A;
 pub fn Home() -> impl IntoView {
     view! {
         <h1>"Home"</h1>
-        <A href="post">"Posts"</A>
+        <A href="posts">"Posts"</A>
     }
 }

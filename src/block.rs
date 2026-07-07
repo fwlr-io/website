@@ -220,17 +220,6 @@ pub mod modern_terminal {
     }
 }
 
-pub mod okay_try {
-    use leptos::prelude::*;
-
-    #[component]
-    pub fn HelperToOption() -> impl IntoView {
-        view! {
-            <crate::ux::SourceBox hlt=include_str!("blocks/okay_try_helper-to-option.hlhtml") />
-        }
-    }
-}
-
 pub mod tailwind_hover {
     use leptos::prelude::*;
 
@@ -263,76 +252,83 @@ pub mod tailwind_hover {
     }
 }
 
-pub mod ok_into_result {
+pub mod okay_try {
     use leptos::prelude::*;
-
-    #[component]
-    pub fn NoneError() -> impl IntoView {
-        view! {
-            <crate::ux::SourceBox hlt=include_str!("blocks/ok_into_result_none-error.hlhtml") />
-        }
-    }
-
-    #[component]
-    pub fn OptionExtTrackCaller() -> impl IntoView {
-        view! {
-            <crate::ux::SourceBox hlt=include_str!("blocks/ok_into_result_option-ext-track-caller.hlhtml") />
-        }
-    }
-
-    #[component]
-    pub fn OkIntoResult() -> impl IntoView {
-        view! {
-            <crate::ux::SourceBox hlt=include_str!("blocks/ok_into_result_ok-into-result.hlhtml") />
-        }
-    }
-
-    #[component]
-    pub fn HelperFunction() -> impl IntoView {
-        view! {
-            <crate::ux::SourceBox hlt=include_str!("blocks/ok_into_result_helper-function.hlhtml") />
-        }
-    }
-
-    #[component]
-    pub fn ImplOption() -> impl IntoView {
-        view! {
-            <crate::ux::SourceBox hlt=include_str!("blocks/ok_into_result_impl-option.hlhtml") />
-        }
-    }
 
     #[component]
     pub fn ImplOptionExt() -> impl IntoView {
         view! {
-            <crate::ux::SourceBox hlt=include_str!("blocks/ok_into_result_impl-option-ext.hlhtml") />
-        }
-    }
-
-    #[component]
-    pub fn UsefulErrorDisplay() -> impl IntoView {
-        view! {
-            <crate::ux::SourceBox hlt=include_str!("blocks/ok_into_result_useful-error-display.hlhtml") />
+            <crate::ux::SourceBox hlt=include_str!("blocks/okay_try_impl-option-ext.hlhtml") />
         }
     }
 
     #[component]
     pub fn UsefulErrorDebug() -> impl IntoView {
         view! {
-            <crate::ux::SourceBox hlt=include_str!("blocks/ok_into_result_useful-error-debug.hlhtml") />
+            <crate::ux::SourceBox hlt=include_str!("blocks/okay_try_useful-error-debug.hlhtml") />
         }
     }
 
     #[component]
-    pub fn ReadToOption() -> impl IntoView {
+    pub fn OptionExtTrackCaller() -> impl IntoView {
         view! {
-            <crate::ux::SourceBox hlt=include_str!("blocks/ok_into_result_read-to-option.hlhtml") />
+            <crate::ux::SourceBox hlt=include_str!("blocks/okay_try_option-ext-track-caller.hlhtml") />
+        }
+    }
+
+    #[component]
+    pub fn HelperFunction() -> impl IntoView {
+        view! {
+            <crate::ux::SourceBox hlt=include_str!("blocks/okay_try_helper-function.hlhtml") />
+        }
+    }
+
+    #[component]
+    pub fn HelperToOption() -> impl IntoView {
+        view! {
+            <crate::ux::SourceBox hlt=include_str!("blocks/okay_try_helper-to-option.hlhtml") />
+        }
+    }
+
+    #[component]
+    pub fn OkIntoResult() -> impl IntoView {
+        view! {
+            <crate::ux::SourceBox hlt=include_str!("blocks/okay_try_ok-into-result.hlhtml") />
+        }
+    }
+
+    #[component]
+    pub fn UsefulErrorDisplay() -> impl IntoView {
+        view! {
+            <crate::ux::SourceBox hlt=include_str!("blocks/okay_try_useful-error-display.hlhtml") />
         }
     }
 
     #[component]
     pub fn UselessError() -> impl IntoView {
         view! {
-            <crate::ux::SourceBox hlt=include_str!("blocks/ok_into_result_useless-error.hlhtml") />
+            <crate::ux::SourceBox hlt=include_str!("blocks/okay_try_useless-error.hlhtml") />
+        }
+    }
+
+    #[component]
+    pub fn NoneError() -> impl IntoView {
+        view! {
+            <crate::ux::SourceBox hlt=include_str!("blocks/okay_try_none-error.hlhtml") />
+        }
+    }
+
+    #[component]
+    pub fn ReadToOption() -> impl IntoView {
+        view! {
+            <crate::ux::SourceBox hlt=include_str!("blocks/okay_try_read-to-option.hlhtml") />
+        }
+    }
+
+    #[component]
+    pub fn ImplOption() -> impl IntoView {
+        view! {
+            <crate::ux::SourceBox hlt=include_str!("blocks/okay_try_impl-option.hlhtml") />
         }
     }
 }

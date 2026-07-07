@@ -1,4 +1,4 @@
-use crate::block::ok_into_result::{self as block};
+use crate::block::okay_try::{self as block};
 use crate::custom_block::okay_try::{self as custom};
 use crate::ux::*;
 use leptos::prelude::*;

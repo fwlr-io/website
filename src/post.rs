@@ -2,12 +2,12 @@ use leptos::prelude::*;
 use leptos_router::components::A;
 
 mod modern_terminal;
-mod ok_into_result;
+mod okay_try;
 // mod separate_intent_and_state;
 mod tailwind_hover;
 
 pub use modern_terminal::ModernTerminal;
-pub use ok_into_result::OkIntoResult;
+pub use okay_try::OkIntoResult;
 // pub use separate_intent_and_state::SeparateIntentAndState;
 pub use tailwind_hover::TailwindHover;
 

@@ -1,0 +1,8 @@
+<span class="text-dim-magenta">fn</span> <span class="text-dim-red">f</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span> -&gt; <span class="text-dim-blue">Option</span><span class="text-dim-white">&lt;</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-dim-white">&gt;</span> <span class="text-dim-white">{</span>
+    result<span class="text-grey">.</span><span class="text-dim-red underline-dim-red">ok_or</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span>?<span class="text-grey">;</span>
+<span class="text-dim-white">}</span>          <span class="text-dim-red font-bold">    ▕ </span><span class="text-dim-red font-bold">error[E0599]</span><span class="text-mid-grey">:  no method named `ok_or` found</span>
+           <span class="text-dim-red font-bold">    ▕ </span><span class="text-mid-grey">for enum `Result&lt;T, E&gt;` in the current scope</span>
+
+<span class="text-dim-magenta">fn</span> <span class="text-dim-red">g</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span> -&gt; <span class="text-dim-blue">Result</span><span class="text-dim-white">&lt;</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">,</span> <span class="text-dim-blue">Error</span><span class="text-dim-white">&gt;</span> <span class="text-dim-white">{</span>
+    option<span class="text-grey">.</span><span class="text-dim-red">ok_or</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span>?<span class="text-grey">;</span>
+<span class="text-dim-white">}</span>

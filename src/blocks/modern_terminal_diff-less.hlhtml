@@ -1,4 +1,4 @@
-<div class="whitespace-pre"><span class="text-[rgb(44,120,191)]">~/dev/website</span> <span class="text-[rgb(10,174,179)]">(</span><span class="text-[rgb(224,44,109)]">main</span><span class="text-[rgb(10,174,179)]">)</span> <span class="text-[rgb(81,159,80)]">$</span> <span class="text-[rgb(81,159,80)]">git</span> -c core.pager=less diff <span class="">src/lib.rs</span>
+<span class="text-[rgb(44,120,191)]">~/dev/website</span> <span class="text-[rgb(10,174,179)]">(</span><span class="text-[rgb(224,44,109)]">main</span><span class="text-[rgb(10,174,179)]">)</span> <span class="text-[rgb(81,159,80)]">$</span> <span class="text-[rgb(81,159,80)]">git</span> -c core.pager=less diff <span>src/lib.rs</span>
 <span class="font-bold">diff --git a/src/lib.rs b/src/lib.rs</span>
 <span class="font-bold">index 9735f8d..4b3b3be 100644</span>
 <span class="font-bold">--- a/src/lib.rs</span>
@@ -12,4 +12,4 @@
 <span class="text-[rgb(81,159,80)]">+pub mod termblock;</span>
  pub mod ux;
 <span class="text-[rgb(239,47,39)]">-// pub mod fancy_ui;</span>
-<span class="text-[rgb(239,47,39)]">-// pub mod fancy_codeblock;</span></div>
+<span class="text-[rgb(239,47,39)]">-// pub mod fancy_codeblock;</span>

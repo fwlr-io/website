@@ -1,0 +1,13 @@
+<span class="text-dim-magenta">fn</span> <span class="text-dim-red">f</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span> -&gt; <span class="text-dim-blue">Option</span><span class="text-dim-white">&lt;</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-dim-white">&gt;</span> <span class="text-dim-white">{</span>
+    result<span class="underline-dim-red">?</span><span class="text-grey">;</span>
+<span class="text-dim-white">}</span>         <span class="text-dim-red font-bold">▕ </span><span class="text-dim-red font-bold">error[E0277]</span><span class="text-mid-grey">: the `?` operator can only be used</span>
+          <span class="text-dim-red font-bold">▕ </span><span class="text-mid-grey">on `Option`s, not `Result`s, in a function that</span>
+          <span class="text-dim-red font-bold">▕ </span><span class="text-mid-grey">returns `Option`. </span><span class="text-mid-grey">Use `.ok_or(...)?` to provide</span>
+          <span class="text-dim-red font-bold">▕ </span><span class="text-mid-grey">an error compatible with `Result&lt;(), Error&gt;`</span>
+
+<span class="text-dim-magenta">fn</span> <span class="text-dim-red">g</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span> -&gt; <span class="text-dim-blue">Result</span><span class="text-dim-white">&lt;</span><span class="text-dim-white">(</span><span class="text-dim-white">)</span><span class="text-grey">,</span> <span class="text-dim-blue">Error</span><span class="text-dim-white">&gt;</span> <span class="text-dim-white">{</span>
+    option<span class="underline-dim-red">?</span><span class="text-grey">;</span>
+<span class="text-dim-white">}</span>         <span class="text-dim-red font-bold">▕</span> <span class="text-dim-red font-bold">error[E0277]</span><span class="text-mid-grey">: the `?` operator can only be used</span>
+          <span class="text-dim-red font-bold">▕ </span><span class="text-mid-grey">on `Result`s, not `Option`s, in a function that</span>
+          <span class="text-dim-red font-bold">▕ </span><span class="text-mid-grey">returns `Result`. </span><span class="text-mid-grey">Use `.ok()?` if you want to</span>
+          <span class="text-dim-red font-bold">▕ </span><span class="text-mid-grey">discard the `Result&lt;Infallible, Error&gt;` error</span>

@@ -1,4 +1,4 @@
-<div class="whitespace-pre"><span class="text-[rgb(44,120,191)]">~/dev/website</span> <span class="text-[rgb(10,174,179)]">(</span><span class="text-[rgb(224,44,109)]">main</span><span class="text-[rgb(10,174,179)]">)</span> <span class="text-[rgb(81,159,80)]">$</span> <span class="text-[rgb(81,159,80)]">grep</span> -o <span class="text-[rgb(251,184,41)]">&#39;(?&lt;=(posts|pages)::)\w+&#39;</span>
+<span class="text-[rgb(44,120,191)]">~/dev/website</span> <span class="text-[rgb(10,174,179)]">(</span><span class="text-[rgb(224,44,109)]">main</span><span class="text-[rgb(10,174,179)]">)</span> <span class="text-[rgb(81,159,80)]">$</span> <span class="text-[rgb(81,159,80)]">grep</span> -o <span class="text-[rgb(251,184,41)]">&#39;(?&lt;=(posts|pages)::)\w+&#39;</span>
 <span class="text-[rgb(224,44,109)]"><a onclick='alert("opens `~/dev/website/src/pages/home.rs:1:1` in your editor");'>src/pages/home.rs</span>
 <span class="text-[rgb(81,159,80)]"></a><a onclick='alert("opens `~/dev/website/src/pages/home.rs:6:21` in your editor");'>6</span></a>&#720;<span class="text-[rgb(43,228,208)] bg-[rgb(51,49,42)] font-bold">ModernTerminal</span>
 

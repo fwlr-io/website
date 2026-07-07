@@ -1,0 +1,5 @@
+<span class="text-[rgb(44,120,191)]">~/dev/lab</span> <span class="text-[rgb(10,174,179)]">()</span> <span class="text-[rgb(239,47,39)] font-bold">$</span> <span class="text-[rgb(81,159,80)]">cargo</span> run
+<span class="text-[rgb(152,188,55)] font-bold">   Compiling</span> lab v0.1.0 (/Users/scottfowler/dev/lab)
+<span class="text-[rgb(152,188,55)] font-bold">    Finished</span> <a href="https://doc.rust-lang.org/cargo/reference/profiles.html#default-profiles">`dev` profile [unoptimized + debuginfo]</a> target(s) in 0.18s
+<span class="text-[rgb(152,188,55)] font-bold">     Running</span> `target/debug/lab`
+Error: NoneError

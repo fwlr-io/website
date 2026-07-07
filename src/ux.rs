@@ -89,44 +89,49 @@ pub fn code(s: &'static str) -> impl IntoView {
         </span>
     }
 }
+pub fn mono(s: &'static str) -> impl IntoView {
+    view! {
+        <span class="font-mono font-bold [font-variant:none]">
+            {s}
+        </span>
+    }
+}
 
 #[component]
-pub fn Heading(s: &'static str, title: bool) -> impl IntoView {
+pub fn Heading(children: Children) -> impl IntoView {
     view! {
         <div class="flex flex-row justify-self-stretch items-center gap-nr">
-            <span
-                class="border-t border-mid-black mt-nr w-[7ch]"
-                class:flex-1=title
-                class:pb-vnr=title
-                class:pb-xnr=!title
-                class:flex-none=!title
-            />
-            <Show when=move || title>
-                <h1 class="flex-none text-3xl [font-variant:small-caps]">
-                    {s}
-                </h1>
-            </Show>
-            <Show when=move || !title>
-                <h2 class="flex-none text-2xl [font-variant:small-caps]">
-                    {s}
-                </h2>
-            </Show>
-            <span
-                class="flex-1 border-t border-mid-black pb-vnr mt-nr"
-                class:flex-3=!title
-                class:pb-xnr=!title
-            />
-
+            <span class="flex-1 border-t border-mid-black mt-nr w-[7ch] pb-vnr" />
+            <h1 class="flex-none text-3xl [font-variant:small-caps]">
+                {children()}
+            </h1>
+            <span class="flex-1 border-t border-mid-black pb-vnr mt-nr" />
         </div>
     }
 }
 
-pub fn title(s: &'static str) -> impl IntoView {
-    view! { <Heading s=s title=true /> }
+#[component]
+pub fn SubHeading(children: Children) -> impl IntoView {
+    view! {
+        <div class="flex flex-row justify-self-stretch items-center gap-nr">
+            <span class="flex-none border-t border-mid-black mt-nr w-[7ch] pb-xnr" />
+            <h2 class="flex-none text-2xl [font-variant:small-caps]">
+                {children()}
+            </h2>
+            <span class="flex-1 border-t border-mid-black pb-vnr mt-nr flex-3 pb-xnr" />
+        </div>
+    }
 }
 
-pub fn heading(s: &'static str) -> impl IntoView {
-    view! { <Heading s=s title=false /> }
+#[component]
+pub fn Table<const C: usize>(_cells: Vec<[impl IntoView; C]>) -> impl IntoView {
+    let mut cols = ["auto"; C];
+    cols[0] = "1fr";
+    cols[C - 1] = "1fr";
+    let grid_cols = cols.join("_");
+    let class_string = ["grid-cols-[", &grid_cols, "]"].join("");
+
+    view! { <div class=move || ["grid justify-self-stretch", &class_string].join(" ") /> }
 }
 
 #[component]

@@ -1,0 +1,4 @@
+<span class="text-[rgb(152,188,55)] font-bold">   Compiling</span> lab v0.1.0 (/Users/scottfowler/dev/lab)
+<span class="text-[rgb(152,188,55)] font-bold">    Finished</span> <a href="https://doc.rust-lang.org/cargo/reference/profiles.html#default-profiles">`dev` profile [unoptimized + debuginfo]</a> target(s) in 0.85s
+<span class="text-[rgb(152,188,55)] font-bold">     Running</span> `target/debug/lab`
+Error: NoneError(Location { file: &quot;src/ok_into_result.rs&quot;, line: 8, column: 38 })

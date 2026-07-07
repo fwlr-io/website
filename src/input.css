@@ -35,6 +35,13 @@
   }
 }
 
+@utility underline-* {
+  text-decoration-line: underline;
+  text-decoration-color: --value(--color-*);
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.3em;
+}
+
 @theme static {
   --font-sans: initial;
   --font-serif: "Source Serif 4", ui-serif, serif;
@@ -130,6 +137,9 @@
     min(var(--container-xl), var(--spacing-screen-2nr))
   );
 
+  --underline-offset-prime: calc(2em / 13);
+  --underline-thickness-prime: calc(1em / 13);
+
   --color-*: initial;
   /*
   Based on https://zed-themes.com/themes/srcery
@@ -206,10 +216,10 @@
     }
 
     text-decoration-line: underline;
-    text-underline-offset: calc(2em / 13);
-    text-decoration-thickness: calc(1em / 13);
+    text-underline-offset: var(--underline-offset-prime);
+    text-decoration-thickness: var(--underline-thickness-prime);
     &:hover {
-      text-decoration-thickness: calc(2em / 13);
+      text-decoration-thickness: var(--underline-offset-prime);
     }
   }
 

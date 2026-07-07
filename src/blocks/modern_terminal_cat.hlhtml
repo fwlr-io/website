@@ -1,4 +1,4 @@
-<div class="whitespace-pre"><span class="text-[rgb(44,120,191)]">~/dev/website/src</span> <span class="text-[rgb(10,174,179)]">(</span><span class="text-[rgb(224,44,109)]">main</span><span class="text-[rgb(10,174,179)]">)</span> <span class="text-[rgb(81,159,80)]">$</span> <span class="text-[rgb(81,159,80)]">\cat</span> <span class="">main.rs</span>
+<span class="text-[rgb(44,120,191)]">~/dev/website/src</span> <span class="text-[rgb(10,174,179)]">(</span><span class="text-[rgb(224,44,109)]">main</span><span class="text-[rgb(10,174,179)]">)</span> <span class="text-[rgb(81,159,80)]">$</span> <span class="text-[rgb(81,159,80)]">\cat</span> <span>main.rs</span>
 use fwlr_io::app::App;
 use leptos::mount::mount_to_body;
 use tracing_subscriber::fmt;
@@ -27,4 +27,4 @@ fn main() {
     };
 
     mount_to_body(App)
-}</div>
+}

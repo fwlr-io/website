@@ -1,0 +1,5 @@
+<div style="font-family: monospace; white-space: pre;background-color: #1c1b19;color: #fce8c3;"><div style="display: inline;color: rgb(44, 120, 191);">~/dev/lab</div> <div style="display: inline;color: rgb(10, 174, 179);">()</div> <div style="display: inline;color: rgb(239, 47, 39);font-weight: bold;">$</div> <div style="display: inline;color: rgb(81, 159, 80);">cargo</div> run
+<div style="display: inline;color: rgb(152, 188, 55);font-weight: bold;">   Compiling</div> lab v0.1.0 (/Users/scottfowler/dev/lab)
+<div style="display: inline;color: rgb(152, 188, 55);font-weight: bold;">    Finished</div> <a href="https://doc.rust-lang.org/cargo/reference/profiles.html#default-profiles">`dev` profile [unoptimized + debuginfo]</a> target(s) in 0.18s
+<div style="display: inline;color: rgb(152, 188, 55);font-weight: bold;">     Running</div> `target/debug/lab`
+Error: NoneError</div>

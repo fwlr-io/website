@@ -1,4 +1,3 @@
-
 pub mod modern_terminal {
     use leptos::prelude::*;
 
@@ -291,7 +290,7 @@ pub mod okay_try {
     }
 
     #[component]
-    pub fn OkIntoResult() -> impl IntoView {
+    pub fn OkayTry() -> impl IntoView {
         view! {
             <crate::ux::SourceBox hlt=include_str!("blocks/okay_try_ok-into-result.hlhtml") />
         }

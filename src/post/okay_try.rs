@@ -4,7 +4,7 @@ use crate::ux::*;
 use leptos::prelude::*;
 
 #[component]
-pub fn OkIntoResult() -> impl IntoView {
+pub fn OkayTry() -> impl IntoView {
     view! {
         <Heading>"Ok Into Result"</Heading>
         <div class="grid grid-cols-subgrid">
@@ -132,7 +132,7 @@ pub fn OkIntoResult() -> impl IntoView {
         <block::NoneError />
         <block::UsefulErrorDebug />
         <block::UsefulErrorDisplay />
-        <block::OkIntoResult />
+        <block::OkayTry />
 
         <SubHeading>"The "{mono("try")}"'s The Limit"</SubHeading>
     }

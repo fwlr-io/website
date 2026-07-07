@@ -7,7 +7,7 @@ mod okay_try;
 mod tailwind_hover;
 
 pub use modern_terminal::ModernTerminal;
-pub use okay_try::OkIntoResult;
+pub use okay_try::OkayTry;
 // pub use separate_intent_and_state::SeparateIntentAndState;
 pub use tailwind_hover::TailwindHover;
 

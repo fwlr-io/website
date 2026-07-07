@@ -12,7 +12,7 @@ pub fn App() -> impl IntoView {
                     // <Route path=path!("/work") view=pages::HireMe />
                     <Route
                         path=path!("/ok-into-result")
-                        view=post::OkIntoResult
+                        view=post::OkayTry
                     />
                     <Route
                         path=path!("/tailwind-hover")

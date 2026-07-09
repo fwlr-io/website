@@ -1,3 +1,36 @@
+
+pub mod tailwind_hover {
+    use leptos::prelude::*;
+
+    #[component]
+    pub fn Solution() -> impl IntoView {
+        view! {
+            <crate::ux::SourceBox hlt=include_str!("blocks/tailwind_hover_solution.hlhtml") />
+        }
+    }
+
+    #[component]
+    pub fn Problem() -> impl IntoView {
+        view! {
+            <crate::ux::SourceBox hlt=include_str!("blocks/tailwind_hover_problem.hlhtml") />
+        }
+    }
+
+    #[component]
+    pub fn Edit() -> impl IntoView {
+        view! {
+            <crate::ux::SourceBox hlt=include_str!("blocks/tailwind_hover_edit.hlhtml") />
+        }
+    }
+
+    #[component]
+    pub fn Result() -> impl IntoView {
+        view! {
+            <crate::ux::SourceBox hlt=include_str!("blocks/tailwind_hover_result.hlhtml") />
+        }
+    }
+}
+
 pub mod modern_terminal {
     use leptos::prelude::*;
 
@@ -219,40 +252,15 @@ pub mod modern_terminal {
     }
 }
 
-pub mod tailwind_hover {
-    use leptos::prelude::*;
-
-    #[component]
-    pub fn Solution() -> impl IntoView {
-        view! {
-            <crate::ux::SourceBox hlt=include_str!("blocks/tailwind_hover_solution.hlhtml") />
-        }
-    }
-
-    #[component]
-    pub fn Problem() -> impl IntoView {
-        view! {
-            <crate::ux::SourceBox hlt=include_str!("blocks/tailwind_hover_problem.hlhtml") />
-        }
-    }
-
-    #[component]
-    pub fn Edit() -> impl IntoView {
-        view! {
-            <crate::ux::SourceBox hlt=include_str!("blocks/tailwind_hover_edit.hlhtml") />
-        }
-    }
-
-    #[component]
-    pub fn Result() -> impl IntoView {
-        view! {
-            <crate::ux::SourceBox hlt=include_str!("blocks/tailwind_hover_result.hlhtml") />
-        }
-    }
-}
-
 pub mod okay_try {
     use leptos::prelude::*;
+
+    #[component]
+    pub fn TrackCaller() -> impl IntoView {
+        view! {
+            <crate::ux::SourceBox hlt=include_str!("blocks/okay_try_track-caller.hlhtml") />
+        }
+    }
 
     #[component]
     pub fn ImplOptionExt() -> impl IntoView {
@@ -283,6 +291,13 @@ pub mod okay_try {
     }
 
     #[component]
+    pub fn OkAnyhow() -> impl IntoView {
+        view! {
+            <crate::ux::SourceBox hlt=include_str!("blocks/okay_try_ok-anyhow.hlhtml") />
+        }
+    }
+
+    #[component]
     pub fn HelperToOption() -> impl IntoView {
         view! {
             <crate::ux::SourceBox hlt=include_str!("blocks/okay_try_helper-to-option.hlhtml") />
@@ -290,7 +305,7 @@ pub mod okay_try {
     }
 
     #[component]
-    pub fn OkayTry() -> impl IntoView {
+    pub fn OkIntoResult() -> impl IntoView {
         view! {
             <crate::ux::SourceBox hlt=include_str!("blocks/okay_try_ok-into-result.hlhtml") />
         }
@@ -300,13 +315,6 @@ pub mod okay_try {
     pub fn UsefulErrorDisplay() -> impl IntoView {
         view! {
             <crate::ux::SourceBox hlt=include_str!("blocks/okay_try_useful-error-display.hlhtml") />
-        }
-    }
-
-    #[component]
-    pub fn UselessError() -> impl IntoView {
-        view! {
-            <crate::ux::SourceBox hlt=include_str!("blocks/okay_try_useless-error.hlhtml") />
         }
     }
 

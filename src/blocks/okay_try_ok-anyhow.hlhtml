@@ -1,0 +1,13 @@
+<span class="text-dim-magenta">pub</span> <span class="text-dim-magenta">trait</span> <span class="text-dim-blue">OptionExt</span><span class="text-dim-white">&lt;</span><span class="text-dim-blue">T</span><span class="text-dim-white">&gt;</span> <span class="text-dim-white">{</span>
+    <span class="text-dim-magenta">fn</span> <span class="text-dim-red">ok</span><span class="text-dim-white">(</span><span class="text-blue">self</span><span class="text-dim-white">)</span> -&gt; anyhow<span class="text-grey">::</span><span class="text-dim-blue">Result</span><span class="text-dim-white">&lt;</span><span class="text-dim-blue">T</span><span class="text-dim-white">&gt;</span><span class="text-grey">;</span>
+<span class="text-dim-white">}</span>
+
+<span class="text-dim-magenta">impl</span><span class="text-dim-white">&lt;</span><span class="text-dim-blue">T</span><span class="text-dim-white">&gt;</span> <span class="text-dim-blue">OptionExt</span><span class="text-dim-white">&lt;</span><span class="text-dim-blue">T</span><span class="text-dim-white">&gt;</span> <span class="text-dim-magenta">for</span> <span class="text-dim-blue">Option</span><span class="text-dim-white">&lt;</span><span class="text-dim-blue">T</span><span class="text-dim-white">&gt;</span> <span class="text-dim-white">{</span>
+    <span class="text-dim-green">#<span class="text-dim-white">[</span>track_caller<span class="text-dim-white">]</span></span>
+    <span class="text-dim-magenta">fn</span> <span class="text-dim-red">ok</span><span class="text-dim-white">(</span><span class="text-blue">self</span><span class="text-dim-white">)</span> -&gt; anyhow<span class="text-grey">::</span><span class="text-dim-blue">Result</span><span class="text-dim-white">&lt;</span><span class="text-dim-blue">T</span><span class="text-dim-white">&gt;</span> <span class="text-dim-white">{</span>
+        <span class="text-blue">self</span><span class="text-grey">.</span><span class="text-dim-red">ok_or</span><span class="text-dim-white">(</span>anyhow<span class="text-grey">::</span>anyhow!<span class="text-dim-white">(</span>
+            <span class="text-green">&quot;None is not `ok` at {}&quot;</span><span class="text-grey">,</span>
+            std<span class="text-grey">::</span>panic<span class="text-grey">::</span><span class="text-dim-magenta">Location</span><span class="text-grey">::</span>caller<span class="text-dim-white">(</span><span class="text-dim-white">)</span>
+        <span class="text-dim-white">)</span><span class="text-dim-white">)</span>
+    <span class="text-dim-white">}</span>
+<span class="text-dim-white">}</span>

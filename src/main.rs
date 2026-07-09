@@ -10,10 +10,7 @@ pub fn App() -> impl IntoView {
             <Routes fallback=|| "404 Not Found.">
                 <ParentRoute path=path!("/") view=Outlet>
                     // <Route path=path!("/work") view=pages::HireMe />
-                    <Route
-                        path=path!("/ok-into-result")
-                        view=post::OkayTry
-                    />
+                    <Route path=path!("/okay-try") view=post::OkayTry />
                     <Route
                         path=path!("/tailwind-hover")
                         view=post::TailwindHover

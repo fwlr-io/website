@@ -23,6 +23,7 @@ pub fn App() -> impl IntoView {
                     // path=path!("/state-of-intent")
                     // view=post::StateOfIntent
                     // />
+                    // <Route path=path!("/bad-vibes") view=post::BadVibes />
                     <Route path=path!("/") view=post::All />
                     <Route
                         path=path!("/*any")

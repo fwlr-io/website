@@ -31,7 +31,8 @@ pub fn OkayTry() -> impl IntoView {
         <p>
             r#"
             Some hew religiously to "# {mono("Result")} r#". In these projects,
-            every trivial helper function's return signature is "# {code("-> io::Result<..>")}
+            every trivial helper function's return signature is "#
+            {code("-> io::Result<..>")}
             r#", and there is often a gulag to re-educate dozens of Rust builtins that
             dared to return an "# {mono("Option")} r#":
             "#
@@ -61,7 +62,7 @@ pub fn OkayTry() -> impl IntoView {
             "#
         </p>
 
-        <Break/>
+        <Break />
 
         <p>
             r#"
@@ -136,20 +137,23 @@ pub fn OkayTry() -> impl IntoView {
         <custom::InherentImpl />
         <p>
             r#"
-            Instead, we have to monkey-patch the built-ins "# <em>"indirectly"</em> r#"
+            Instead, we have to monkey-patch the built-ins "#
+            <em>"indirectly"</em> r#"
             by first creating a new trait to hold our new method, and then implementing
             that trait for "# {mono("Option")}r#":
             "#
         </p>
         <block::ImplOptionExt />
         <p>
-        r#"
+            r#"
             Finally, we need to generally and automatically get the location,
-            in the source code, for where the "# {code("None")} r#" was encountered.
-            Rust has a little piece of magic called "# {code("track_caller")} r#"
+            in the source code, for where the "# {code("None")}
+            r#" was encountered. Rust has a "#
+            <a href="https://rustc-dev-guide.rust-lang.org/backend/implicit-caller-location.html">
+                r#"little piece of magic"#
+            </a> " called " {code("track_caller")} r#"
             that does exactly that:
-            :
-        "#
+            "#
         </p>
         <block::TrackCaller />
         <block::NoneError />

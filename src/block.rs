@@ -1,36 +1,4 @@
 
-pub mod tailwind_hover {
-    use leptos::prelude::*;
-
-    #[component]
-    pub fn Solution() -> impl IntoView {
-        view! {
-            <crate::ux::SourceBox hlt=include_str!("blocks/tailwind_hover_solution.hlhtml") />
-        }
-    }
-
-    #[component]
-    pub fn Problem() -> impl IntoView {
-        view! {
-            <crate::ux::SourceBox hlt=include_str!("blocks/tailwind_hover_problem.hlhtml") />
-        }
-    }
-
-    #[component]
-    pub fn Edit() -> impl IntoView {
-        view! {
-            <crate::ux::SourceBox hlt=include_str!("blocks/tailwind_hover_edit.hlhtml") />
-        }
-    }
-
-    #[component]
-    pub fn Result() -> impl IntoView {
-        view! {
-            <crate::ux::SourceBox hlt=include_str!("blocks/tailwind_hover_result.hlhtml") />
-        }
-    }
-}
-
 pub mod modern_terminal {
     use leptos::prelude::*;
 
@@ -248,6 +216,38 @@ pub mod modern_terminal {
     pub fn FzfGitDelta() -> impl IntoView {
         view! {
             <crate::ux::SourceBox hlt=include_str!("blocks/modern_terminal_fzf-git-delta.hlhtml") />
+        }
+    }
+}
+
+pub mod tailwind_hover {
+    use leptos::prelude::*;
+
+    #[component]
+    pub fn Solution() -> impl IntoView {
+        view! {
+            <crate::ux::SourceBox hlt=include_str!("blocks/tailwind_hover_solution.hlhtml") />
+        }
+    }
+
+    #[component]
+    pub fn Problem() -> impl IntoView {
+        view! {
+            <crate::ux::SourceBox hlt=include_str!("blocks/tailwind_hover_problem.hlhtml") />
+        }
+    }
+
+    #[component]
+    pub fn Edit() -> impl IntoView {
+        view! {
+            <crate::ux::SourceBox hlt=include_str!("blocks/tailwind_hover_edit.hlhtml") />
+        }
+    }
+
+    #[component]
+    pub fn Result() -> impl IntoView {
+        view! {
+            <crate::ux::SourceBox hlt=include_str!("blocks/tailwind_hover_result.hlhtml") />
         }
     }
 }
